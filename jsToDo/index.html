@@ -9,7 +9,7 @@
         integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <style>
         .carouselExampleControls div div img {
-            width:60%;
+            width: 60%;
             height: auto;
         }
     </style>
@@ -60,56 +60,58 @@
             </div>
         </div>
     </nav>
-    <!-- <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="./elena-koycheva-VmcIMhuWCac-unsplash.jpg" class="d-block w-100" alt="...">
+    <div class="container">
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://source.unsplash.com/1400x600/?nature" class="img-fluid" alt="Image1">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://source.unsplash.com/1400x600/?tech" class="img-fluid" alt="Image2">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://source.unsplash.com/1400x600/?clock" class="img-fluid" alt="Image3">
+                </div>
             </div>
-            <div class="carousel-item">
-                <img src="./estee-janssens-ft99DpxNFvs-unsplash.jpg" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-                <img src="./moritz-kindler-mGFHA_0TWnA-unsplash.jpg" class="d-block w-100" alt="...">
-            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-            data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-            data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div> -->
+    <!-- </div>
+    <div class="container my-4"> -->
+        <div class="mx-4 my-4">
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Subject</label>
+                <input type="email" class="form-control" id="subject" placeholder="">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                <textarea class="form-control" id="description" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" id="addTaskBtn">Add</button>
+            <button type="submit" class="btn btn-primary" id="clearAllBtn">Clear All</button>
+        </div>
 
-    <div class="mx-4">
-        <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Subject</label>
-            <input type="email" class="form-control" id="subject" placeholder="">
-        </div>
-        <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-            <textarea class="form-control" id="description" rows="3"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary" id="addTaskBtn">Add</button>
-        <button type="submit" class="btn btn-primary" id="clearAllBtn">Clear All</button>
+        <table class="table table-striped table-hover mx-4 my-4">
+            <thead>
+                <tr>
+                    <th scope="col">Sr No</th>
+                    <th scope="col">Subject</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+            </tbody>
+        </table>
     </div>
-
-    <table class="table table-striped table-hover mx-4 my-4">
-        <thead>
-            <tr>
-                <th scope="col">Sr No</th>
-                <th scope="col">Subject</th>
-                <th scope="col">Description</th>
-                <th scope="col">Action</th>
-            </tr>
-        </thead>
-        <tbody id="tableBody">
-        </tbody>
-    </table>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
         crossorigin="anonymous"></script>
