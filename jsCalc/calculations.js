@@ -1,16 +1,22 @@
 let val1 = document.getElementById("val1");
 let val2 = document.getElementById("val2");
 try {
-let voltBtn = document.getElementById("convertVolts");
-voltBtn.addEventListener("click", convertVolts);
+    let voltBtn = document.getElementById("convertVolts");
+    voltBtn.addEventListener("click", convertVolts);
 }
 catch {
-    
+
 }
+
+try {
+    let healthBtn = document.getElementById("convertHealth");
+    healthBtn.addEventListener("click", convertBMI);
+}
+catch { }
 
 
 function convertVolts() {
-        if (val1.value == "" && val2.value == "") {
+    if (val1.value == "" && val2.value == "") {
         alert("You cannot leave not inputs blank");
         return;
     }
@@ -115,7 +121,7 @@ function convertVolts() {
         cT.textContent = String(conversionFactor);
         val1.value = val2.value * conversionFactor;
     }
-    else {        
+    else {
         let selectVal1 = document.getElementById("conversionVolt1")
         let selectVal2 = document.getElementById("conversionVolt2")
         let c1 = selectVal1.options[selectVal1.selectedIndex].text;
@@ -214,6 +220,39 @@ function convertVolts() {
         }
         cT.textContent = conversionFactor.toString();
         val2.value = val1.value * conversionFactor;
-        
+
     }
+}
+
+function convertBMI() {
+    let weightUnitOpt = document.getElementById("weightDropdown");
+    let weightUnit = weightUnitOpt.options[weightUnitOpt.value].text;
+    let heightUnitOpt = document.getElementById("heightDropdown");
+    let heightUnit = heightUnitOpt.options[heightUnitOpt.value].text;
+    let weightText = document.getElementById("weight");
+    let heightText = document.getElementById("height");
+    let weight = weightText.value;
+    let height = heightText.value;
+    // console.log(weightUnit);
+    // console.log(heightUnit);
+    if (weightUnit == "Kg") {        
+        weight = weight * 1;
+    } else if (weightUnit == "Lbs") {        
+        weight = weight / 2.2;
+    } else if (weightUnit == "Stone") {        
+        weight = weight / 6.3;
+    }
+
+    if (heightUnit == "cm") {
+        height = height / 100;
+    } else if (heightUnit == "in") {
+        height = height * 2.54 / 100;
+    } else if (heightUnit == "m") {
+        height = height * 1;
+    }
+    // console.log(weight);    
+    // console.log(height);
+    let BMI = weight/Math.pow(height,2);
+    let bmi = document.getElementById("bmidisp");
+    bmi.textContent = BMI.toString();
 }
