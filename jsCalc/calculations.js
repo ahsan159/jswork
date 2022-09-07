@@ -254,5 +254,22 @@ function convertBMI() {
     // console.log(height);
     let BMI = weight/Math.pow(height,2);
     let bmi = document.getElementById("bmidisp");
-    bmi.textContent = BMI.toString();
+    let bmiAdvice = document.getElementById("bmiadvice");
+    bmi.textContent = "Your BMI is " + BMI.toFixed(2);
+    if(BMI<=18.5) {
+        bmi.style = "color: aqua";
+        bmiAdvice.textContent = "You are underweight."
+    } 
+    else if (BMI>18.5 && BMI<=24.5) {
+        bmi.style = "color: green";
+        bmiAdvice.textContent = "You are in good health.";
+    }
+    else if (BMI>24.5 && BMI<=29.5) {
+        bmi.style = "color: orange";
+        bmiAdvice.textContent = "You need to lose weight."
+    }
+    else if (BMI>29.5) {
+        bmi.style = "color: red";
+        bmiAdvice.textContent = "You need specialist to lose weight."
+    }
 }
