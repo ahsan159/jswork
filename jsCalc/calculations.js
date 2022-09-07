@@ -1,7 +1,12 @@
-let voltBtn = document.getElementById("convertVolts");
 let val1 = document.getElementById("val1");
 let val2 = document.getElementById("val2");
+try {
+let voltBtn = document.getElementById("convertVolts");
 voltBtn.addEventListener("click", convertVolts);
+}
+catch {
+    
+}
 
 
 function convertVolts() {
@@ -10,7 +15,7 @@ function convertVolts() {
         return;
     }
     else if (val1.value == "") {
-        val1.value = val2.value;
+        // val1.value = val2.value;
         let selectVal1 = document.getElementById("conversionVolt1")
         let selectVal2 = document.getElementById("conversionVolt2")
         let c2 = selectVal1.options[selectVal1.selectedIndex].text;
