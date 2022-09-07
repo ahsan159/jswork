@@ -235,11 +235,11 @@ function convertBMI() {
     let height = heightText.value;
     // console.log(weightUnit);
     // console.log(heightUnit);
-    if (weightUnit == "Kg") {        
+    if (weightUnit == "Kg") {
         weight = weight * 1;
-    } else if (weightUnit == "Lbs") {        
+    } else if (weightUnit == "Lbs") {
         weight = weight / 2.2;
-    } else if (weightUnit == "Stone") {        
+    } else if (weightUnit == "Stone") {
         weight = weight / 6.3;
     }
 
@@ -252,23 +252,23 @@ function convertBMI() {
     }
     // console.log(weight);    
     // console.log(height);
-    let BMI = weight/Math.pow(height,2);
+    let BMI = weight / Math.pow(height, 2);
     let bmi = document.getElementById("bmidisp");
     let bmiAdvice = document.getElementById("bmiadvice");
     bmi.textContent = "Your BMI is " + BMI.toFixed(2);
-    if(BMI<=18.5) {
+    if (BMI <= 18.5) {
         bmi.style = "color: aqua";
         bmiAdvice.textContent = "You are underweight."
-    } 
-    else if (BMI>18.5 && BMI<=24.5) {
+    }
+    else if (BMI > 18.5 && BMI <= 24.5) {
         bmi.style = "color: green";
         bmiAdvice.textContent = "You are in good health.";
     }
-    else if (BMI>24.5 && BMI<=29.5) {
+    else if (BMI > 24.5 && BMI <= 29.5) {
         bmi.style = "color: orange";
         bmiAdvice.textContent = "You need to lose weight."
     }
-    else if (BMI>29.5) {
+    else if (BMI > 29.5) {
         bmi.style = "color: red";
         bmiAdvice.textContent = "You need specialist to lose weight."
     }
