@@ -1,18 +1,20 @@
-let val1 = document.getElementById("val1");
-let val2 = document.getElementById("val2");
+
 try {
+    let val1 = document.getElementById("val1");
+    let val2 = document.getElementById("val2");
     let voltBtn = document.getElementById("convertVolts");
     voltBtn.addEventListener("click", convertVolts);
-}
-catch {
-
-}
+} catch { }
 
 try {
     let healthBtn = document.getElementById("convertHealth");
     healthBtn.addEventListener("click", convertBMI);
-}
-catch { }
+} catch { }
+
+try {
+    let mechBtn = document.getElementById("convertTemp");
+    mechBtn.addEventListener("click", convertTemp);
+} catch { }
 
 
 function convertVolts() {
@@ -271,5 +273,97 @@ function convertBMI() {
     else if (BMI > 29.5) {
         bmi.style = "color: red";
         bmiAdvice.textContent = "You need specialist to lose weight."
+    }
+}
+
+function convertTemp() {
+    let vt1 = document.getElementById("val1Temp");
+    let vt2 = document.getElementById("val2Temp");
+    let convertedValue = 1;
+    // console.log(op1);
+    // console.log(op2);
+
+    if (vt1.value == "" && vt2.value == "") {
+        alert("Cannot leave both inputs empty");
+    }
+    else if (vt1.value == "") {
+        let dT1 = document.getElementById("tempDropdown1");
+        let dT2 = document.getElementById("tempDropdown2");
+        let op1 = dT2.options[dT2.value].text;
+        let op2 = dT1.options[dT1.value].text;
+        if (op1 == "Celsius") {
+            if (op2 == "Celsius") {
+                convertedValue = vt2.value;
+            }
+            else if (op2 == "Kelvin") {
+                convertedValue = vt2.value + 273;
+            }
+            else if (op2 == "Farhenhite") {
+                convertedValue = (vt2.value * 1.8) + 32;
+            }
+        }
+        else if (op1 == "Kelvin") {
+            if (op2 == "Celsius") {
+                convertedValue = vt2.value - 273;
+            }
+            else if (op2 == "Kelvin") {
+                convertedValue = vt2.value;
+            }
+            else if (op2 == "Farhenhite") {
+                convertedValue = ((vt2.value - 273) * 1.8) + 32;
+            }
+        }
+        else if (op1 == "Farhenhite") {
+            if (op2 == "Celsius") {
+                convertedValue = (vt2.value - 32) / 1.8;
+            }
+            else if (op2 == "Kelvin") {
+                convertedValue = (vt2.value - 32 + 273) / 1.8;
+            }
+            else if (op2 == "Farhenhite") {
+                convertedValue = vt2.value;
+            }
+        }
+        vt1.value = convertedValue;
+    }
+    else {
+        let dT1 = document.getElementById("tempDropdown1");
+        let dT2 = document.getElementById("tempDropdown2");
+        let op1 = dT1.options[dT1.value].text;
+        let op2 = dT2.options[dT2.value].text;
+        if (op1 == "Celsius") {
+            if (op2 == "Celsius") {
+                convertedValue = vt1.value;
+            }
+            else if (op2 == "Kelvin") {
+                convertedValue = vt1.value + 273;
+            }
+            else if (op2 == "Farhenhite") {
+                convertedValue = (vt1.value * 1.8) + 32;
+            }
+        }
+        else if (op1 == "Kelvin") {
+            if (op2 == "Celsius") {
+                convertedValue = vt1.value - 273;
+            }
+            else if (op2 == "Kelvin") {
+                convertedValue = vt1.value;
+            }
+            else if (op2 == "Farhenhite") {
+                convertedValue = ((vt1.value - 273) * 1.8) + 32;
+            }
+        }
+        else if (op1 == "Farhenhite") {
+            if (op2 == "Celsius") {
+                convertedValue = (vt1.value - 32) / 1.8;
+            }
+            else if (op2 == "Kelvin") {
+                convertedValue = (vt1.value - 32 + 273) / 1.8;
+            }
+            else if (op2 == "Farhenhite") {
+                convertedValue = vt1.value;
+            }
+        }
+        vt2.value = convertedValue;
     }
 }

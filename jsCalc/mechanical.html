@@ -55,7 +55,48 @@
             </div>
         </div>
     </nav>
-    
+
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col d-flex justify-content-center">
+                <h1 class="display-5">Mechanical Conversions</h1>
+            </div>
+        </div>
+        <br>
+        <div class="row d-flex justify-content-center">
+            <!-- <div class="col col-md-1"></div> -->
+            <div class="col col-md-2">
+                <select class="form-select" id="tempDropdown1">
+                    <!-- <option selected>Open this select menu</option> -->
+                    <option selected value="0">Celsius</option>
+                    <option value="1">Kelvin</option>
+                    <option value="2">Farhenhite</option>
+                </select>
+            </div>
+            <div class="col col-md-2">
+                <label class="display-3" id="convertLevel"></label>
+            </div>
+            <div class="col col-md-2">
+                <select class="form-select" id="tempDropdown2">
+                    <!-- <option selected>Open this select menu</option> -->
+                    <option selected value="0">Celsius</option>
+                    <option value="1">Kelvin</option>
+                    <option value="2">Farhenhite</option>
+                </select>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center my-4">
+            <div class="col col-md-2">
+                <input type="text" class="form-control" id="val1Temp">
+            </div>
+            <div class="col col-md-2 d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary" id="convertTemp">Convert</button>
+            </div>
+            <div class="col col-md-2">
+                <input type="text" class="form-control" id="val2Temp">
+            </div>
+        </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
         crossorigin="anonymous"></script>
