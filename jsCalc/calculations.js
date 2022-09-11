@@ -336,7 +336,7 @@ function convertTemp() {
                 convertedValue = vt1.value;
             }
             else if (op2 == "Kelvin") {
-                convertedValue = vt1.value + 273;
+                convertedValue = Number(vt1.value) + 273;
             }
             else if (op2 == "Farhenhite") {
                 convertedValue = (vt1.value * 1.8) + 32;
