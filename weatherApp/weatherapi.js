@@ -1,6 +1,9 @@
 let btn = document.getElementById("submitt");
 let cityh1 = document.getElementById("cityh1");
 let temperatureh1 = document.getElementById("temph1");
+let humidityh1 = document.getElementById("humth1");
+let feelslike = document.getElementById("feelh1");
+let apiStatus = document.getElementById("apiStatus");
 // btn.addEventListener("click", callurl);
 
 
@@ -17,11 +20,17 @@ async function funcRequest(url) {
             console.log(data);
             m = data;
             try {
-            cityh1.textContent = m.location.name;
-            temperatureh1.textContent = m.current.temperature;
+                let now = new Date;
+
+                cityh1.textContent = m.location.name;
+                temperatureh1.textContent = m.current.temperature + "°C";
+                humidityh1.textContent = m.current.humidity + "%";
+                feelslike.textContent = m.current.feelslike + "°C";
+                apiStatus.textContent = "Last updated on: " + now.getDate() + " " + now.getMonth() + " " + now.getFullYear() + " " + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
             }
             catch (e) {
                 console.log(m.error.info);
+                apiStatus.textContent = "Cannot retrieve data now!!!";
             }
 
         })
