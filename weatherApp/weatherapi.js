@@ -4,6 +4,8 @@ let temperatureh1 = document.getElementById("temph1");
 let humidityh1 = document.getElementById("humth1");
 let feelslike = document.getElementById("feelh1");
 let apiStatus = document.getElementById("apiStatus");
+let weatherImage = document.getElementById("wImage");
+weatherImage.src = "./sunny.jpg";
 // btn.addEventListener("click", callurl);
 
 
