@@ -5,6 +5,9 @@ let humidityh1 = document.getElementById("humth1");
 let feelslike = document.getElementById("feelh1");
 let apiStatus = document.getElementById("apiStatus");
 let weatherImage = document.getElementById("wImage");
+let percepitation = document.getElementById("perch1");
+let windSpeed = document.getElementById("windh1");
+let windDirection = document.getElementById("direh1");
 weatherImage.src = "./sunny.jpg";
 // btn.addEventListener("click", callurl);
 
@@ -27,8 +30,11 @@ async function funcRequest(url) {
                 cityh1.textContent = m.location.name;
                 temperatureh1.textContent = m.current.temperature + "°C";
                 humidityh1.textContent = m.current.humidity + "%";
-                feelslike.textContent = m.current.feelslike + "°C";
+                feelslike.textContent = "Feels like " + m.current.feelslike + "°C";
                 apiStatus.textContent = "Last updated on: " + now.getDate() + " " + now.getMonth() + " " + now.getFullYear() + " " + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
+                percepitation.textContent = "Percepitation " + m.current.percip + "%";
+                windSpeed.textContent = m.current.wind_speed + "km/h";
+                windDirection.textContent = m.current.wind_dir;
             }
             catch (e) {
                 console.log(m.error.info);
