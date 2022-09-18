@@ -9,6 +9,21 @@ let percepitation = document.getElementById("perch1");
 let windSpeed = document.getElementById("windh1");
 let windDirection = document.getElementById("direh1");
 weatherImage.src = "./sunny.jpg";
+
+let imagf1 = document.getElementById("imagf1");
+let tempf1 = document.getElementById("tempf1");
+let humdf1 = document.getElementById("humdf1");
+let precf1 = document.getElementById("precf1");
+
+let imagf2 = document.getElementById("imagf2");
+let tempf2 = document.getElementById("tempf2");
+let humdf2 = document.getElementById("humdf2");
+let precf2 = document.getElementById("precf2");
+
+let imagf3 = document.getElementById("imagf3");
+let tempf3 = document.getElementById("tempf3");
+let humdf3 = document.getElementById("humdf3");
+let precf3 = document.getElementById("precf3");
 // btn.addEventListener("click", callurl);
 
 
@@ -26,13 +41,12 @@ async function funcRequest(url) {
             m = data;
             try {
                 let now = new Date;
-
                 cityh1.textContent = m.location.name;
                 temperatureh1.textContent = m.current.temperature + "°C";
                 humidityh1.textContent = m.current.humidity + "%";
                 feelslike.textContent = "Feels like " + m.current.feelslike + "°C";
                 apiStatus.textContent = "Last updated on: " + now.getDate() + " " + now.getMonth() + " " + now.getFullYear() + " " + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
-                percepitation.textContent = "Percepitation " + m.current.percip + "%";
+                percepitation.textContent = "Percepitation " + m.current.precip + "%";
                 windSpeed.textContent = m.current.wind_speed + "km/h";
                 windDirection.textContent = m.current.wind_dir;
             }
