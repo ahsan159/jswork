@@ -58,18 +58,19 @@
         </div>
     </nav>
 
-
-    <div class="conatiner">
-        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <!-- Finally got the whole screen caraousel. The main problem was size of the image. The image size must cover all the screen otherwise no justify or centering will help. -->
+    <!-- Another thing do not use capital letters with unsplash api otherwise image not found error will be issued -->
+    <div class="conatiner-fluid d-flex justify-content-center" style="width: 100vw;">
+        <div id="carouselExampleControls" class="carousel slide" style="width: 100vw;" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="./Book.jpeg" class="img-fluid" alt="Image1">
+                    <img src="https://source.unsplash.com/2040x680/?library" class="img-fluid" alt="Image1">
                 </div>
                 <div class="carousel-item">
-                    <img src="./Library.jpeg" class="img-fluid" alt="Image2">
+                    <img src="https://source.unsplash.com/2040x680/?books" class="img-fluid" alt="Image2">
                 </div>
                 <div class="carousel-item">
-                    <img src="./Study.jpeg" class="img-fluid" alt="Image3">
+                    <img src="https://source.unsplash.com/2040x680/?study" class="img-fluid" alt="Image3">
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
