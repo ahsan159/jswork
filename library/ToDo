@@ -1,0 +1,6 @@
+1.  Link to be used in bookstore app
+    https://api.itbook.store/
+    This link is very basic and return data in JSON strings when searching for the type of books this will help loading the list of books for library/bookstore project.
+
+2.  add cards to the new arrival and editors choice section i think three will be enough for each section.
+3.  add a jumbotron like thing or something that will show the buy/rent feature.
