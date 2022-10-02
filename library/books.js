@@ -36,7 +36,7 @@ fetch(urlNew)
         for (let index = 1; index < 4; index++) {
             let txtImg = pre + preI + index.toString();
             dI[index] = document.getElementById(txtImg);
-            console.log(dI[index]);
+            // console.log(dI[index]);
             dI[index].src = books[index].image;
             let txtP = pre + preP + index.toString();
             dP[index] = document.getElementById(txtP);
@@ -61,7 +61,7 @@ function fetchURLS(url, index) {
             // for (let index = 1; index < 4; index++) {
             let txtImg = pre + preI + index.toString();
             EI[index] = document.getElementById(txtImg);
-            console.log(EI[index]);
+            // console.log(EI[index]);
             EI[index].src = booksEditor[index].image;
             let txtP = pre + preP + index.toString();
             EP[index] = document.getElementById(txtP);
