@@ -11,7 +11,7 @@ let dI = [];
 let dP = [];
 let dT = [];
 let books = [];
-
+//this will work for different url's u am accessing
 let EI = [];
 let EP = [];
 let ET = [];
