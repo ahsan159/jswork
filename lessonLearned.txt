@@ -3,4 +3,4 @@
 2. Another thing never use capital letter while loading image from unsplash API. Your image will not be retrieved with error image for image not found.
 
 05-10-2022
-Wasted a full hour trying to login using mobile verfication which didn't work. However, verfication with email address worked any not logged in with github account. 
+Wasted a full hour trying to login using mobile verfication which didn't work. However, verfication with email address worked any not logged in with github account. Another thing please, do update user.name and user.email in git config settings. 
