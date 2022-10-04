@@ -1,3 +1,6 @@
 27-09-2022
 1. When loading images to carousel you can only cover the whole screen if your image size is large enough to cover the full screen size otherwise no justify content and centering will help in this regard. Furthermore, use container-fluid class of CSS to cover whole screen.
 2. Another thing never use capital letter while loading image from unsplash API. Your image will not be retrieved with error image for image not found.
+
+05-10-2022
+Wasted a full hour trying to login using mobile verfication which didn't work. However, verfication with email address worked any not logged in with github account. 
