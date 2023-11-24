@@ -23,14 +23,16 @@ const createWords = () => {
 const scrambleWordFunction = (input) => 
 {
     console.log(input);
-    let output = [];
+    
     for (let i = input.length-1; i > 0;i--)
     {
-        let temp = input[i]
         let rndm = Math.floor(Math.random()*(i+1));
         // console.log(input[i]);
-
+        let temp = input[i]
+        input[i] = input[rndm];
+        input[rndm] = temp;
     }
+    return input;
 }
 
 window.onload = function () {
@@ -40,12 +42,31 @@ window.onload = function () {
     btn = document.getElementById('btnid');
     btn.addEventListener('click', function () {
         if (!play) {
-            // play = true;
+            play = true;
             btn.innerHTML = 'Guess';
             guess.classList.toggle('hidden');
             selectword = createWords();
             scrambledword = scrambleWordFunction(selectword.split(""));
-            // console.log(createWords())
+            //  console.log(scrambledword.join(""))
+            msg.innerHTML = scrambledword.join("");
+        }
+        else
+        {
+            let tempword = guess.value;
+            if (tempword===selectword)
+            {
+                play = false;
+                guess.classList.toggle('hidden');
+                msg.innerHTML = `Awesome!!! Correct It is ${selectword}`;
+                btn.innerHTML = 'start again';
+                guess.value = "";
+            }
+            else
+            {
+                msg.innerHTML = `Sorry!!! Try again ${scrambledword.join("")}`;
+                guess.value = "";
+                // btn.innerHTML = 'try again';
+            }
         }
     }
     )
