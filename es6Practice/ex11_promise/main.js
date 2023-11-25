@@ -56,40 +56,96 @@
 
 // promise as object
 
+// const pro1 = new Promise((resolveFunction, rejectFunction) => {
+//     setTimeout(() => {
+//         let roll_no = [1, 2, 3, 4, 5];
+//         resolveFunction(roll_no);
+//         rejectFunction('Error/Timeout');
+//     }, 2000);
+// }
+// );
+
+// const getBiodata = (indexData)=>
+// {
+//     return new Promise((resolveFunction,rejectFunction)=>
+//     {
+//         setTimeout((indexData) => {
+//             let biodata = {
+//                 name:'ahsan',
+//                 age :26,
+//                 gender:'male'
+//             }
+//             resolveFunction(`My roll number is ${indexData}. my name is ${biodata.name} and I am ${biodata.age} years old.`);
+//         }, 2000, indexData);
+//     });
+// }
+
+// promise consumption
+// pro1
+// .then( (rollno) => { // if successful
+//     console.log(rollno);
+//     return getBiodata(rollno[1])
+// })
+// .then((data)=> // this is promise resolve of getbiodata
+// {
+//     console.log(data);
+// })
+// .catch((errorMsg)=>
+// {
+//     console.log(errorMsg);
+// });
+
+// async await is used to simplify Promise consumption
+
 const pro1 = new Promise((resolveFunction, rejectFunction) => {
-    setTimeout(() => {
-        let roll_no = [1, 2, 3, 4, 5];
-        resolveFunction(roll_no);
-        rejectFunction('Error/Timeout');
-    }, 2000);
-}
-);
-
-const getBiodata = (indexData)=>
-{
-    return new Promise((resolveFunction,rejectFunction)=>
+        setTimeout(() => {
+            let roll_no = [1, 2, 3, 4, 5];
+            resolveFunction(roll_no);
+            rejectFunction('Error/Timeout');
+        }, 2000);
+    }
+    );
+    
+    const getBiodata = (indexData)=>
     {
-        setTimeout((indexData) => {
-            let biodata = {
-                name:'ahsan',
-                age :26,
-                gender:'male'
-            }
-            resolveFunction(`My roll number is ${indexData}. my name is ${biodata.name} and I am ${biodata.age} years old.`);
-        }, 2000, indexData);
-    });
-}
+        return new Promise((resolveFunction,rejectFunction)=>
+        {
+            setTimeout((indexData) => {
+                let biodata = {
+                    name:'ahsan',
+                    age :26,
+                    gender:'male'
+                }
+                resolveFunction(`My roll number is ${indexData}. my name is ${biodata.name} and I am ${biodata.age} years old.`);
+            }, 2000, indexData);
+        });
+    }
+    
+    // promise consumption
+    // pro1
+    // .then( (rollno) => { // if successful
+    //     console.log(rollno);
+    //     return getBiodata(rollno[1])
+    // })
+    // .then((data)=> // this is promise resolve of getbiodata
+    // {
+    //     console.log(data);
+    // })
+    // .catch((errorMsg)=>
+    // {
+    //     console.log(errorMsg);
+    // });
+    
+    // async await will only simplify promise consumption
 
-pro1
-.then( (rollno) => { // if successful
-    console.log(rollno);
-    return getBiodata(rollno[1])
-})
-.then((data)=> // this is promise resolve of getbiodata
-{
-    console.log(data);
-})
-.catch((errorMsg)=>
-{
-    console.log(errorMsg);
-});
+    async function getData()
+    {
+        // async key words make function wait for promise to return
+        const rollnodata = await pro1;
+        console.log(rollnodata);        
+
+        const biodata = await getBiodata(rollnodata[1]);
+        console.log(biodata);
+    }
+
+    getData();
