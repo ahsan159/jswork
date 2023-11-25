@@ -141,11 +141,21 @@ const pro1 = new Promise((resolveFunction, rejectFunction) => {
     async function getData()
     {
         // async key words make function wait for promise to return
+        // you cannot return any value from async function
         const rollnodata = await pro1;
         console.log(rollnodata);        
 
         const biodata = await getBiodata(rollnodata[1]);
         console.log(biodata);
+
+        return biodata; 
     }
 
     getData();
+
+
+    const getname = getData().then((myname)=>
+    {
+        console.log(myname);
+    });
+    //console.log(getname);
