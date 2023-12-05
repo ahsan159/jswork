@@ -154,8 +154,13 @@ const pro1 = new Promise((resolveFunction, rejectFunction) => {
     getData();
 
 
-    const getname = getData().then((myname)=>
-    {
-        console.log(myname);
-    });
+    // const getname = getData().then((myname)=>
+    // {
+    //     console.log(myname);
+    // });
     //console.log(getname);
+
+    const getdt = getBiodata(23).then((dataReceived)=>
+    {
+        console.log(dataReceived);
+    });
