@@ -11,6 +11,8 @@
     margin: 10px;
     background-color: grey;
     color: white;
+    justify-content: center;
+    align-items: center;
 }
 
 .disp
@@ -21,7 +23,7 @@
     height: 40px;
     font-size: larger;
     font-weight: bolder;
-    /* align-content: right; */
+    /* align-self:flex-start; */
 }
 .equal,.btn
 {
