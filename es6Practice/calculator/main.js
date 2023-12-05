@@ -1,14 +1,14 @@
 var expr = "";
 
-function expression(bIn)
-{
+function expression(bIn) {
     expr = expr + bIn;
     console.log(expr);
 }
 
-function evaluateExp()
-{
-    console.log(expr);
-    document.getElementById("disp").innerText = eval(expr);
-    expr = "";
+function evaluateExp() {
+    if (expr != "") {
+        console.log(expr);
+        document.getElementById("disp").innerText = eval(expr);
+        expr = "";
+    }
 }

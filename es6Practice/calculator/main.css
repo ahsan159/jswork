@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.calc
+{
+    display: flex;
+    flex-direction: column;    
+    padding: 20px;
+    margin: 10px;
+    background-color: grey;
+    color: white;
+}
+
+.disp
+{      
+    margin: 20px;
+    padding: 5px;
+    width: 80px;
+    height: 40px;
+    font-size: larger;
+    font-weight: bolder;
+    /* align-content: right; */
+}
+.equal,.btn
+{
+    margin: 2px;
+    padding: 5px;
+    width: 40px;
+    height: 40px;
+    font-size: medium;
+    font-weight: bold;
+}
+
+.equal
+{
+    background-color: aqua;
+}
