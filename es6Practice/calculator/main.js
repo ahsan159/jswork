@@ -29,6 +29,7 @@ function expressionOper(bIn)
 function expression(bIn) {
     expr = expr + bIn;
     console.log(expr);
+    document.getElementById("disp").innerText = expr;
 }
 
 function evaluateExp() {    
