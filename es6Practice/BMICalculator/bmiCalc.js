@@ -2,8 +2,9 @@ function calcBMI()
 {
     var w = document.getElementById("weight").value;
     var h = document.getElementById("height").value;
+    h = h/100;
     console.log(h)
     console.log(w);
-    console.log(w/h/h);
-    document.getElementById("BMI").value = w/h/h;
+    var bmi = w/h/h;
+    document.getElementById("BMI").value = Math.round(bmi);
 }
