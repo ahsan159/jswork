@@ -13,14 +13,14 @@
 <body>
     <divrclass="mainCalender">
         <div class="hYear">
-            <button class="MYBTN"><</button>
-            <h1 style="margin: 0 10px 0 10px;">Year</h1>
-            <button class="MYBTN">></button>
+            <button class="nBtn" onclick="updateCalender('bYear')"><</button>
+            <h1 id="yearText">Year</h1>
+            <button class="nBtn" onclick="updateCalender('fYear')">></button>
         </div>
         <div class="hMonth">
-            <button class="MYBTN"><</button>
-            <h1 style="margin: 0 10px 0 10px;">Month</h1>
-            <button class="MYBTN">></button>
+            <button class="nBtn" onclick="updateCalender('bMonth')"><</button>
+            <h1 id="monthText">Month</h1>
+            <button class="nBtn" onclick="updateCalender('fMonth')">></button>
         </div>
         <table id="ctable">
             <tr>

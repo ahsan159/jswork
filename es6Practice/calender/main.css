@@ -34,15 +34,20 @@ tr
 .hYear,.hMonth
 {
     justify-content: center;
+    display: flex;
     text-align: center;
     align-items: center;
-    display: flex;
     margin: 10px;
 }
 
-.MYBTN
+.nBtn
 {
     /* margin: 20px; */
     padding: 5px;
     font-size: 2rem;
+}
+
+#yearText, #monthText
+{
+    margin: 0 10px 0 10px;
 }
