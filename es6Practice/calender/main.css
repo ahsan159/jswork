@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body
+{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.mainCalender
+{
+    /* display: flex; */
+    display: inline-block;
+    margin: auto;
+    justify-content: center;
+    margin: 20px;
+}
+
+th
+{
+    margin: 50px;
+    padding: 5px;
+    font-size: 2rem;
+}
+
+tr
+{
+    margin: 10px;
+}
+
+.hYear,.hMonth
+{
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    margin: 10px;
+}
+
+.MYBTN
+{
+    /* margin: 20px; */
+    padding: 5px;
+    font-size: 2rem;
+}
