@@ -5,18 +5,20 @@
 
 body
 {
-    margin: auto;
-    display: flex;
-    justify-content: center;
+    display: inline-block;
 }
 
-.mainCalender
+.main
 {
-    /* display: flex; */
-    display: inline-block;
     margin: auto;
-    justify-content: center;
-    margin: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header
+{
+    height: 10%;
+    background-color: bisque;
 }
 
 th
@@ -26,22 +28,60 @@ th
     font-size: 2rem;
 }
 
+.sidePanel
+{
+    margin: auto;
+    padding: 10px;
+    background-color: aqua;
+}
+
+.mainCalender
+{
+    /* display: flex; */
+    display: inline-block;
+    margin: auto;
+    justify-content: center;
+    /* margin: 20px; */
+    background-color: azure;
+}
+
+.currentMonthText
+{
+    margin: 50px;
+    padding: 5px;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
 .dateText
 {
     margin: 50px;
     padding: 5px;
-    font-size: 2rem;;
+    font-size: 1rem;
+    text-align: center;
 }
 
-tr
+.today
 {
-    margin: 10px;
+    margin: 50px;
+    padding: 5px;
+    font-size: 1.5rem;
+    text-align: center;
+    color: red;
+}
+
+.today:hover,.dateText:hover,.currentMonthText:hover
+{
+    border-radius: 100%;
+    border: 2px;
+    background-color: black;    
+    color: white;
 }
 
 .hYear,.hMonth
 {
-    justify-content: center;
     display: flex;
+    justify-content: space-between;
     text-align: center;
     align-items: center;
     margin: 10px;
@@ -49,12 +89,14 @@ tr
 
 .nBtn
 {
-    /* margin: 20px; */
+    width: 50px;
+    height: 50px;
     padding: 5px;
     font-size: 2rem;
-}
+    border: 0;
+    border-radius: 100%;
+    background-color: whitesmoke;    
+    text-align: center;
+    align-items: center;    
 
-#yearText, #monthText
-{
-    margin: 0 10px 0 10px;
 }

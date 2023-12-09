@@ -11,21 +11,31 @@
 </head>
 
 <body>
-    <divrclass="mainCalender">
-        <div class="hYear">
-            <button class="nBtn" onclick="updateCalender('bYear')"><</button>
-            <h1 id="yearText">Year</h1>
-            <button class="nBtn" onclick="updateCalender('fYear')">></button>
+    <div class="header">
+        <h1 style="text-align: center; ">TODO LIST</h1>
+    </div>
+    <div class="main">
+        <div class="mainCalender">
+            <div class="hYear">
+                <button class="nBtn" onclick="updateCalender('bYear')"><</button>
+                <h1 id="yearText">Year</h1>
+                <button class="nBtn" onclick="updateCalender('fYear')">></button>
+            </div>
+            <div class="hMonth">
+                <button class="nBtn" onclick="updateCalender('bMonth')"><</button>
+                <h1 id="monthText">Month</h1>
+                <button class="nBtn" onclick="updateCalender('fMonth')">></button>
+            </div>
+            <table id="ctable">
+            </table>
         </div>
-        <div class="hMonth">
-            <button class="nBtn" onclick="updateCalender('bMonth')"><</button>
-            <h1 id="monthText">Month</h1>
-            <button class="nBtn" onclick="updateCalender('fMonth')">></button>
+        <div class="sidePanel">
+            <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis ut ab deserunt. Voluptates labore veniam qui expedita. Ea voluptatum exercitationem temporibus ipsam eaque mollitia iure necessitatibus, quasi adipisci voluptate qui.            
+            </p>
         </div>
-        <table id="ctable">
-        </table>
+    </div>
 
-        </div>
 </body>
 
 </html>
