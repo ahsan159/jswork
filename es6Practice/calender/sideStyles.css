@@ -37,5 +37,11 @@
 
 .tableentry
 {
-    font-size: xx-small;
+    font-size: 1rem;
+    margin: 5px 0 5px 0;
+}
+
+.row:hover
+{    
+    color: red;    
 }
