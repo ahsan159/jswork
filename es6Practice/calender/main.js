@@ -6,6 +6,63 @@ window.onload = ()=>
 {
     document.getElementById("monthText").innerText = monthNames[d.getMonth()];
     document.getElementById("yearText").innerText = d.getFullYear();
+    updateCalender('print');
+}
+
+function printCalender()
+{
+    var tableID = document.getElementById("ctable");
+    let td = " ";
+    // add the header
+    let tr = `            <tr>
+                            <th style="color:red">S</th>
+                            <th>M</th>
+                            <th>T</th>
+                            <th>W</th>
+                            <th>T</th>
+                            <th>F</th>
+                            <th>S</th>
+                        </tr>`;
+
+    // current print month 
+    let cMonth = d.getMonth();
+    // find the dayCount in month and correct for leap year                        
+    let dDayCount = dayCount[d.getMonth()];
+    if (d.getMonth()==1 && d.getFullYear()%4==0)
+    {
+        dDayCount++;
+    }
+
+    // find first Day of Month
+    let dfirstDay = new Date(d);
+    dfirstDay.setDate(1);
+    dfirstDay.setDate(dfirstDay.getDate()-dfirstDay.getDay());
+
+    // find last Day of Month
+    let dlastDay = new Date(d);
+    dlastDay.setDate(dDayCount);
+    dlastDay.setDate(dlastDay.getDate() + 6 - dlastDay.getDay());
+    
+    // for(let i = 0,j=0,k=0; i < dDayCount;j++)
+    for(let dn = dfirstDay,k=1,j=0; dn<=dlastDay; dn.setDate(dn.getDate()+1),j++)
+    {        
+        // start the new row with new week
+        if (j%7==0)
+        {
+            td=td+"<tr>";
+        }
+        // add date in table
+        td = td + "<td class=\"dateText\" onclick=\"console.log('me')\">" + dn.getDate() + "</td>";
+        // end the row with ending week
+        if (j%7==6)
+        {
+            td=td + "</tr>";
+            j = -1;
+        }
+        // console.log(i);
+    }
+    // console.log(td);
+    tableID.innerHTML = tr + td;
 }
 
 function updateCalender(cmd)
@@ -32,46 +89,5 @@ function updateCalender(cmd)
         document.getElementById("monthText").innerText = monthNames[d.getMonth()];                
         document.getElementById("yearText").innerText = d.getFullYear();  
     }
-    var tableID = document.getElementById("ctable");
-    let td = " ";
-    let tr = `            <tr>
-                            <th style="color:red">S</th>
-                            <th>M</th>
-                            <th>T</th>
-                            <th>W</th>
-                            <th>T</th>
-                            <th>F</th>
-                            <th>S</th>
-                        </tr>`;
-    for(let i = 0,j=0,k=0; i < dayCount[d.getMonth()];j++)
-    {        
-        if (d.getDay() == j)
-        {
-            k++;
-        }
-        if (j%7==0)
-        {
-            td=td+"<tr>";
-        }
-        
-
-        if(k!=0)
-        {
-
-            td = td + "<td class=\"dateText\" onclick=\"console.log('me')\">" + (i+1) + "</td>";
-            i = i+1;
-        }
-        else
-        {
-            td = td + "<td class=\"dateText\" onclick=\"console.log('me')\">" +"</td>"
-        }
-        if (j%7==6)
-        {
-            td=td + "</tr>";
-            j = -1;
-        }
-        // console.log(i);
-    }
-    // console.log(td);
-    tableID.innerHTML = tr + td;
+    printCalender();    
 }
