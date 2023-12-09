@@ -105,8 +105,12 @@ function updateCalender(cmd) {
 function addTaskFunction(e)
 {
     // console.log("This is the function");
-    // console.log(arguments.callee);
-    // console.log(e.target.id);
+    // console.log(arguments.callee);    
+    // console.log(e.target.id);    
+
+    let inTask = prompt('Enter the task!!!');
+    inTask = inTask==null?"Reminder":inTask;
+
     let dr = document.createElement("div");
     dr.setAttribute("class","row");
 
@@ -118,7 +122,7 @@ function addTaskFunction(e)
     dd.innerText=e.target.id;    
     let dt = document.createElement("div");
     dt.setAttribute("class","box tableentry");
-    dt.innerText = "this is the task text";
+    dt.innerText = inTask;
 
     dr.appendChild(ds);
     dr.appendChild(dd);

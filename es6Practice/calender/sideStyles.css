@@ -21,7 +21,10 @@
 .box {
     border-radius: 5px;
     /* padding: 20px; */
+    /* margin: 0 50px 0 50px; */
+    margin: 5px 50px 5px 50px;
     font-size: 1rem;
+    text-align: justify;
 }
 
 .row
@@ -32,13 +35,13 @@
 .tableheader
 {
     font-size: 2rem;
-    padding:  0 0 20px 0;
+    padding:  0 0 5px 0;
 }
 
 .tableentry
 {
     font-size: 1rem;
-    margin: 5px 0 5px 0;
+    margin: 5px 50px 5px 50px;
 }
 
 .row:hover
