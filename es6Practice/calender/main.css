@@ -26,6 +26,13 @@ th
     font-size: 2rem;
 }
 
+.dateText
+{
+    margin: 50px;
+    padding: 5px;
+    font-size: 2rem;;
+}
+
 tr
 {
     margin: 10px;

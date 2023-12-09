@@ -43,16 +43,32 @@ function updateCalender(cmd)
                             <th>F</th>
                             <th>S</th>
                         </tr>`;
-    for(let i = 0; i < dayCount[d.getMonth()];i++)
+    for(let i = 0,j=0,k=0; i < dayCount[d.getMonth()];j++)
     {        
-        if (i%7==0)
+        if (d.getDay() == j)
+        {
+            k++;
+        }
+        if (j%7==0)
         {
             td=td+"<tr>";
         }
-        td = td + "<td onclick=\"console.log('me')\">" + (i+1) + "</td>";
-        if (i%7==6)
+        
+
+        if(k!=0)
+        {
+
+            td = td + "<td class=\"dateText\" onclick=\"console.log('me')\">" + (i+1) + "</td>";
+            i = i+1;
+        }
+        else
+        {
+            td = td + "<td class=\"dateText\" onclick=\"console.log('me')\">" +"</td>"
+        }
+        if (j%7==6)
         {
             td=td + "</tr>";
+            j = -1;
         }
         // console.log(i);
     }
