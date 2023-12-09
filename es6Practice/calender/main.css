@@ -15,24 +15,13 @@ body
     justify-content: space-between;
 }
 
-.header
-{
-    height: 10%;
-    background-color: bisque;
-}
+/* calender styles start here */
 
-th
+.weekHeader
 {
     margin: 50px;
     padding: 5px;
     font-size: 2rem;
-}
-
-.sidePanel
-{
-    margin: auto;
-    padding: 10px;
-    background-color: aqua;
 }
 
 .mainCalender
@@ -100,3 +89,6 @@ th
     align-items: center;    
 
 }
+
+/* end of calender making  */
+

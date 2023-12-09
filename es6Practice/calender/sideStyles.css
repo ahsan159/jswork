@@ -1,0 +1,41 @@
+.sidePanel
+{
+    /* margin: auto; */
+    display: block;
+    padding: 10px;
+    /* background-color: aqua; */
+}
+
+.header
+{
+    height: 10%;
+    background-color: bisque;
+}
+
+.todotable {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    max-width:  800px;
+}
+
+.box {
+    border-radius: 5px;
+    /* padding: 20px; */
+    font-size: 1rem;
+}
+
+.row
+{
+    display: contents;
+}
+
+.tableheader
+{
+    font-size: 2rem;
+    padding:  0 0 20px 0;
+}
+
+.tableentry
+{
+    font-size: xx-small;
+}
