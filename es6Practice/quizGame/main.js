@@ -10,6 +10,8 @@ a = Math.floor(a);
 let cans = a*a;
 console.log(a);
 console.log(cans);
+let score;
+let answerClicked;
 
 let questionAsked = {
     statement:`square of ${a} is`,
@@ -51,7 +53,7 @@ function makeQuestion()
     document.getElementById("ans2R").nextElementSibling.textContent = questionAsked.option2;
     document.getElementById("ans3R").nextElementSibling.textContent = questionAsked.option3;
     document.getElementById("ans4R").nextElementSibling.textContent = questionAsked.option4;
-    console.log(JSON.stringify(questionAsked));
+    // console.log(JSON.stringify(questionAsked));
 }
 
 window.onload = (() => {
@@ -66,7 +68,10 @@ window.onload = (() => {
     document.getElementById("ans2R").checked = false;
     document.getElementById("ans3R").checked = false;
     document.getElementById("ans4R").checked = false;
+    
     // js = require('jsonfile');
+
+    score = 0;
 });
 
 function radioClicked(event) {
@@ -77,14 +82,11 @@ function radioClicked(event) {
     document.getElementById("ans3R").checked = false;
     document.getElementById("ans4R").checked = false;
     document.getElementById(event.target.id).checked = true;
-    if (questionAsked.correct == document.getElementById(event.target.id).nextElementSibling.textContent)
-    {
-        console.log("answer is correct");
-    }
-    document.getElementById("ans1R").disabled = true;
-    document.getElementById("ans2R").disabled = true;
-    document.getElementById("ans3R").disabled = true;
-    document.getElementById("ans4R").disabled = true;
+    answerClicked = document.getElementById(event.target.id).nextElementSibling.textContent;
+    // if (questionAsked.correct == document.getElementById(event.target.id).nextElementSibling.textContent)
+    // {
+    //     console.log("answer is correct");
+    // }
 }
 
 function startFunction() {
@@ -105,11 +107,18 @@ function prevQuestion() {
         document.getElementById("preBtn").disabled = true;
         questionCurrent = 0;
     }
-    console.log(questionCurrent);
+    // console.log(questionCurrent);
     makeQuestion();
 }
 
 function nextQuestion() {
+    console.log(answerClicked + " vs " + questionAsked.correct);
+    if (questionAsked.correct==answerClicked)
+    {
+        score = score  + 1;
+        console.log(`score is ${score}.`);
+        document.getElementsByClassName("score")[0].textContent = `Your score is ${score}`;
+    }
     document.getElementById("preBtn").disabled = false;
     document.getElementById("nxtBtn").disabled = false;
     console.log("nextQuestion");
@@ -118,6 +127,10 @@ function nextQuestion() {
         document.getElementById("nxtBtn").disabled = true;
         questionCurrent = questionMaxCount - 1;
     }
-    console.log(questionCurrent);
+    // console.log(questionCurrent);
     makeQuestion();
+    document.getElementById("ans1R").checked = false;
+    document.getElementById("ans2R").checked = false;
+    document.getElementById("ans3R").checked = false;
+    document.getElementById("ans4R").checked = false;
 }

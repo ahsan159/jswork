@@ -9,6 +9,16 @@
     /* margin: auto; */
     background-color: aqua;
 }
+
+.score
+{
+    /* margin-left: 5vw; */
+    padding: 10px 10px 10px 5vw;
+    text-align: left;
+    background-color: bisque;
+
+}
+
 #questions
 {
     background-color: aquamarine;
@@ -16,9 +26,9 @@
 
 #question
 {
-    margin: 10px 0 10px 0;
+    /* margin: 10px 0 10px 0; */
     font-size: 1.5rem;
-    padding: 0 0 0 10vw;
+    padding: 10px 0 10px 10vw;
 
 }
 
