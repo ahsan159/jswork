@@ -20,6 +20,40 @@ let questionAsked = {
     option4:  4
 };
 
+function makeQuestion()
+{
+    a = Math.random()*25 + 1;
+    a = Math.floor(a);
+    cans = a*a;
+    questionAsked.statement = `square of ${a} is`;
+    questionAsked.correct = cans;
+    let cOption = Math.random()*4 + 1;
+    cOption = Math.floor(cOption);
+    if (cOption==1)
+    {
+        questionAsked.option1 = cans;
+    }
+    else if(cOption==2)
+    {
+        questionAsked.option2 = cans;
+    }
+    else if(cOption==3)
+    {
+        questionAsked.option3 = cans;
+    }
+    else if(cOption==4)
+    {
+        questionAsked.option4 = cans;
+    }
+    // This is important because setting text for radio button label is somewhat different
+    document.getElementById("question").innerText = questionAsked.statement;
+    document.getElementById("ans1R").nextElementSibling.textContent = questionAsked.option1;
+    document.getElementById("ans2R").nextElementSibling.textContent = questionAsked.option2;
+    document.getElementById("ans3R").nextElementSibling.textContent = questionAsked.option3;
+    document.getElementById("ans4R").nextElementSibling.textContent = questionAsked.option4;
+    console.log(JSON.stringify(questionAsked));
+}
+
 window.onload = (() => {
     console.log("I am starting");
 
@@ -51,6 +85,7 @@ function startFunction() {
     document.getElementById("startBtn").hidden = true;
     document.getElementById("preBtn").hidden = false;
     document.getElementById("nxtBtn").hidden = false;
+    makeQuestion();
 }
 
 function prevQuestion() {
@@ -63,6 +98,7 @@ function prevQuestion() {
         questionCurrent = 0;
     }
     console.log(questionCurrent);
+    makeQuestion();
 }
 
 function nextQuestion() {
@@ -75,4 +111,5 @@ function nextQuestion() {
         questionCurrent = questionMaxCount - 1;
     }
     console.log(questionCurrent);
+    makeQuestion();
 }
