@@ -77,6 +77,14 @@ function radioClicked(event) {
     document.getElementById("ans3R").checked = false;
     document.getElementById("ans4R").checked = false;
     document.getElementById(event.target.id).checked = true;
+    if (questionAsked.correct == document.getElementById(event.target.id).nextElementSibling.textContent)
+    {
+        console.log("answer is correct");
+    }
+    document.getElementById("ans1R").disabled = true;
+    document.getElementById("ans2R").disabled = true;
+    document.getElementById("ans3R").disabled = true;
+    document.getElementById("ans4R").disabled = true;
 }
 
 function startFunction() {
