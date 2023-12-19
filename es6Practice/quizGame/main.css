@@ -32,6 +32,7 @@
 #button
 {
     margin: auto;
+    padding: 10px;
     width: 50%;
     display: flex;
     /* background-color: bisque; */
@@ -47,4 +48,16 @@
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-style: oblique;
     font-weight: bolder;
+}
+
+#preBtn,#nxtBtn
+{
+    margin: auto;
+    width: 80px;
+    height: 80px;
+    font-size: 2rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: oblique;
+    font-weight: bolder;
+
 }

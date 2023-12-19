@@ -7,11 +7,12 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
     <script src='main.js'></script>
+    <!-- <script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script> -->
 </head>
 <body>
     <h1 class="mainheading">Rate Ur Knowledge</h1>
     <div id="questions">
-        <div id="question">QUestion</div>
+        <div id="question">Question</div>
         <div id="ans1" class="ansDiv">
             <input type="radio" name="ans1R" id="ans1R" value="ans1R" onclick="radioClicked(event)">
             <label for="ans1R">ans1</label>
@@ -30,7 +31,9 @@
         </div>
     </div>
     <div id="button">
+        <button type="button" id="preBtn" onclick="prevQuestion()"><<<</button>
         <button type="button" id="startBtn" onclick="startFunction()">Click To Start</button>
+        <button type="button" id="nxtBtn" onclick="nextQuestion()">>>></button>
     </div>
 </body>
 </html>
