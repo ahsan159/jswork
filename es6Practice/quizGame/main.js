@@ -4,6 +4,7 @@ let js;// = require('jsonfile');
 let questionMaxCount = 5;
 let questionCurrent = 0;
 
+let gameStatus;
 
 let a = Math.random()*25+1;
 a = Math.floor(a);
@@ -13,8 +14,9 @@ console.log(cans);
 let score;
 let answerClicked;
 
+
 let questionAsked = {
-    statement:`square of ${a} is`,
+    statement:`Square of ${a} is`,
     correct: cans,
     option1 : 1,
     option2 :2,
@@ -59,8 +61,8 @@ function makeQuestion()
 window.onload = (() => {
     console.log("I am starting");
 
-    document.getElementById("preBtn").hidden = true;
-    document.getElementById("nxtBtn").hidden = true;
+    // document.getElementById("preBtn").hidden = true;
+    // document.getElementById("nxtBtn").hidden = true;
 
     // document.getElementById("questions")
     document.getElementById("questions").hidden = true;
@@ -68,10 +70,13 @@ window.onload = (() => {
     document.getElementById("ans2R").checked = false;
     document.getElementById("ans3R").checked = false;
     document.getElementById("ans4R").checked = false;
+    //document.getElementById("questions").hidden = true;
     
     // js = require('jsonfile');
-
+    
     score = 0;
+    gameStatus = "ready";
+    //startFunction();
 });
 
 function radioClicked(event) {
@@ -91,41 +96,47 @@ function radioClicked(event) {
 
 function startFunction() {
     console.log("start the quiz");
-    document.getElementById("questions").hidden = false;
-    document.getElementById("startBtn").hidden = true;
-    document.getElementById("preBtn").hidden = false;
-    document.getElementById("nxtBtn").hidden = false;
-    makeQuestion();
-}
-
-function prevQuestion() {
-    document.getElementById("preBtn").disabled = false;
-    document.getElementById("nxtBtn").disabled = false;
-    console.log("prevQuestion");
-    questionCurrent = questionCurrent - 1;
-    if (questionCurrent <= 0) {
-        document.getElementById("preBtn").disabled = true;
-        questionCurrent = 0;
+    if (gameStatus == "ready")
+    {
+        console.log("here");
+        document.getElementById("startBtn").textContent = "Next"
+        document.getElementById("questions").hidden = false;
+        document.getElementsByClassName("score")[0].hidden = true;
+        gameStatus = "inprogress";
+        makeQuestion();
     }
-    // console.log(questionCurrent);
-    makeQuestion();
+    else if (gameStatus == "inprogress")
+    {
+        document.getElementById("startBtn").textContent = "Next";
+        document.getElementsByClassName("score")[0].hidden = false;
+        nextQuestion();
+    }   
+                                                                                                                                                                                                                                                                                                                                                                                                     ;
+    
+    //makeQuestion();
 }
 
 function nextQuestion() {
     console.log(answerClicked + " vs " + questionAsked.correct);
+    document.getElementsByClassName("score")[0].hidden = true;
     if (questionAsked.correct==answerClicked)
     {
         score = score  + 1;
         console.log(`score is ${score}.`);
-        document.getElementsByClassName("score")[0].textContent = `Your score is ${score}`;
+        // document.getElementsByClassName("score")[0].textContent = `Your score is ${score}`;
     }
-    document.getElementById("preBtn").disabled = false;
-    document.getElementById("nxtBtn").disabled = false;
+    // document.getElementById("preBtn").disabled = false;
+    // document.getElementById("nxtBtn").disabled = false;
     console.log("nextQuestion");
     questionCurrent = questionCurrent + 1;
     if (questionCurrent >= questionMaxCount) {
-        document.getElementById("nxtBtn").disabled = true;
-        questionCurrent = questionMaxCount - 1;
+        document.getElementById("questions").hidden = true;
+        document.getElementById("startBtn").textContent = "Click to Start!!!"
+        document.getElementsByClassName("score")[0].hidden = false;
+        document.getElementsByClassName("score")[0].textContent = `Your score is ${score}`;
+        gameStatus = "ready";
+        score = 0;
+        questionCurrent = 0;
     }
     // console.log(questionCurrent);
     makeQuestion();
@@ -134,3 +145,16 @@ function nextQuestion() {
     document.getElementById("ans3R").checked = false;
     document.getElementById("ans4R").checked = false;
 }
+
+// function prevQuestion() {
+//     // document.getElementById("preBtn").disabled = false;
+//     // document.getElementById("nxtBtn").disabled = false;
+//     console.log("prevQuestion");
+//     questionCurrent = questionCurrent - 1;
+//     if (questionCurrent <= 0) {
+//         // document.getElementById("preBtn").disabled = true;
+//         questionCurrent = 0;
+//     }
+//     // console.log(questionCurrent);
+//     makeQuestion();
+// }
