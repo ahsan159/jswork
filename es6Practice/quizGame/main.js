@@ -29,7 +29,7 @@ function makeQuestion()
     a = Math.random()*25 + 1;
     a = Math.floor(a);
     cans = a*a;
-    questionAsked.statement = `square of ${a} is`;
+    questionAsked.statement = `Square of ${a} is`;
     questionAsked.correct = cans;
     let cOption = Math.random()*4 + 1;
     cOption = Math.floor(cOption);
@@ -95,10 +95,10 @@ function radioClicked(event) {
 }
 
 function startFunction() {
-    console.log("start the quiz");
+    // console.log("start the quiz");
     if (gameStatus == "ready")
     {
-        console.log("here");
+        // console.log("here");
         document.getElementById("startBtn").textContent = "Next"
         document.getElementById("questions").hidden = false;
         document.getElementsByClassName("score")[0].hidden = true;
@@ -111,23 +111,21 @@ function startFunction() {
         document.getElementsByClassName("score")[0].hidden = false;
         nextQuestion();
     }   
-                                                                                                                                                                                                                                                                                                                                                                                                     ;
-    
     //makeQuestion();
 }
 
 function nextQuestion() {
-    console.log(answerClicked + " vs " + questionAsked.correct);
+    // console.log(answerClicked + " vs " + questionAsked.correct);
     document.getElementsByClassName("score")[0].hidden = true;
     if (questionAsked.correct==answerClicked)
     {
         score = score  + 1;
-        console.log(`score is ${score}.`);
+        // console.log(`score is ${score}.`);
         // document.getElementsByClassName("score")[0].textContent = `Your score is ${score}`;
     }
     // document.getElementById("preBtn").disabled = false;
     // document.getElementById("nxtBtn").disabled = false;
-    console.log("nextQuestion");
+    // console.log("nextQuestion");
     questionCurrent = questionCurrent + 1;
     if (questionCurrent >= questionMaxCount) {
         document.getElementById("questions").hidden = true;
