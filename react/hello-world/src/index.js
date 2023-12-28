@@ -19,7 +19,15 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 //   </React.StrictMode>
 // );
 
-root.render(<h1>Hello World!!!</h1>
+root.render(
+  // commentated can be and should be replaced by React.Fragment
+  // [<h1>Hello World!!!</h1>,<p> This is copying thappa technical and array is the method to render multiple elements in react</p>]
+
+  <React.Fragment>
+    <h1>Hello World!!!</h1>
+    <p>This is copying thappa technical and array is the method to render multiple elements in react.</p>
+    <p> However, we can also use React.Fragment to do the same.</p>
+  </React.Fragment>
   )
 
 // If you want to start measuring performance in your app, pass a function
