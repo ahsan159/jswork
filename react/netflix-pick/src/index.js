@@ -1,16 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
 
+// uisng JSX (Javascript Expressions for list)
+
+const nameArray = [
+  'Dark',
+  'Extra Curricular',
+  'My Holo Love',
+  'My First-2 Love',
+  'Mr Robot'
+]
+
 ReactDOM.render(
   <>
     <h1>My Top 5 Netflix Pick</h1>
     <p> List of 5 Best Series</p>
     <ol>
-      <li>Dark</li>
-      <li>Extra Curricular</li>
-      <li>My Holo Love</li>
-      <li>My First-2 Love</li>
-      <li>Mr Robot</li>
+      <li>{nameArray[0]}</li>
+      <li>{nameArray[1]}</li>
+      <li>{nameArray[2]}</li>
+      <li>{nameArray[3]}</li>
+      <li>{nameArray[4]}</li>
     </ol>
   </>,document.getElementById('root')
 )
