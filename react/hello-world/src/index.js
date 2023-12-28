@@ -1,3 +1,11 @@
+// import React from 'react';
+// import ReactDOM  from 'react-dom';
+
+// ReactDOM.render(<h1>Hello World</h1>,document.getElementById('root'));
+
+
+// below code is automatically generator by create-react-app but above code by thappa technical is also doing the same thing.
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
