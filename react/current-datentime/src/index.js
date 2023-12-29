@@ -22,14 +22,20 @@ root.render(
     {/* <p>My name is {name}</p> */}
     <div className="datentime">
       <p>{`Current Time is ${t.toLocaleTimeString()}`}</p>
+    </div>
+    <div className="datentime">
       <p>{`Current Date is ${t.toLocaleDateString()}`}</p>
     </div>
     <div className="images">
-    <img src={imgLink1} alt="RandomImages"></img>
-    <img src={imgLink2} alt="RandomImages"></img>
-    <img src={imgLink3} alt="RandomImages"></img>
+      <img src={imgLink1} alt="RandomImages"></img>
+      <img src={imgLink2} alt="RandomImages"></img>
+      <img src={imgLink3} alt="RandomImages"></img>
     </div>
-    <a href="http://www.google.com/">This will direct you to another link</a>
+    <div className="linkImage">
+      <a href="https://source.unsplash.com/600x600/?technology">
+        <img src="https://picsum.photos/200/200"></img>
+      </a>
+    </div>
   </>
 );
 
