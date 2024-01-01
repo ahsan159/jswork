@@ -1,20 +1,20 @@
 body {
   margin: 0;
-  padding: 10px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  /* padding: 10px; */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: azure;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
-.heading_style
-{
+.heading_style {
   padding: 30px 0;
   text-align: center;
   /* font-family: 'Driod ' sans-serif; */
@@ -28,47 +28,41 @@ code {
   margin-bottom: 30px;
 }
 
-.cards
-{
+.cards {
   width: 100%;
   height: auto;
 }
 
-.card
-{
+.card {
   margin: 6%;
-  transition:  all 0.4s cubic-bezier(0.175,0.885,0,1);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0, 1);
   background-color: #fff;
   width: 21.25%;
   border-radius: 12px;
-  box-shadow: 0px 13px 10px -7px rgba(0,0,0,0.1);
+  box-shadow: 0px 13px 10px -7px rgba(0, 0, 0, 0.1);
   float: left;
 }
 
-.card:hover
-{
-  box-shadow: 0px 30px 18px -8px rgba(0,0,0,0.1);
-  transform: scale(1.05,1.05);
+.card:hover {
+  box-shadow: 0px 30px 18px -8px rgba(0, 0, 0, 0.1);
+  transform: scale(1.05, 1.05);
 }
 
-.card_img
-{
+.card_img {
   width: 100%;
   height: 235px;
   border-top-right-radius: 12px;
   border-top-left-radius: 12px;
 }
 
-.card_info
-{
+.card_info {
   background-color: #fff;
   border-top-right-radius: 12px;
   border-top-left-radius: 12px;
   padding: 16px 24px 24px 24px;
 }
 
-.card_category
-{
+.card_category {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-transform: uppercase;
   font-size: 13px;
@@ -78,8 +72,7 @@ code {
   background-color: #fff;
 }
 
-.card_title
-{
+.card_title {
   margin-top: 5px;
   margin-bottom: 10px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -87,8 +80,7 @@ code {
   background-color: #fff;
 }
 
-button
-{
+button {
   padding: 5px 8px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-transform: capitalize;
