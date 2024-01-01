@@ -22,7 +22,7 @@ function divide (a,b)
 {
     var c = a/b;
     return (
-        c.toPrecision(3)
+        c.toFixed(2)
     );
 }
 
