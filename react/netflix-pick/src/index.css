@@ -58,3 +58,46 @@ code {
   border-top-right-radius: 12px;
   border-top-left-radius: 12px;
 }
+
+.card_info
+{
+  background-color: #fff;
+  border-top-right-radius: 12px;
+  border-top-left-radius: 12px;
+  padding: 16px 24px 24px 24px;
+}
+
+.card_category
+{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 2px;
+  font-weight: 500;
+  color: #868686;
+  background-color: #fff;
+}
+
+.card_title
+{
+  margin-top: 5px;
+  margin-bottom: 10px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-transform: uppercase;
+  background-color: #fff;
+}
+
+button
+{
+  padding: 5px 8px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-transform: capitalize;
+  color: #868686;
+  background-color: #fff;
+  font-size: 13px;
+  letter-spacing: 2px;
+  font-weight: 500;
+  outline: none;
+  border: 1px solid black;
+  cursor: pointer;
+}
