@@ -26,9 +26,11 @@ root.render(
     {/* using simple function   */}
     {/* {SData.map(ncards)} */}
     {/* annonymus fat arrow function */}
+    {/* a unique "key" is a must for every child react element */}
     {SData.map((val) => {
       return (
         <Card
+          key={val.id}
           imgsrc={val.imgsrc}
           title={val.title}
           sname={val.sname}
