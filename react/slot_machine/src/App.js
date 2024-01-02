@@ -44,7 +44,7 @@ function App() {
       <div className="slotBody">
         <SlotM key={1} x={"😀"} y={"😀"} z={"😆"} />
         <SlotM key={2} x={"😀"} y={"😀"} z={"😀"} />
-        <SlotM key={3} x={"😀"} y={"😀"} z={"😀"} />
+        <SlotM key={3} x={"😀"} y={"😀"} z={"🎅"} />
         <div className="bottomLine"></div>
       </div>
     </>
