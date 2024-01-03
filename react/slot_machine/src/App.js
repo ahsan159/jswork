@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDom from "react-dom/client";
 // import logo from './logo.svg';
+import SlotM from "./SlotM";
 import "./App.css";
 import SData from "./SData";
+
+let ct = new Date();
+// let cTime = ct.toLocaleTimeString();
 
 var r1 = Math.random() * (SData.length - 1);
 r1 = r1.toFixed(0);
@@ -11,35 +15,12 @@ r2 = r2.toFixed(0);
 var r3 = Math.random() * (SData.length - 1);
 r3 = r3.toFixed(0);
 
-const SlotM = (props) => {
-  let { x, y, z } = props;
-  // console.log(`${SData.length} ${r1} ${r2} ${r3}`);
-  if (x === y && z === x) {
-    return (
-      <>
-        <div className="singleSlot">
-          <h1 className="Jackpot">
-            {x} {y} {z}{" "}
-          </h1>
-          <h1 className="Jackpot">🎁 Jackpot 🎁</h1>
-        </div>
-      </>
-    );
-  } else {
-    return (
-      <>
-        <div className="singleSlot">
-          <h1 className="TryAgain">
-            {x} {y} {z}{" "}
-          </h1>
-          <h1 className="TryAgain">💔 better luck next time 💔</h1>
-        </div>
-      </>
-    );
-  }
-};
-
 function App() {
+  const [cTime, setTime] = useState(ct.toLocaleTimeString());  
+  const updateTime = () => {
+    setTime(ct.toLocaleTimeString());
+    ct = new Date();
+  };
   return (
     <>
       <h1 className="heading_style">
@@ -49,6 +30,12 @@ function App() {
         </span>{" "}
         🎰{" "}
       </h1>
+      <div className="clockProj">
+        <h1 className="clockHeader">{cTime}</h1>
+        <button className="clockBtn" onClick={updateTime}>
+          Update Time
+        </button>
+      </div>
       <div className="slotBody">
         <SlotM key={1} x={SData[r1]} y={SData[r2]} z={SData[r3]} />
         <SlotM key={2} x={"😀"} y={"😀"} z={"😀"} />
