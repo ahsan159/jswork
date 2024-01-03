@@ -1,0 +1,29 @@
+.App {
+  text-align: center;
+}
+
+.mainBody {
+  /* background-color: blueviolet; */
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mainBtn {
+  border-width: 3px;
+  /* border-style: solid; */
+  border-radius: 10px;
+  border-color: aliceblue;
+  background-color: blueviolet;
+  width: 150px;
+  height: 75px;
+  font-size: 1.2rem;
+  color: aliceblue;
+  /* margin: auto; */
+} 
+
+.mainBtn:hover {
+  cursor: pointer;
+}
