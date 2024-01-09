@@ -35,10 +35,10 @@ const App = () => {
           Click Me 👍
         </button>
         <button className="mainBtn" onClick={updateHeadingUpper}>
-          Uppercase ⬆️
+          UPPERCASE ⬆️
         </button>
         <button className="mainBtn" onClick={updateHeadingLower}>
-          Click Me ⬇️
+          lowercase ⬇️
         </button>
       </div>
     </>
