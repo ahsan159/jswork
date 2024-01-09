@@ -3,7 +3,7 @@
 }
 
 .mainBody {
-  background-color: blueviolet;
+  background-color: rgb(164, 102, 223);
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -20,7 +20,7 @@
   width: 150px;
   height: 75px;
   font-size: 1.2rem;
-  background-color: blueviolet;
+  background-color: rgb(77, 13, 138);
   color: aliceblue;
   /* margin: auto; */
 }
