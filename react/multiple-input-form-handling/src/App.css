@@ -1,0 +1,44 @@
+.App {
+  text-align: center;
+}
+
+.mainBody {
+  background-color: rgb(128, 44, 206);
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.mainBtn {
+  border-width: 3px;
+  border-color: white;
+  border-radius: 10px;
+  margin: 30px;
+  width: 170px;
+  height: 75px;
+  font-size: 1.2rem;
+  background-color: rgb(126, 81, 168);
+  color: white;
+  /* margin: auto; */
+}
+
+.mainBtn:hover {
+  cursor: pointer;
+}
+
+.mainHeading {
+  color: aliceblue;
+  font-size: 2.4rem;
+}
+
+.mainText {
+  width: 350px;
+  height: 40px;
+  text-align: center;
+  font-size: large;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
