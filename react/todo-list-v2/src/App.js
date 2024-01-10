@@ -1,24 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+// import logo from './logo.svg';
+import "./App.css";
 
 function App() {
+  let tasks = [];
+  let [todoEntry, todoEntryUpdate] = useState("");
+
+  const textOnChange = (event) => {
+    todoEntryUpdate(event.target.value);
+  };
+
+  const addEntry = () => {
+    tasks.push(todoEntry);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="body">
+        <div className="mainBody">
+          <h1 className="todoHeading">TODO List App</h1>
+          <div className="todoEntry">
+            <input
+              className="todoInput"
+              type="text"
+              name="task"
+              value={todoEntry}
+              onChange={textOnChange}
+              placeholder="Enter Task"
+            ></input>
+            <button className="todoBtn" onClick={addEntry}>
+              +
+            </button>
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
 
