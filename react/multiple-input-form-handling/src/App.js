@@ -14,32 +14,35 @@ const App = () => {
     nameUpdate(event.target.value);
   };
 
-  const updateHeading = () => {
+  const updateHeading = (event) => {
+    event.preventDefault();
     updateMessageToShow(inputName + inputPassword);
   };
 
   return (
     <>
-      <div className="mainBody">
-        <h1 className="mainHeading"> {messageToShow} </h1>
-        <input
-          type="text"
-          className="mainText"
-          placeholder="Enter Your Name"
-          value={inputName}
-          onChange={inputTextNameChange}
-        ></input>
-        <input
-          type="text"
-          className="mainText"
-          placeholder="Enter Your Password"
-          value={inputPassword}
-          onChange={inputTextPasswordChange}
-        ></input>
-        <button className="mainBtn" onClick={updateHeading}>
-          Click Me 👍
-        </button>
-      </div>
+      <form onSubmit={updateHeading}>
+        <div className="mainBody">
+          <h1 className="mainHeading"> {messageToShow} </h1>
+          <input
+            type="text"
+            className="mainText"
+            placeholder="Enter Your Name"
+            value={inputName}
+            onChange={inputTextNameChange}
+          ></input>
+          <input
+            type="password"
+            className="mainText"
+            placeholder="Enter Your Password"
+            value={inputPassword}
+            onChange={inputTextPasswordChange}
+          ></input>
+          <button type="submit" className="mainBtn" >
+            Click Me 👍
+          </button>
+        </div>
+      </form>
     </>
   );
 };
