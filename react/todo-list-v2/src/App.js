@@ -2,8 +2,8 @@ import React, { useState } from "react";
 // import logo from './logo.svg';
 import "./App.css";
 
+let tasks = [];
 function App() {
-  let tasks = [];
   let [todoEntry, todoEntryUpdate] = useState("");
 
   const textOnChange = (event) => {
@@ -12,6 +12,8 @@ function App() {
 
   const addEntry = () => {
     tasks.push(todoEntry);
+    console.log(todoEntry);
+    console.log(tasks);
   };
 
   return (

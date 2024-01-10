@@ -44,9 +44,8 @@
   color: whitesmoke;
 }
 
-.todoInput::placeholder
-{
-  color: whitesmoke;  
+.todoInput::placeholder {
+  color: whitesmoke;
 }
 
 .todoBtn {
@@ -57,11 +56,11 @@
   border-radius: 20px;
   font-size: 2rem;
   font-weight: 1000;
-  color: aliceblue;
-  background-color: rgb(44, 44, 129);
+  color: black;
+  /* background-color: rgb(44, 44, 129); */
+  background-color: aliceblue;
 }
 
-.todoBtn:hover
-{
-  background-color: aqua;
+.todoBtn:hover {
+  color: blueviolet;
 }
