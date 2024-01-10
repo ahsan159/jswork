@@ -5,15 +5,18 @@ function App() {
   let userDataFormat = ["username", "password", "email", "contact"];
   let [displayData, updateDisplayData] = useState("Hello");
   let [loginData, loginDataUpdate] = useState({
-    uname: "",
+    username: "",
     password: "",
     email: "",
     contact: "",
   });
   const submitForm = (event) => {
     event.preventDefault();
-    updateDisplayData(`${loginData.uname} ${loginData.password} ${loginData.email} ${loginData.contact}`)
+    updateDisplayData(
+      `${loginData.username} ${loginData.password} ${loginData.email} ${loginData.contact}`
+    );
   };
+
   const inputTextChangeEvent = (event) => {
     const cname = event.target.name;
     const cvalue = event.target.value;
@@ -21,36 +24,46 @@ function App() {
     // const { cname, cvalue } = event.target;
     // console.log(cname);
     // console.log(cvalue);
+
+    // below code can be extended in few lines using array destructuring
+    // however this require simular name and variable to work
+    // loginDataUpdate((preData) => {
+    //   if (cname === userDataFormat[0]) {
+    //     return {
+    //       uname: cvalue,
+    //       password: preData.password,
+    //       email: preData.email,
+    //       contact: preData.contact,
+    //     };
+    //   } else if (cname === userDataFormat[1]) {
+    //     return {
+    //       uname: preData.uname,
+    //       password: cvalue,
+    //       email: preData.email,
+    //       contact: preData.contact,
+    //     };
+    //   } else if (cname === userDataFormat[2]) {
+    //     return {
+    //       uname: preData.uname,
+    //       password: preData.password,
+    //       email: cvalue,
+    //       contact: preData.contact,
+    //     };
+    //   } else if (cname === userDataFormat[3]) {
+    //     return {
+    //       uname: preData.uname,
+    //       password: preData.password,
+    //       email: preData.email,
+    //       contact: cvalue,
+    //     };
+    //   }
+    // });
+
     loginDataUpdate((preData) => {
-      if (cname === userDataFormat[0]) {
-        return {
-          uname: cvalue,
-          password: preData.password,
-          email: preData.email,
-          contact: preData.contact,
-        };
-      } else if (cname === userDataFormat[1]) {
-        return {
-          uname: preData.uname,
-          password: cvalue,
-          email: preData.email,
-          contact: preData.contact,
-        };
-      } else if (cname === userDataFormat[2]) {
-        return {
-          uname: preData.uname,
-          password: preData.password,
-          email: cvalue,
-          contact: preData.contact,
-        };
-      } else if (cname === userDataFormat[3]) {
-        return {
-          uname: preData.uname,
-          password: preData.password,
-          email: preData.email,
-          contact: cvalue,
-        };
-      }
+      return {
+        ...preData,
+        [cname]: cvalue,
+      };
     });
   };
 
@@ -64,7 +77,7 @@ function App() {
             type="text"
             name={userDataFormat[0]}
             placeholder="Enter your name"
-            value={loginData.uname}
+            value={loginData.username}
             onChange={inputTextChangeEvent}
           ></input>
           <input
