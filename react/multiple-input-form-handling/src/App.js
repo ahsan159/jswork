@@ -15,7 +15,7 @@ const App = () => {
   };
 
   const updateHeading = (event) => {
-    event.preventDefault();
+    event.preventDefault(); 
     updateMessageToShow(inputName + inputPassword);
   };
 
@@ -38,7 +38,7 @@ const App = () => {
             value={inputPassword}
             onChange={inputTextPasswordChange}
           ></input>
-          <button type="submit" className="mainBtn" >
+          <button type="submit" className="mainBtn">
             Click Me 👍
           </button>
         </div>
