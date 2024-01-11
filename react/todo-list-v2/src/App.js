@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 // import logo from './logo.svg';
 import "./App.css";
+import Task from "./Task";
 
 let tasks = [];
 function App() {
@@ -34,6 +35,9 @@ function App() {
               +
             </button>
           </div>
+          <Task id='1' task='todolist'></Task>          
+          <Task id='2' task='todolist'></Task>
+          <Task id='3' task='todolist'></Task>
         </div>
       </div>
     </>
