@@ -2,19 +2,24 @@ import React, { useState } from "react";
 // import logo from './logo.svg';
 import "./App.css";
 import Task from "./Task";
+import TaskData from "./TaskData";
 
-let tasks = [];
 function App() {
   let [todoEntry, todoEntryUpdate] = useState("");
+  let [updatedToDoList,toupdateMethod] = useState(TaskData);
 
   const textOnChange = (event) => {
-    todoEntryUpdate(event.target.value);
-  };
-
-  const addEntry = () => {
-    tasks.push(todoEntry);
     console.log(todoEntry);
-    console.log(tasks);
+    todoEntryUpdate(event.target.value);
+    console.log(todoEntry);
+  };
+  
+  const addEntry = () => {
+    updatedToDoList = [...updatedToDoList,todoEntry];
+    // todoEntryUpdate(todoEntry);
+    console.log(todoEntry);
+    console.log(TaskData);
+    toupdateMethod(updatedToDoList);
   };
 
   return (
@@ -35,9 +40,14 @@ function App() {
               +
             </button>
           </div>
-          <Task id='1' task='todolist'></Task>          
-          <Task id='2' task='todolist'></Task>
-          <Task id='3' task='todolist'></Task>
+          {updatedToDoList.map((val,index)=> {
+            return (
+              <Task key={index} task={val}></Task>
+            ); }
+          )}
+          {/* <Task id="1" task="todolist"></Task>
+          <Task id="2" task="todolist"></Task>
+          <Task id="3" task="todolist"></Task> */}
         </div>
       </div>
     </>

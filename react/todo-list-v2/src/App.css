@@ -20,7 +20,7 @@
   justify-content: flex-start;
   border-width: 0;
   border-radius: 20px;
-  min-height: 40vh;
+  /* min-height: 40vh; */
 }
 
 .todoHeading {
@@ -46,6 +46,11 @@
 
 .todoInput::placeholder {
   color: whitesmoke;
+  border-color: aliceblue;
+}
+
+.todoInput:scope {
+  border-width: 0 0 2px 0;
 }
 
 .todoBtn {
