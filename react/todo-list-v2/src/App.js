@@ -1,25 +1,32 @@
 import React, { useState } from "react";
-// import logo from './logo.svg';
 import "./App.css";
 import Task from "./Task";
-import TaskData from "./TaskData";
+// import logo from './logo.svg';
+// import TaskData from "./TaskData";
 
 function App() {
   let [todoEntry, todoEntryUpdate] = useState("");
-  let [updatedToDoList,toupdateMethod] = useState(TaskData);
+  let [updatedToDoList, toupdateMethod] = useState([]);
 
   const textOnChange = (event) => {
-    console.log(todoEntry);
+    // console.log(todoEntry);
     todoEntryUpdate(event.target.value);
-    console.log(todoEntry);
+    // console.log(todoEntry);
   };
-  
+
   const addEntry = () => {
-    updatedToDoList = [...updatedToDoList,todoEntry];
-    // todoEntryUpdate(todoEntry);
-    console.log(todoEntry);
-    console.log(TaskData);
+    updatedToDoList = [...updatedToDoList, todoEntry];
+    // TaskData = [...TaskData,todoEntry];
+    // TaskData = updatedToDoList;
     toupdateMethod(updatedToDoList);
+  };
+
+  const removeTaskEntry = (event) => {
+    // console.log(event.target.value);
+    // updatedToDoList.splice(event.target.value, 1);
+    const first = updatedToDoList.slice(0, Number(event.target.value));
+    const second = updatedToDoList.slice(Number(event.target.value) + 1);
+    toupdateMethod([...first, ...second]);
   };
 
   return (
@@ -40,11 +47,16 @@ function App() {
               +
             </button>
           </div>
-          {updatedToDoList.map((val,index)=> {
+          {updatedToDoList.map((val, index, array) => {
             return (
-              <Task key={index} task={val}></Task>
-            ); }
-          )}
+              <Task
+                key={index}
+                task={val}
+                id={index}
+                removeFunction={removeTaskEntry}
+              ></Task>
+            );
+          })}
           {/* <Task id="1" task="todolist"></Task>
           <Task id="2" task="todolist"></Task>
           <Task id="3" task="todolist"></Task> */}
