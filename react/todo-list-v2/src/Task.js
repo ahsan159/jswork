@@ -10,7 +10,7 @@ const Task = (props) => {
           className="deleteTaskBtn"
           value={props.id}
         >
-          -
+          X
         </button>
         <h1 className="taskDescription">{props.task}</h1>
       </div>

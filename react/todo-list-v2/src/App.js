@@ -18,6 +18,7 @@ function App() {
     updatedToDoList = [...updatedToDoList, todoEntry];
     // TaskData = [...TaskData,todoEntry];
     // TaskData = updatedToDoList;
+    todoEntryUpdate("");
     toupdateMethod(updatedToDoList);
   };
 
