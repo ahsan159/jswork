@@ -26,12 +26,10 @@ function App() {
           <input type="text" className="inputNumber" value={count}></input>
           <div className="buttonDiv">
             <button className="Btn" onClick={increment}>
-              <AddIcon style={{ backgroundColor: (117, 110, 218) }}></AddIcon>
+              <AddIcon></AddIcon>
             </button>
             <button className="Btn" onClick={decrement}>
-              <RemoveIcon
-                style={{ backgroundColor: (117, 110, 218) }}
-              ></RemoveIcon>
+              <RemoveIcon></RemoveIcon>
             </button>
           </div>
         </div>
