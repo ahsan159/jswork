@@ -42,6 +42,7 @@
   width: 100%;
   height: 40px;
   margin: 40px;
+  padding: 5px;
 
   background-color: rgb(117,110,218);
   color: #ffffff;
@@ -58,9 +59,20 @@
 }
 
 .Btn
-{
+{  
   margin: 40px;
   background-color: rgb(117, 110, 218);
   color: white;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.Btn:hover
+{
+  background-color: blueviolet;
+}
+
+.AddIcon
+{
+  color: #000;
 }

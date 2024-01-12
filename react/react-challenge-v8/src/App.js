@@ -1,5 +1,8 @@
 import React, { useState } from "react";
+import AddIcon from "@mui/icons-material/Add";
+import RemoveIcon from "@mui/icons-material/Remove";
 import "./App.css";
+import { colors } from "@mui/material";
 // import logo from './logo.svg';
 
 function App() {
@@ -23,10 +26,12 @@ function App() {
           <input type="text" className="inputNumber" value={count}></input>
           <div className="buttonDiv">
             <button className="Btn" onClick={increment}>
-              Increment
+              <AddIcon style={{ backgroundColor: (117, 110, 218) }}></AddIcon>
             </button>
             <button className="Btn" onClick={decrement}>
-              Decrement
+              <RemoveIcon
+                style={{ backgroundColor: (117, 110, 218) }}
+              ></RemoveIcon>
             </button>
           </div>
         </div>
