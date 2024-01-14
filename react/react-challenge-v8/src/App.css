@@ -1,21 +1,19 @@
-*{
-  background-color: rgb(178, 200, 219);
+* {
   margin: 0;
   padding: 0;
 }
 
-.main
-{
+.main {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100vw;
   height: 100vh;
+  background-color: rgb(178, 200, 219);
 }
 
-.mainBody
-{
+.mainBody {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -23,28 +21,26 @@
 
   padding-top: 20px;
   padding-bottom: 20px;
-  width: 40vw;  
+  width: 40vw;
   height: 40vh;
   background-color: white;
-  border-radius: 20px;    
+  border-radius: 20px;
 }
 
-.mainHeader
-{
+.mainHeader {
   width: 100%;
   background-color: rgb(117, 110, 218);
   text-align: center;
   color: white;
 }
 
-.inputNumber
-{
+.inputNumber {
   width: 100%;
   height: 40px;
   margin: 40px;
   padding: 5px;
 
-  background-color: rgb(117,110,218);
+  background-color: rgb(117, 110, 218);
   color: #ffffff;
   border: 0;
 
@@ -53,13 +49,11 @@
   text-align: center;
 }
 
-.buttonDiv
-{
-  background-color: white;  
+.buttonDiv {
+  background-color: white;
 }
 
-.Btn
-{  
+.Btn {
   margin: 40px;
   background-color: rgb(117, 110, 218);
   color: black;
@@ -67,12 +61,11 @@
   font-weight: 700;
 }
 
-.Btn:hover
-{
+.Btn:hover {
   background-color: blueviolet;
 }
 
-.AddIcon
-{
-  color: #000;
+AddIcon {
+  font-size: larger;
+  color:aqua;  
 }
