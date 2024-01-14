@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import "./App.css";
-import { colors } from "@mui/material";
+// import { colors } from "@mui/material";
 // import logo from './logo.svg';
 
 function App() {
@@ -26,10 +26,20 @@ function App() {
           <input type="text" className="inputNumber" value={count}></input>
           <div className="buttonDiv">
             <button className="Btn" onClick={increment}>
-              <AddIcon></AddIcon>
+              <AddIcon
+                style={{
+                  fontSize: "3rem",
+                  color: "#ffffff",
+                }}
+              ></AddIcon>
             </button>
             <button className="Btn" onClick={decrement}>
-              <RemoveIcon></RemoveIcon>
+              <RemoveIcon
+                style={{
+                  fontSize: "3rem",
+                  color: "#ffffff",
+                }}
+              ></RemoveIcon>
             </button>
           </div>
         </div>
