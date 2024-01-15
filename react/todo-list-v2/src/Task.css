@@ -1,32 +1,17 @@
 .taskClass {
-  margin: 5px 0;
+  margin: 5px 0 5px 25%;  
   width: 80%;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 }
 
 .taskDescription {
   margin: 10px 20px;
+  /* padding-left: 10%; */
   letter-spacing: 3px;
   /* border-color: aliceblue; */
-  color: whitesmoke;
+  color: black;
   text-align: left;
-}
-
-.deleteTaskBtn {
-  display: flex;
-  margin: 10px 20px;
-  width: 40px;
-  height: 40px;
-  border-radius: 20px;
-  font-size: 1.3rem;
-  font-weight: 1000;
-  justify-content: center;
-  align-items: center;
-}
-
-.deleteTaskBtn:hover {
-  color: red;
 }

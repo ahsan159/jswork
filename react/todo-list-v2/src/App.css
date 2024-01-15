@@ -9,11 +9,12 @@
   height: 100vh;
   justify-content: center;
   align-items: center;
+  background-color: lightgreen;
 }
 
 .mainBody {
   width: 50vw;
-  background-color: rgb(146, 98, 192);
+  background-color: whitesmoke;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,7 +25,7 @@
 }
 
 .todoHeading {
-  background-color: aliceblue;
+  background-color: rgb(146, 98, 192);
   width: 100%;
   margin: 20px 0;
   text-align: center;
@@ -35,37 +36,34 @@
   align-items: center;
   padding-bottom: 20px;
 }
-.todoInput {
+
+/* .todoInput {
   height: 50px;
-  background-color: rgb(146, 98, 192);
+  background-color:inherit;
   border-width: 0 0 2px 0;
-  border-color: aliceblue;
+  border-color: black;
   text-align: center;
   font-size: 1.2rem;
-  color: whitesmoke;
-}
-
+  color: black;
+} */
+/* 
 .todoInput::placeholder {
-  color: whitesmoke;
-  border-color: aliceblue;
-}
+  color: grey;
+} */
+/* border-color: aliceblue; */
 
-.todoInput:scope {
-  border-width: 0 0 2px 0;
-}
-
-.todoBtn {
+/* border-color: aliceblue; */
+/* .todoBtn {
   width: 40px;
   height: 40px;
   margin-left: 20px;
-  /* border-color: aliceblue; */
   border-radius: 20px;
   font-size: 2rem;
   font-weight: 1000;
-  color: black;
-  /* background-color: rgb(44, 44, 129); */
-  background-color: aliceblue;
-}
+  color: white;
+  background-color: rgb(146, 98, 192);
+} */
+/* background-color: rgb(44, 44, 129); */
 
 .todoBtn:hover {
   color: green;
