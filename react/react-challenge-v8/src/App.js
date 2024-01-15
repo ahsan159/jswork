@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
+import { Button } from "@mui/material";
 import "./App.css";
 // import { colors } from "@mui/material";
 // import logo from './logo.svg';
@@ -25,22 +26,38 @@ function App() {
           <h1 className="mainHeader">Increment/Decrement</h1>
           <input type="text" className="inputNumber" value={count}></input>
           <div className="buttonDiv">
-            <button className="Btn" onClick={increment}>
+            <Button
+              variant="outlined"
+              color="success"
+              className="incBtn"
+              onClick={increment}
+              style={{padding:"0"}}
+            >
               <AddIcon
                 style={{
-                  fontSize: "3rem",
-                  color: "#ffffff",
+                  backgroundColor: "green",
+                  color: "white",                  
+                  width: "100%",
+                  height: "100%",                  
                 }}
               ></AddIcon>
-            </button>
-            <button className="Btn" onClick={decrement}>
+            </Button>
+            <Button
+              variant="outlined"
+              color="error"
+              className="decBtn"
+              onClick={decrement}
+              style={{ padding: 0 }}
+            >
               <RemoveIcon
                 style={{
-                  fontSize: "3rem",
-                  color: "#ffffff",
+                  backgroundColor: "red",
+                  color: "white",                  
+                  width: "100%",
+                  height: "100%",
                 }}
               ></RemoveIcon>
-            </button>
+            </Button>
           </div>
         </div>
       </div>

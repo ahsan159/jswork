@@ -10,7 +10,7 @@
   align-items: center;
   width: 100vw;
   height: 100vh;
-  background-color: rgb(178, 200, 219);
+  background-color: white;
 }
 
 .mainBody {
@@ -22,26 +22,25 @@
   padding-top: 20px;
   padding-bottom: 20px;
   width: 40vw;
-  height: 40vh;
-  background-color: white;
+  background-color: rgb(178, 200, 219);
   border-radius: 20px;
 }
 
 .mainHeader {
   width: 100%;
-  background-color: rgb(117, 110, 218);
+  background-color: azure;
   text-align: center;
-  color: white;
+  color: black;
 }
 
 .inputNumber {
   width: 100%;
   height: 40px;
-  margin: 40px;
+  margin: 40px 0px;
   padding: 5px;
 
-  background-color: rgb(117, 110, 218);
-  color: #ffffff;
+  background-color: azure;
+  color: black;
   border: 0;
 
   font-size: 2.5rem;
@@ -50,22 +49,20 @@
 }
 
 .buttonDiv {
-  background-color: white;
+  /* background-color: white; */
+  width: 50%;
+  display: flex;
+  justify-content: space-evenly;
 }
 
-.Btn {
-  margin: 40px;
-  background-color: rgb(117, 110, 218);
-  color: black;
-  font-size: 1.5rem;
-  font-weight: 700;
+.decBtn::hover
+{
+  color:aqua  
 }
 
-.Btn:hover {
-  background-color: blueviolet;
+.decBtn {
+  height: 60px;
 }
-
-AddIcon {
-  font-size: larger;
-  color:aqua;  
+.incBtn {
+  height: 60px;
 }
