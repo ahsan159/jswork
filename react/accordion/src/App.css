@@ -9,12 +9,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: bisque;
 }
 
 .accordionDiv
 {
   width: 40%;
-  background-color: aqua;
+  /* background-color: aqua; */
   border-radius: 10px;
   padding: 5px;
 }

@@ -1,0 +1,28 @@
+.accordion {
+    margin: 10px 10px;
+    /* padding: 10px; */
+    border-bottom-right-radius: 15px;
+    background-color: azure;
+    border-top-left-radius: 15px;
+}
+.accordionHeader {
+    display: flex;
+    flex-direction: row;
+    background-color: aquamarine;
+    padding: 10px 0;
+    border-top-left-radius: 15px;
+}
+.accordionHeaderText {
+    margin-left: 20px;    
+    font-size: 1.2rem;
+}
+.accordionBtn {
+    margin-left: 20px;
+    width: 30px;
+    height: 30px;
+    
+}
+.accordionData {
+    padding: 0px 20px;
+    text-align: justify;
+}

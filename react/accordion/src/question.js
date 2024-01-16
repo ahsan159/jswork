@@ -34,6 +34,12 @@ const questions = [
     answer:
       "DOM stands for the document object nodel. The dom represents the html document with a logical tree structure",
   },
+  {
+    id: 7,
+    question: "quadratic equation?",
+    answer:
+      "-b/2 ",
+  },
 ];
 
 
