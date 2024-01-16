@@ -1,0 +1,20 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.mainBody
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.accordionDiv
+{
+  width: 40%;
+  background-color: aqua;
+  border-radius: 10px;
+  padding: 5px;
+}
