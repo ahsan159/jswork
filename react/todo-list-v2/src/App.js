@@ -17,20 +17,25 @@ function App() {
   };
 
   const addEntry = () => {
-    updatedToDoList = [...updatedToDoList, todoEntry];
-    // TaskData = [...TaskData,todoEntry];
-    // TaskData = updatedToDoList;
-    todoEntryUpdate("");
-    toupdateMethod(updatedToDoList);
+    if (todoEntry.length > 0) {
+      updatedToDoList = [...updatedToDoList, todoEntry];
+      todoEntryUpdate("");
+      toupdateMethod(updatedToDoList);
+    }
   };
 
-  const removeTaskEntry = (event) => {
-    console.log(event.target.value);
+  const removeTaskEntry = (taskToRemove) => {
+    // console.log(event.target.value);
     console.log(updatedToDoList);
-    // updatedToDoList.splice(event.target.value, 1);
-    const first = updatedToDoList.slice(0, Number(event.target.value));
-    const second = updatedToDoList.slice(Number(event.target.value) + 1);
-    toupdateMethod([...first, ...second]);
+    console.log(taskToRemove);
+
+    // new method using filter
+    toupdateMethod(updatedToDoList.filter((task) => task !== taskToRemove));
+
+    // old method
+    // const first = updatedToDoList.slice(0, Number(event.target.value));
+    // const second = updatedToDoList.slice(Number(event.target.value) + 1);
+    // toupdateMethod([...first, ...second]);
   };
 
   return (
