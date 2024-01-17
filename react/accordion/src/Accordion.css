@@ -21,8 +21,20 @@
     height: 30px;
     
 }
+
+@keyframes animateAccordionData {
+    0% {height: 0; opacity: 1; }
+    25% {height: 25%; opacity: 0.25;}
+    50% {height: 50%; opacity: 0.50;}
+    75% {height: 75%; opacity: 0.75;}
+    100% {height: 100%; opacity: 1;}
+}
 .accordionData {
     padding: 0px 20px;
     text-align: justify;
     background-color: lightgreen;
+    border-bottom-right-radius: 15px;
+    animation-name: animateAccordionData;
+    animation-duration: 4s;
+    animation-timing-function: ease-in;
 }
