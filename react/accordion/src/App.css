@@ -3,17 +3,18 @@
   padding: 0;
 }
 
-.mainBody
-{
+.mainBody {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  background-color: bisque;
+  width: 100vw;
+  height: 100vh;
+  background-color: beige;
 }
 
-.accordionDiv
-{
+.accordionDiv {
+  background-color: azure;
   width: 40%;
   /* background-color: aqua; */
   border-radius: 10px;
