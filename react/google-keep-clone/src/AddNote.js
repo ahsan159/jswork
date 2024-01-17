@@ -13,8 +13,10 @@ const AddNote = () => {
           <h1 className="text-dark text-center">Data</h1>
         </div>
         <div className="row m-5 d-flex justify-content-center">
-            <TextField multiline label="input" className="col-3"></TextField>
-            <Button variant="contained" className="buttonAdd">➕</Button>
+          <TextField multiline label="input" className="col-3"></TextField>
+          <button type="button" className="btn rounded-circle col-1 editBtn">
+            <AddIcon style={{ color: "white", fontSize: "2rem" }}></AddIcon>
+          </button>
         </div>
       </div>
     </>

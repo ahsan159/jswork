@@ -1,6 +1,8 @@
-.buttonAdd
-{
-    height: 25;
-    width: 25;
-    color: aqua;
+.editBtn {    
+    margin-bottom: -20px; 
+    margin-top: 20px;
+    margin-left: -20px;
+    margin-right: 20px;
+    background-color: rgb(26, 61, 214);
+    color: black;
 }
