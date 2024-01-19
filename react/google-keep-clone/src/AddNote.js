@@ -10,7 +10,7 @@ const AddNote = () => {
 
   const headerClicked = () => {
     updateState(false);
-  }
+  };
   const textFocusLost = () => {
     // updateState(false);
     console.log("I have lost focused");
@@ -24,27 +24,32 @@ const AddNote = () => {
   return (
     <>
       <div className="container-fluid d-flex flex-column p-0 m-0 justify-content-center">
-        <div className="row m-5">
-          <h1 className="text-dark text-center">Data</h1>
-        </div>
-        <div className="m-5 d-flex flex-column justify-content-center align-items-center">
-          {state && <TextField className="col-3" label="Header" onClick={headerClicked}></TextField>}
-          <TextField
-            multiline
-            className="col-3"
-            onFocus={textFocusResponse}
-            onBlur={textFocusLost}
-          ></TextField>
-          {/* onClick={textClickResponse} */}
-          <button type="button" className="btn rounded-circle editBtn">
-            <AddIcon
-              sx={{
-                stroke: "white",
-                strokeWidth: 7,
-                fontSize: "2rem",
-              }}
-            ></AddIcon>
-          </button>
+        <div className="d-flex flex-column align-items-center bg-warning">
+          <div className="addNoteDiv d-flex flex-column">
+            {
+              <TextField
+                className="addNoteCSS"
+                label="Header"
+                onClick={headerClicked}
+                sx={{ strokeWidth: 0 }}
+              ></TextField>
+            }
+            <TextField
+              multiline
+              className="addNoteCSS"
+              onFocus={textFocusResponse}
+              onBlur={textFocusLost}
+            ></TextField>
+            <button type="button" className="btn rounded-circle editBtn">
+              <AddIcon
+                sx={{
+                  stroke: "yellow",
+                  strokeWidth: 2,
+                  fontSize: "2rem",
+                }}
+              ></AddIcon>
+            </button>
+          </div>
         </div>
       </div>
     </>

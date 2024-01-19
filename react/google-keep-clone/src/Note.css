@@ -1,0 +1,28 @@
+.notes {
+    border-radius: 5px;
+    margin: 15px 10px;
+    width: 350px;
+    position: relative;
+    box-shadow: 3px 3px 2px grey;
+  }
+
+  .notes p {
+    text-wrap: wrap;
+    margin-bottom: 25px;
+  }
+  
+  .mybtn {
+    border-radius: 50%;
+    width: 30px;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;  
+    cursor: pointer;
+    &:hover{
+        opacity: .8;
+        box-shadow: aliceblue;
+    }
+  }
+  
