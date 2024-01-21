@@ -6,8 +6,8 @@ const Navbar = () => {
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <div className="container-fluid">
-          <img src={logo} alt="logo" className="navbar-brand" width={60} ></img>
+        <div className="container-fluid d-flex justify-content-start bg-info">
+          <img src={logo} alt="logo" className="navbar-brand" width={60}></img>
           <a className="navbar-brand" href="#">
             Google Keep
           </a>
@@ -21,7 +21,7 @@ const Navbar = () => {
             aria-label="Toggle navigation"
           >
             <span className="navbar-toggler-icon"></span>
-          </button> */}         
+          </button> */}
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             {/* <div className="navbar-nav">
               <a className="nav-link active" aria-current="page" href="#">

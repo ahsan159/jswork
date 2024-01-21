@@ -24,7 +24,7 @@ const AddNote = () => {
   return (
     <>
       <div className="container-fluid d-flex flex-column p-0 m-0 justify-content-center">
-        <div className="d-flex flex-column align-items-center bg-warning">
+        <div className="d-flex flex-column align-items-center">
           <div className="addNoteDiv d-flex flex-column">
             {
               <TextField
@@ -37,7 +37,7 @@ const AddNote = () => {
             <TextField
               multiline
               className="addNoteCSS"
-              onFocus={textFocusResponse}
+              onFocus={textFocusResponse} ,mmkjjjjjjjkkj 
               onBlur={textFocusLost}
             ></TextField>
             <button type="button" className="btn rounded-circle editBtn">
