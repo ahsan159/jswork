@@ -4,8 +4,8 @@ import "./SavedNotes.css";
 import DeleteIcon from "@mui/icons-material/DeleteOutlined";
 import Note from "./Note";
 
-const SavedNotes = () => {
-  const removeNote = () => {
+const SavedNotes = (props) => {
+  const removeNote = (event) => {
     console.log(" I am Clicked");
   };
   return (
@@ -31,6 +31,16 @@ const SavedNotes = () => {
           note="This is the note and it should wrap. Yes this is wrapping front end is working pretty much flawless but main functionality using javascript and react is remaining to be added. I think these notes are taking area in the delete button this part of text will confirm this."
           removeNote={removeNote}
         ></Note>
+        {props.taskArray.map((cItem, index) => {
+          return (
+            <Note
+              key={cItem.id}
+              title={cItem.title}
+              note={cItem.task}
+              removeNote={removeNote}
+            ></Note>
+          );
+        })}
       </div>
     </>
   );

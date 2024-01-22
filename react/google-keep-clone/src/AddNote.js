@@ -5,8 +5,19 @@ import AddIcon from "@mui/icons-material/Add";
 // import Button from "@mui/material/Button";
 // import { IconButton } from "@mui/material";
 
-const AddNote = () => {
+const AddNote = (props) => {
+  let [headerText, headerTextUpdated] = useState("");
+  let [taskText, taskTextUpdated] = useState("");
+
   let [state, updateState] = useState(false);
+
+  const addTaskToArray = () => {
+    console.log(`${headerText} Data is ${taskText}`);
+    let t = {id:20,title:headerText,task:taskText};
+    headerTextUpdated("");
+    taskTextUpdated("");
+    props.updatedTasks([...props.taskArray,t]);
+  };
 
   const headerClicked = () => {
     updateState(false);
@@ -28,19 +39,32 @@ const AddNote = () => {
           <div className="addNoteDiv d-flex flex-column">
             {
               <TextField
+                Text
                 className="addNoteCSS"
                 label="Header"
                 onClick={headerClicked}
                 sx={{ strokeWidth: 0 }}
+                value={headerText}
+                onChange={(event) => {
+                  headerTextUpdated(event.target.value);
+                }}
               ></TextField>
             }
             <TextField
               multiline
               className="addNoteCSS"
-              onFocus={textFocusResponse} ,mmkjjjjjjjkkj 
+              onFocus={textFocusResponse}
               onBlur={textFocusLost}
+              value={taskText}
+              onChange={(event) => {
+                taskTextUpdated(event.target.value);
+              }}
             ></TextField>
-            <button type="button" className="btn rounded-circle editBtn">
+            <button
+              type="button"
+              className="btn rounded-circle editBtn"
+              onClick={addTaskToArray}
+            >
               <AddIcon
                 sx={{
                   stroke: "yellow",
