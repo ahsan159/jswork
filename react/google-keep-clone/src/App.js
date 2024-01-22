@@ -9,11 +9,19 @@ import DataAdaptor from "./DataAdaptor.js";
 
 function App() {    
   let [tasks,updatetasks] = useState(DataAdaptor);
+  const removeTask = (task,header,id)=>
+  {
+    console.log("I am called");
+    // console.log(tasks);
+    console.log(task);
+    updatetasks(tasks.filter(taskItem=> taskItem.task!=task));
+    // console.log(tasks);
+  }
   return (
     <>
       <Navbar></Navbar>
       <AddNote taskArray={tasks} updatedTasks={updatetasks}></AddNote>
-      <SavedNotes taskArray={tasks}></SavedNotes>
+      <SavedNotes taskArray={tasks} removeTask={removeTask}></SavedNotes>
       <FooterBar></FooterBar>
     </>
   );

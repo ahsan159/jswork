@@ -63,11 +63,11 @@ const AddNote = (props) => {
             <button
               type="button"
               className="btn rounded-circle editBtn"
-              onClick={addTaskToArray}
+              onClick={addTaskToArray}            
             >
               <AddIcon
                 sx={{
-                  stroke: "yellow",
+                  stroke: "black",
                   strokeWidth: 2,
                   fontSize: "2rem",
                 }}
