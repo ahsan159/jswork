@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import react, { useState } from "react";
+import "./App.css";
+import ConvertData from "./ConvertData";
 
 function App() {
+  
+  let [newText, newTextUpdate] = useState("");
+  const newTextChange = (evt) => {
+    newTextUpdate(evt.target.value);  
+  };
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="myClass">
+        <h1>🇵🇰 Testing useEffect Hook 🇵🇰</h1>
+        <textarea type="text" onChange={newTextChange} value={newText} rows={5} placeholder="enter your text here!!!"></textarea>
+        <div className="words">          
+          <ConvertData key={1} TextData={newText}></ConvertData>
+        </div>
+      </div>
+    </>
   );
 }
 
