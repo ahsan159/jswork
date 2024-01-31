@@ -15,4 +15,9 @@
   font-weight: bold;
   text-shadow: 1px 1px 2px lightsalmon;
   letter-spacing: 0.1cm;  
+  text-decoration: none;
+}
+.navlink:focus
+{
+    text-decoration: underline;
 }
