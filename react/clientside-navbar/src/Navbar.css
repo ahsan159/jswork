@@ -1,0 +1,13 @@
+.navigationBar {
+    background-color: aqua;
+    height: 25px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.navlink {
+  margin: 0px 20px;
+  height: 25px;
+  background-color: bisque;
+}
