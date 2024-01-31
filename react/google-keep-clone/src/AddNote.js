@@ -13,21 +13,21 @@ const AddNote = (props) => {
 
   const addTaskToArray = () => {
     console.log(`${headerText} Data is ${taskText}`);
-    let t = {id:20,title:headerText,task:taskText};
+    let t = { id: 20, title: headerText, task: taskText };
     headerTextUpdated("");
     taskTextUpdated("");
-    props.updatedTasks([...props.taskArray,t]);
+    props.updatedTasks([...props.taskArray, t]);
   };
 
-  const headerClicked = () => {
-    updateState(false);
+  const headerFocused = () => {
+    updateState(true);
+
   };
   const textFocusLost = () => {
-    // updateState(false);
     console.log("I have lost focused");
   };
 
-  const textFocusResponse = () => {
+  const textFocusIn = () => {
     updateState(true);
     console.log("I am focused");
   };
@@ -37,33 +37,34 @@ const AddNote = (props) => {
       <div className="container-fluid d-flex flex-column p-0 m-0 justify-content-center">
         <div className="d-flex flex-column align-items-center">
           <div className="addNoteDiv d-flex flex-column">
-            {
-              <TextField
-                Text
-                className="addNoteCSS"
+            {state && (
+              <input
+                type="text"
+                className="addNoteHeader"
                 label="Header"
-                onClick={headerClicked}
-                sx={{ strokeWidth: 0 }}
+                // onClick={headerClicked}
+                onFocus={headerFocused}
+                onClick={headerFocused}
                 value={headerText}
                 onChange={(event) => {
                   headerTextUpdated(event.target.value);
                 }}
-              ></TextField>
-            }
-            <TextField
-              multiline
-              className="addNoteCSS"
-              onFocus={textFocusResponse}
+              ></input>
+            )}
+            <textarea
+              type="text"
+              className="addNoteText"
+              onFocus={textFocusIn}
               onBlur={textFocusLost}
               value={taskText}
               onChange={(event) => {
                 taskTextUpdated(event.target.value);
               }}
-            ></TextField>
+            ></textarea>
             <button
               type="button"
               className="btn rounded-circle editBtn"
-              onClick={addTaskToArray}            
+              onClick={addTaskToArray}
             >
               <AddIcon
                 sx={{
