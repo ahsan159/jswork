@@ -6,6 +6,7 @@ import Clock from "react-live-clock";
 function App() {
   let [newText, newTextUpdate] = useState("");  
   let [state,updateState] = useState(0);
+  let [reset,resetState] = useState(1);
 
   const newTextChange = (evt) => {
     newTextUpdate(evt.target.value);
@@ -15,7 +16,14 @@ function App() {
   {
     console.log('I am useEffect')
     document.title = `ID: ${state}`;
-  },[state]);
+    // resetState(reset+1);
+    if (reset==0)
+    {
+      console.log('Reset')
+      document.title = `ID: 0`;
+      resetState(1);
+    }
+  },[state,reset]);
 
   return (
     <>
@@ -34,6 +42,7 @@ function App() {
           <ConvertData key={1} TextData={newText}></ConvertData>
         </div>
         <button type="button" onClick={()=>{updateState(state+1)}}>Click Me!!!</button>
+        <button type="button" onClick={()=>{resetState(0)}}>Reset</button>
       </div>      
     </>
   );
