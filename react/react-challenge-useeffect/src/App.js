@@ -20,7 +20,7 @@ function App() {
     if (reset==0)
     {
       console.log('Reset')
-      document.title = `ID: 0`;
+      updateState(0);
       resetState(1);
     }
   },[state,reset]);
