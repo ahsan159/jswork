@@ -1,13 +1,21 @@
-import react, { useState } from "react";
+import react, { useEffect, useState } from "react";
 import "./App.css";
 import ConvertData from "./ConvertData";
 import Clock from "react-live-clock";
 
 function App() {
-  let [newText, newTextUpdate] = useState("");
+  let [newText, newTextUpdate] = useState("");  
+  let [state,updateState] = useState(0);
+
   const newTextChange = (evt) => {
     newTextUpdate(evt.target.value);
   };
+
+  useEffect(()=>
+  {
+    console.log('I am useEffect')
+    document.title = `ID: ${state}`;
+  },[state]);
 
   return (
     <>
@@ -25,7 +33,8 @@ function App() {
         <div className="words">
           <ConvertData key={1} TextData={newText}></ConvertData>
         </div>
-      </div>
+        <button type="button" onClick={()=>{updateState(state+1)}}>Click Me!!!</button>
+      </div>      
     </>
   );
 }
