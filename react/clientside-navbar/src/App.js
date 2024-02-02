@@ -4,6 +4,8 @@ import About from "./About";
 import "./App.css";
 import Home from "./Home";
 import Navbar from "./Navbar";
+import NoPageFound from "./NoPageFound";
+import Officers from "./Officers";
 
 function App() {
   return (
@@ -11,8 +13,10 @@ function App() {
       {/* <h1>Creating Client Side rendered Navigation Bar</h1> */}
       <Navbar></Navbar>
       <Routes>
-        <Route path="/" element={<Home></Home>}></Route>
-        <Route path="/about" element={<About></About>}></Route>
+        <Route path="/" Component={Home}></Route>
+        <Route path="/about" Component={About}></Route>
+        <Route path="/about/Persons" Component={Officers}></Route>
+        <Route path="*" Component={NoPageFound}></Route>
       </Routes>
     </>
   );

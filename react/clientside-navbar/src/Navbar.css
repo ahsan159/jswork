@@ -1,10 +1,10 @@
 .navigationBar {
-    background-color: aqua;
-    height: auto;
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    padding: 5px 0;
+  background-color: aqua;
+  height: auto;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding: 5px 0;
 }
 
 .navlink {
@@ -13,11 +13,11 @@
   /* background-color: bisque; */
   font-size: 2rem;
   font-weight: bold;
-  text-shadow: 1px 1px 2px lightsalmon;
-  letter-spacing: 0.1cm;  
+  /* text-shadow: 1px 1px 2px lightsalmon; */
+  letter-spacing: 0.1cm;
   text-decoration: none;
 }
-.navlink:focus
-{
-    text-decoration: underline;
+
+.activeClass {
+  text-decoration: underline;
 }
