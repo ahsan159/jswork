@@ -1,7 +1,7 @@
 import React from "react";
 
-const Officers = () => {
-  return <h1>Name is any one</h1>;
+const Officers = (props) => {
+  return <h1>Name is {props.name}</h1>;
 };
 
 export default Officers;
