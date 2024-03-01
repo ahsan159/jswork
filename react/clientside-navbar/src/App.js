@@ -15,16 +15,15 @@ function App() {
       <Routes>
         <Route path="/" Component={Home}></Route>
         <Route path="/about" Component={About}></Route>
-        <Route path="/about/Persons" Component={()=>
-          <Officers name="Ahsan"></Officers>
-        }></Route>
+        <Route
+          path="/about/Persons"
+          Component={() => <Officers name="Ahsan"></Officers>}
+        ></Route>
         <Route path="*" Component={NoPageFound}></Route>
       </Routes>
     </>
   );
 }
-
-
 
 export default App;
 
