@@ -32,5 +32,8 @@
     justify-content: space-between;
     font-weight: 600;
     border-radius: 5px;
-    
+    border-width: 1px;
+    font-size: large;
+    color: black;
+    margin-bottom: 20px;
 }
