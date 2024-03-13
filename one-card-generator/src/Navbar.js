@@ -17,6 +17,24 @@ const Navbar = () => {
             Login
           </NavLink>
         </nav>
+        {/* <div className="loginPanel">
+          <input type="text" placeholder="username"></input>
+          <input type="password" placeholder="password"></input>
+          <button
+            onClick={() => {
+              console.log("i am clicked");
+            }}
+          >
+            Login
+          </button>
+          <button
+            onClick={() => {
+              console.log("i am clicked to signup");
+            }}
+          >
+            SignUp
+          </button>
+        </div> */}
       </div>
     </>
   );
