@@ -1,10 +1,15 @@
 import React from "react";
+import "./Step.css"
 
 const Step2 = () => {
   return (
     <>
-      <h1>Step2/3</h1>
-      <p>Step2</p>
+      <div className="mainBox">
+        <h2>Step2/3</h2>
+        <h1>Enter your Password?</h1>
+        <input placeholder="Enter your password" type="Password"></input>
+        <input placeholder="Enter your password again" type="Password"></input>
+      </div>
     </>
   );
 };
