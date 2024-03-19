@@ -7,9 +7,14 @@ const Signin = () => {
 
   const submitloginData = () => {
     console.log("submitting username and password");
+    console.log(`${username} and ${password}`);
+    if (username === "ahsan" && password === "ahsan") {
+      alert("success");
+    }
   };
   const gotosignup = () => {
     console.log("sign up");
+    console.log(username);
   };
   return (
     <>
@@ -20,7 +25,7 @@ const Signin = () => {
           value={username}
           placeholder="Username"
           onChange={(event) => {
-            updateUserName(event.value);
+            updateUserName(event.target.value);
           }}
         ></input>
         <input
@@ -28,7 +33,7 @@ const Signin = () => {
           value={password}
           placeholder="Password"
           onChange={(event) => {
-            updatePassword(event.value);
+            updatePassword(event.target.value);
           }}
         ></input>
         <div className="buttonClass">
