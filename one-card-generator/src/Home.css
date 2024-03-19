@@ -1,0 +1,35 @@
+.main {
+    padding: 5px;
+    margin: 0;
+    background-color: pink;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+ }
+
+ .buttonDiv {
+    padding-top: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 0 0 10px 10px;    
+    width: 60vw;
+ }
+
+.buttonDiv button
+{
+    margin: 10px 10px;
+    width: 80px;
+    height: 40px;
+    background-color: aqua;
+    /* font-size: medium; */
+}
+
+.buttonDiv button:hover
+{
+     font-weight: bold;
+}

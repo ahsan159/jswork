@@ -1,0 +1,15 @@
+.mainBox
+{
+    background-color: white;
+    width: 60vw;
+    /* height: 500px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px 10px 0 0;
+}
+
+.mainBox input
+{
+    margin: 10px;
+}
