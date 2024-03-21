@@ -2,7 +2,7 @@ const component = {
     marginTop: '5rem',
     marginBottom: '5rem',
     backgroundColor:'#f1f1f141',
-    maxWidth: '960px',
+    maxWidth: '960px',    
   }
   const section = { 
     display: 'block',

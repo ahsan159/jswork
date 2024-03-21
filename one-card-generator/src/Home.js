@@ -14,6 +14,7 @@ const Home = () => {
       <MultiStep styles={multiStepStyles} showTitles={true}
       prevButton={{title:'BackStep',style:{background:'red'}}}       
       nextButton={{title:'NextStep',style:{background:'green'}}}
+      // stepCustomStyle={{color:'red',fontSize:'2rem'}}
       direction="row">      
         <Step1 title='step1'></Step1>
         <Step2 title='step2'></Step2>
