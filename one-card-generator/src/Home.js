@@ -72,6 +72,10 @@ const Home = () => {
             endIcon={<ArrowRightIcon />}
             onClick={() => {
               // alert(`This is Next  ${cStep}`);
+              if (cStep===1)
+              {
+                console.log(`current User name is ${username}`);
+              }
               updateStep(cStep + 1);
               if (cStep > 5) {
                 updateStep(5);
