@@ -40,4 +40,5 @@
 
 .buttonDiv button:hover {
   font-weight: bold;
+  background-color: lightgreen;
 }
