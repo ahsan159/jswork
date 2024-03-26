@@ -17,16 +17,22 @@ import Typography from "@mui/material/Typography";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
 
+
+
 const stepperSize = {
   width: "60%",
   paddingTop: "15px",
 };
 
+typeof valueDatePickerPiece = Date|null;
+typeof ValueDatePicker = valueDatePickerPiece|[valueDatePickerPiece,valueDatePickerPiece];
 
 const Home = () => {
+
   let [cStep, updateStep] = useState(1);
   let [username, updateuserName] = useState("");
   let [password, updatePassword] = useState([]);
+  let [pcikedDate,pickDate] = useState<ValueDatePicker>(new Date());
 
   let stepperSteps = ["username", "password", "step3", "review", "final"];
 
@@ -66,7 +72,7 @@ const Home = () => {
             updateFunction={updatePassword}
           ></Step2>
         )}
-        {cStep === 3 && <Step3 key="c"></Step3>}
+        {cStep === 3 && <Step3 key="c" pcikedDate={pcikedDate} pickDate={pickDate}></Step3>}
         <div className="buttonDiv">
           <Button
             startIcon={<ArrowLeftIcon />}
@@ -107,6 +113,9 @@ const Home = () => {
                 }
               }
               // Step 3 Processing
+              if (cStep === 3) {
+                valid = true;
+              }
               if (valid) {
                 updateStep(cStep + 1);
                 if (cStep > 5) {
