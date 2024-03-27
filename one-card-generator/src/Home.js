@@ -16,7 +16,8 @@ import Typography from "@mui/material/Typography";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
 
-import dayjs from 'dayjs';
+import dayjs from "dayjs";
+import Step4 from "./Step4";
 
 const stepperSize = {
   width: "60%",
@@ -24,13 +25,18 @@ const stepperSize = {
 };
 
 const Home = () => {
-
   let [cStep, updateStep] = useState(1);
   let [username, updateuserName] = useState("a");
-  let [password, updatePassword] = useState(['a','a']);  
-  let [pickedDate,pickDate] = useState(dayjs(new Date()));
+  let [password, updatePassword] = useState(["a", "a"]);
+  let [pickedDate, pickDate] = useState(dayjs(new Date()));
 
-  let stepperSteps = ["username", "password", "step3", "review", "final"];
+  let stepperSteps = [
+    "username",
+    "password",
+    "Date of Birth",
+    "Review",
+    "Submit",
+  ];
 
   return (
     <>
@@ -68,7 +74,17 @@ const Home = () => {
             updateFunction={updatePassword}
           ></Step2>
         )}
-        {cStep === 3 && <Step3 key="c" pcikedDate={pickedDate} pickDate={pickDate}></Step3>}
+        {cStep === 3 && (
+          <Step3 key="c" pcikedDate={pickedDate} pickDate={pickDate}></Step3>
+        )}
+        {cStep === 4 && (
+          <Step4
+            key="d"
+            dob={pickedDate}
+            username={username}
+            password={password[0]}
+          ></Step4>
+        )}
         <div className="buttonDiv">
           <Button
             startIcon={<ArrowLeftIcon />}
@@ -110,7 +126,7 @@ const Home = () => {
               }
               // Step 3 Processing
               if (cStep === 3) {
-                alert(`${pickedDate.format("DD-MM-YYYY")}`);
+                // alert(`${pickedDate.format("DD-MM-YYYY")}`);
                 valid = true;
               }
               if (valid) {

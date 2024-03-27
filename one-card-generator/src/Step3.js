@@ -1,4 +1,5 @@
 import React from "react";
+import "./Step.css";
 
 import dayjs from "dayjs";
 import { DemoContainer, DemoItem } from "@mui/x-date-pickers/internals/demo";
@@ -12,25 +13,29 @@ import { StaticDatePicker } from "@mui/x-date-pickers/StaticDatePicker";
 const Step3 = (props) => {
   return (
     <>
-            
-      <LocalizationProvider dateAdapter={AdapterDayjs}>
-        <DemoContainer
-          components={[
-            "DatePicker",
-            "MobileDatePicker",
-            "DesktopDatePicker",
-            "StaticDatePicker",
-          ]}
-        >
-          <StaticDatePicker
-            defaultValue={dayjs()}
-            label="Date of Birth"
-            format="DD/MM/YYYY"
-            value={props.pcikedDate}
-            onChange={(newValue)=>{props.pickDate(newValue)}}
-          ></StaticDatePicker>
-        </DemoContainer>
-      </LocalizationProvider>
+      <div className="datePicker">
+        <LocalizationProvider dateAdapter={AdapterDayjs}>
+          <DemoContainer
+            components={[
+              "DatePicker",
+              "MobileDatePicker",
+              "DesktopDatePicker",
+              "StaticDatePicker",
+            ]}
+          >
+            <DatePicker
+              className="datePicker"
+              defaultValue={dayjs()}
+              label="Date of Birth"
+              format="DD/MM/YYYY"
+              value={props.pcikedDate}
+              onChange={(newValue) => {
+                props.pickDate(newValue);
+              }}
+            ></DatePicker>
+          </DemoContainer>
+        </LocalizationProvider>
+      </div>
     </>
   );
 };
