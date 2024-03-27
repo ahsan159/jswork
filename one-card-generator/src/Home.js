@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-// import MultiStep from "react-multistep";
-// import { multiStepStyles } from "./multistepStyles";
+
 import Step1 from "./Step1";
 import Step2 from "./Step2";
 import Step3 from "./Step3";
@@ -17,22 +16,19 @@ import Typography from "@mui/material/Typography";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
 
-
+import dayjs from 'dayjs';
 
 const stepperSize = {
   width: "60%",
   paddingTop: "15px",
 };
 
-typeof valueDatePickerPiece = Date|null;
-typeof ValueDatePicker = valueDatePickerPiece|[valueDatePickerPiece,valueDatePickerPiece];
-
 const Home = () => {
 
   let [cStep, updateStep] = useState(1);
-  let [username, updateuserName] = useState("");
-  let [password, updatePassword] = useState([]);
-  let [pcikedDate,pickDate] = useState<ValueDatePicker>(new Date());
+  let [username, updateuserName] = useState("a");
+  let [password, updatePassword] = useState(['a','a']);  
+  let [pickedDate,pickDate] = useState(dayjs(new Date()));
 
   let stepperSteps = ["username", "password", "step3", "review", "final"];
 
@@ -72,7 +68,7 @@ const Home = () => {
             updateFunction={updatePassword}
           ></Step2>
         )}
-        {cStep === 3 && <Step3 key="c" pcikedDate={pcikedDate} pickDate={pickDate}></Step3>}
+        {cStep === 3 && <Step3 key="c" pcikedDate={pickedDate} pickDate={pickDate}></Step3>}
         <div className="buttonDiv">
           <Button
             startIcon={<ArrowLeftIcon />}
@@ -114,6 +110,7 @@ const Home = () => {
               }
               // Step 3 Processing
               if (cStep === 3) {
+                alert(`${pickedDate.format("DD-MM-YYYY")}`);
                 valid = true;
               }
               if (valid) {
