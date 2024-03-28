@@ -41,3 +41,9 @@
   padding: 5px 0 0 0 ;
   align-self: flex-start;
 }
+
+.TACS
+{
+  display: flex;
+  flex-direction: column;  
+}
