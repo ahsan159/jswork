@@ -180,7 +180,7 @@ const Home = () => {
                   updateStep(5);
                 }
                 console.log(cStep);
-                alert(cStep);
+                //alert(cStep);
               }
             }}
           >
