@@ -1,0 +1,22 @@
+.mainBox
+{
+    height: 650px;
+    width: 400px;
+    background-color: aqua;
+    margin: auto;
+    padding: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+.cityName
+{
+    margin-top: 10px;
+}
+
+.temperatureCurrent
+{
+    margin-top: 10px;
+}
