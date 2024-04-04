@@ -1,9 +1,10 @@
 .mainBox
-{
+{    
+    transform: translate(0,20%);
     height: 650px;
     width: 400px;
     background-color: aqua;
-    margin: auto;
+    margin: auto;    
     padding: auto;
     display: flex;
     justify-content: flex-start;
@@ -14,9 +15,26 @@
 .cityName
 {
     margin-top: 10px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: light;
 }
 
 .temperatureCurrent
 {
     margin-top: 10px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: lighter;
+}
+
+.temperatureMaxMin 
+{
+    display: flex;
+    justify-content: space-around;
+    width: 60%;
+}
+
+.temperatureMaxMin h2
+{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: lighter;    
 }
