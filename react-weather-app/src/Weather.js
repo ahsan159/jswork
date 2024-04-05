@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import TextField from "@mui/material/TextField";
-import dayjs from 'dayjs';
+import dayjs from "dayjs";
 
 import "./Weather.css";
 
@@ -11,6 +11,7 @@ const Weather = () => {
   let [temperature, settemperature] = useState({});
   let [daytimes, setdaytimes] = useState({});
   let [lastUpdated, setlastUpdated] = useState(Date.now());
+  let [iconWeather, iconWeatherUpdate] = useState({});
 
   useEffect(() => {
     // const fetchWeatherData = async () => {
@@ -35,13 +36,15 @@ const Weather = () => {
       const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=b9755f07d828933964ee8892c8565450`;
       const response = await fetch(url);
       const jsonResponse = await response.json();
-      console.log(jsonResponse);
+      // console.log(jsonResponse);
       try {
         setFoundName([jsonResponse.name, jsonResponse.sys.country]);
         setLocation([jsonResponse.coord.lat, jsonResponse.coord.lon]);
         settemperature(jsonResponse.main);
         setdaytimes(jsonResponse.sys);
         setlastUpdated(jsonResponse.dt);
+        // console.log(jsonResponse.weather[0]);
+        iconWeatherUpdate(jsonResponse.weather[0]);
         console.log(foundName);
         // if (jsonResponse[0].name === city) {
         //   console.log("Lat:" + jsonResponse[0].lat);
@@ -78,18 +81,33 @@ const Weather = () => {
         <h1 className="cityName">
           {foundName[0]} {foundName[1]}
         </h1>
-        <h2 className="temperatureCurrent">
-          {Number(temperature.temp - 273).toFixed()}︒C
-        </h2>
+        <div className="tempIconDisplay">
+          <div>
+            <h2 className="temperatureCurrent">
+              {Number(temperature.temp - 273).toFixed()}︒C
+            </h2>
+            <h2 className="feelsLike">
+              {"Feels Like " + Number(temperature.feels_like - 273).toFixed(0)}
+              ︒C
+            </h2>
+            <h2 className="humidity">{"Humidity " + Number(temperature.humidity).toFixed(0)}%</h2>
+            
+          </div>
+          <div className="iconDisplay">
+            <h2>{iconWeather.main}</h2>
+            <img
+              src={
+                "https://openweathermap.org/img/wn/" +
+                iconWeather.icon +
+                "@4x.png"
+              }
+            ></img>
+          </div>
+        </div>
         <div className="temperatureMaxMin">
           <h2>{Number(temperature.temp_min - 273).toFixed(1)}︒C</h2>
           <h2>|</h2>
           <h2>{Number(temperature.temp_max - 273).toFixed(1)}︒C</h2>
-        </div>
-        <div className="temperatureMaxMin">
-          <h2>{Number(temperature.feels_like - 273).toFixed(1)}︒C</h2>
-          <h2>|</h2>
-          <h2>{Number(temperature.humidity).toFixed(0)}%</h2>
         </div>
         {/* <div className="temperatureMaxMin">
           <h2>{Number(temperature.feels_like - 273).toFixed(1)}︒C</h2>
@@ -97,9 +115,9 @@ const Weather = () => {
           <h2>{Number(temperature.humidity).toFixed(0)}%</h2>
         </div> */}
         <div className="temperatureMaxMin">
-          <h2>🌅{dayjs(daytimes.sunrise).format('HH:mm')}</h2>
+          <h2>🌅{dayjs(daytimes.sunrise).format("HH:mm")}</h2>
           <h2>|</h2>
-          <h2>🌥️{dayjs(daytimes.sunset).format('HH:mm')}</h2>
+          <h2>🌥️{dayjs(daytimes.sunset).format("HH:mm")}</h2>
         </div>
       </div>
     </>
