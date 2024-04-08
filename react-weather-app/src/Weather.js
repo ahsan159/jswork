@@ -57,7 +57,7 @@ const Weather = () => {
         // }
       } catch (e) {
         console.log(jsonResponse.message);
-        setFoundName(jsonResponse.message);
+        setFoundName(['no data found','']);                
       }
     };
 
@@ -90,8 +90,9 @@ const Weather = () => {
               {"Feels Like " + Number(temperature.feels_like - 273).toFixed(0)}
               ︒C
             </h2>
-            <h2 className="humidity">{"Humidity " + Number(temperature.humidity).toFixed(0)}%</h2>
-            
+            <h2 className="humidity">
+              {"Humidity " + Number(temperature.humidity).toFixed(0)}%
+            </h2>
           </div>
           <div className="iconDisplay">
             <h2>{iconWeather.main}</h2>
@@ -105,9 +106,9 @@ const Weather = () => {
           </div>
         </div>
         <div className="temperatureMaxMin">
-          <h2>{Number(temperature.temp_min - 273).toFixed(1)}︒C</h2>
+          <h2>{"Max " + Number(temperature.temp_min - 273).toFixed(0)}︒C</h2>
           <h2>|</h2>
-          <h2>{Number(temperature.temp_max - 273).toFixed(1)}︒C</h2>
+          <h2>{"Min " + Number(temperature.temp_max - 273).toFixed(0)}︒C</h2>
         </div>
         {/* <div className="temperatureMaxMin">
           <h2>{Number(temperature.feels_like - 273).toFixed(1)}︒C</h2>
@@ -118,6 +119,9 @@ const Weather = () => {
           <h2>🌅{dayjs(daytimes.sunrise).format("HH:mm")}</h2>
           <h2>|</h2>
           <h2>🌥️{dayjs(daytimes.sunset).format("HH:mm")}</h2>
+        </div>
+        <div className="lastUpdated">
+          <h2>{"Updated: " + dayjs(lastUpdated).format("HH:mm")}</h2>
         </div>
       </div>
     </>
