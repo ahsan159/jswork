@@ -22,6 +22,7 @@ let TableComponent = () => {
         if (res.data.status === "incorrect") {
           console.log("error message");
           updatekingname({ name: "no data found", start: " ", end: " " });
+          // must have a status in json data
         }
       })
       .catch((err) => {
@@ -42,6 +43,7 @@ let TableComponent = () => {
           onChange={(evt) => {
             updateIndexId(evt.target.value);
           }}
+          placeholder="Enter the index!!!"
         ></input>
         <button onClick={getrequest}>Request</button>
         <h2>{kingname.name}</h2>
