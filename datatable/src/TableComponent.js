@@ -5,27 +5,10 @@ import axios from "axios";
 import dayjs from "dayjs";
 import DataGridComponent from "./DataGridComponent";
 import "./TableComponent.css";
+import { cardActionAreaClasses } from "@mui/material";
 
-const rows = [
-  { name: "Elizabeth", start: 1565, end: 1603, id: 0 },
-  { name: "James I", start: 1603, end: 1625, id: 1 },
-  { name: "Charles I", start: 1625, end: 1649, id: 2 },
-  {
-    name: "Cromwell",
-    start: 1649,
-    end: 1660,
-    commonwealth: true,
-    id: 3,
-  },
-  { name: "Charles II", start: 1660, end: 1685, id: 4 },
-  { name: "James II", start: 1685, end: 1689, id: 5 },
-  { name: "W&M", start: 1689, end: 1702, id: 6 },
-  { name: "Anne", start: 1702, end: 1714, id: 7 },
-  { name: "George I", start: 1714, end: 1727, id: 8 },
-  { name: "George II", start: 1727, end: 1760, id: 9 },
-  { name: "George III", start: 1760, end: 1820, id: 10 },
-  { name: "George IV", start: 1820, end: 1820, id: 11 },
-];
+const postHeader = { "Access-Control-Allow-Origin": "*" };
+const contentType = { "Content-Type": "text/plain" };
 
 let TableComponent = () => {
   let [kingname, updatekingname] = useState([]);
@@ -34,24 +17,49 @@ let TableComponent = () => {
   let [reignStart, updateReginStart] = useState(0);
   let [reignEnd, updateReginEnd] = useState(0);
 
-  const deleteLast = () => {
+  const postcreate = () => {
     console.log("this will delete last data");
+    try {
+      axios
+        .post(
+          "http://localhost:8000/create",
+          {
+            name: `${monarchName}`,
+            formula: "paracetamol",
+            manufacturer: "getz",
+            expiry_date: "2025-07-08",
+          },
+          postHeader
+        )
+        .then((res) => {
+          alert(res.data);
+        })
+        .catch((error) => {
+          // console.log(error.response.data);
+          // alert(error.response.data.message);
+          console.log(error);
+        });
+    } catch (error) {
+      alert(error.response.data);
+    }
+    console.log("post complete");
   };
 
   const getrequest = () => {
     console.log(`requesting using axios at ${dayjs(Date.now())}`);
     axios
-      .get(
-        `http://localhost:8000/temp?index=${indexId}&start=${reignStart}`
-        `http://localhost:8000/temp?index=${indexId}&start=${reignStart}`
-      )
+      .get(`http://localhost:8000/temp?index=${indexId}&start=${reignStart}`)
       .then((res) => {
         // save and log the result
         console.log(res.data);
         updatekingname(res.data);
         if (res.data.status === "incorrect") {
           console.log("error message");
-          updatekingname({ name: "no data found", start: " ", end: " " });
+          updatekingname({
+            name: "no data found",
+            start: " ",
+            end: " ",
+          });
           // must have a status in json data
         }
       })
@@ -77,11 +85,11 @@ let TableComponent = () => {
         ></input>
         <div className="buttonDiv">
           <button onClick={getrequest}>Request</button>
-          <button onClick={deleteLast}>Delete Last</button>
+          <button onClick={postcreate}>Create</button>
         </div>
         <div className="addData">
           <input
-          style={{'width':'90px'}}
+            style={{ width: "90px" }}
             type="text"
             value={monarchName}
             onChange={(evt) => {
