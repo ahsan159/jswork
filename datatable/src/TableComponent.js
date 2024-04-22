@@ -6,6 +6,7 @@ import dayjs from "dayjs";
 import DataGridComponent from "./DataGridComponent";
 import "./TableComponent.css";
 import { cardActionAreaClasses } from "@mui/material";
+import AddMedicine from "./AddMedicine";
 
 const postHeader = { "Access-Control-Allow-Origin": "*" };
 const contentType = { "Content-Type": "text/plain" };
@@ -67,6 +68,7 @@ let TableComponent = () => {
         console.log(err);
       });
   };
+
   return (
     <>
       <div className="mainDiv">
@@ -86,6 +88,7 @@ let TableComponent = () => {
         <div className="buttonDiv">
           <button onClick={getrequest}>Request</button>
           <button onClick={postcreate}>Create</button>
+          <AddMedicine dataMessage="from another"></AddMedicine>
         </div>
         <div className="addData">
           <input
