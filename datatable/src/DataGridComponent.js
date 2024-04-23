@@ -4,12 +4,15 @@ import axios from "axios";
 import dayjs from "dayjs";
 import "./TableComponent.css";
 import { extractValidationProps } from "@mui/x-date-pickers/internals";
+import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from '@mui/icons-material/Edit';
+import { IconButton } from "@mui/material";
 // import Clock from "react-live-clock";
 
 const sendDelete = (params) => {
   console.log(params);
   axios
-    .delete("http://localhost:8000/api/medicines", {data:params})
+    .delete("http://localhost:8000/api/medicines", { data: params })
     .then((response) => {
       console.log(response);
       alert(response.data.message);
@@ -25,21 +28,55 @@ const columns = [
   { field: "start", headerName: "Start" },
   { field: "end", headerName: "end" },
   {
+    field: "edit",
+    headerName: "Edit",
+    Selection: false,
+    renderCell: (params) => {
+      return (
+        // <button
+        //   className="tableButton"
+        //   onClick={() => {
+        //     alert("I clicked edit");
+        //     console.log(params.row);
+        //     sendDelete(params.row);
+        //   }}
+        // >
+        //   Edit
+        // </button>
+        <IconButton onClick={()=>
+        {
+          alert("Clicked Edit Button");
+          console.log(params.row);
+          sendDelete(params.row);
+        }}><EditIcon></EditIcon></IconButton>
+      );
+    },
+  },
+  {
     field: "delete",
     headerName: "Delete",
     Selection: false,
     renderCell: (params) => {
       return (
-        <button
-          className="tableButton"
+        // <button
+        //   className="tableButton"
+        //   onClick={() => {
+        //     alert("I am clicked to delete the selected row");
+        //     console.log(params.row);
+        //     sendDelete(params.row);
+        //   }}
+        // >
+        //   Delete
+        // </button>
+        <IconButton
           onClick={() => {
             alert("I am clicked to delete the selected row");
-            console.log(params.row);            
+            console.log(params.row);
             sendDelete(params.row);
           }}
         >
-          Delete
-        </button>
+          <DeleteIcon></DeleteIcon>
+        </IconButton>
       );
     },
   },
