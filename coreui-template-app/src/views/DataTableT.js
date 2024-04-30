@@ -65,6 +65,19 @@ const DatatableT = () => {
     },
   ]
 
+  const sendDelete = (params) => {
+    console.log(params)
+    axios
+      .delete('http://localhost:8000/api/medicines', { data: params })
+      .then((response) => {
+        console.log(response)
+        alert(response.data.message)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+  }
+
   const refreshTable = () => {
     console.log('refreshing')
     axios

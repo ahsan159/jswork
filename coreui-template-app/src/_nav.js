@@ -30,7 +30,7 @@ const _nav = [
   },
   {
     component: CNavItem,
-    name: 'DatatableT',
+    name: 'Datatable',
     to: '/datatablet',
     icon: <CIcon icon={cilAirplaneMode} customClassName="nav-icon" />,
   },

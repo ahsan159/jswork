@@ -52,17 +52,12 @@ const Toasts = React.lazy(() => import('./views/notifications/toasts/Toasts'))
 
 const Widgets = React.lazy(() => import('./views/widgets/Widgets'))
 
-const datatable = React.lazy(() => {
-  import('./views/pages/DataTable')
-})
-
 const DatatableT = React.lazy(() => import('./views/DataTableT'))
 
 const routes = [
-  { path: '/', exact: true, name: 'Home' },
-  { Path: '/pages', name: 'Datatable1', element: datatable },
+  { path: '/', exact: true, name: 'Home' },  
   { path: '/dashboard', name: 'Dashboard', element: Dashboard },
-  { path: '/datatableT', name: 'DatatableT', element: DatatableT },
+  { path: '/datatableT', name: 'Datatable', element: DatatableT },
   { path: '/theme', name: 'Theme', element: Colors, exact: true },
   { path: '/theme/colors', name: 'Colors', element: Colors },
   { path: '/theme/typography', name: 'Typography', element: Typography },
