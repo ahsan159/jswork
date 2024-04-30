@@ -53,7 +53,7 @@ const Toasts = React.lazy(() => import('./views/notifications/toasts/Toasts'))
 const Widgets = React.lazy(() => import('./views/widgets/Widgets'))
 
 const datatable = React.lazy(() => {
-  import('./views/pages/Datatable')
+  import('./views/pages/DataTable')
 })
 
 const DatatableT = React.lazy(() => import('./views/DataTableT'))

@@ -21,7 +21,7 @@ import CIcon from '@coreui/icons-react'
 import { Edit } from '@mui/icons-material'
 // import './scss/style.scss'
 
-const DatatableT = () => {
+const Datatable = () => {
   let [citem, updateItems] = useState([])
 
   const columns = [
@@ -105,7 +105,6 @@ const DatatableT = () => {
               pagination: { paginationModel: { page: 0, pageSize: 10 } },
             }}
             pageSizeOptions={[5, 10]}
-            autoHeight
             // checkboxSelection={true}
           ></DataGrid>
         </CContainer>
@@ -114,4 +113,4 @@ const DatatableT = () => {
   )
 }
 
-export default DatatableT
+export default Datatable
