@@ -43,6 +43,30 @@ const postcreate = (drugData) => {
 const AddMedicine = (props) => {
   let [citem, updateItems] = useState([])
 
+  /// following code allows user inputs
+  let fields = ['name', 'formula', 'manufacturer', 'expiry_date', 'unitquantity', 'unitrate']
+  let [cfields, updatedcfields] = useState({
+    name: '',
+    formula: '',
+    manufacturer: '',
+    expiry_date: '',
+    unitquantity: '',
+    unitrate: '',
+  })
+
+  const onChangeEvent = (event) => {
+    let cname = event.target.name
+    let cvalue = event.target.value
+    updatedcfields((previousData) => {
+      return {
+        ...previousData,
+        [cname]: cvalue,
+      }
+    })
+  }
+  // end of user input part
+
+  // table columns using mui data grid
   const columns = [
     { field: 'id', headerName: 'ID' },
     { field: 'name', headerName: 'Name' },
@@ -85,10 +109,7 @@ const AddMedicine = (props) => {
       },
     },
   ]
-  let [dname, udname] = useState('')
-  let [fname, ufname] = useState('')
-  let [mname, umname] = useState('')
-  let [expiry, uexpiry] = useState(dayjs(Date.now()))
+
   return (
     <div className="d-flex flex-column justify-content-center align-items-center">
       <CCard className="col-md-8 col-sm-8">
@@ -96,33 +117,63 @@ const AddMedicine = (props) => {
         <CCardBody>
           <CForm>
             <CInputGroup className="mb-2">
-              <CInputGroupText className='col-sm-3'>Product Name</CInputGroupText>
-              <CFormInput></CFormInput>
+              <CInputGroupText className="col-sm-3">Product Name</CInputGroupText>
+              <CFormInput
+                name={fields[0]}
+                onChange={onChangeEvent}
+                value={cfields.name}
+              ></CFormInput>
             </CInputGroup>
             <CInputGroup className="mb-2">
-              <CInputGroupText className='col-sm-3'>Formula</CInputGroupText>
-              <CFormInput></CFormInput>
+              <CInputGroupText className="col-sm-3">Formula</CInputGroupText>
+              <CFormInput
+                name={fields[1]}
+                onChange={onChangeEvent}
+                value={cfields.formula}
+              ></CFormInput>
             </CInputGroup>
             <CInputGroup className="mb-2">
-              <CInputGroupText className='col-sm-3'>Manufacturer</CInputGroupText>
-              <CFormInput></CFormInput>
+              <CInputGroupText className="col-sm-3">Manufacturer</CInputGroupText>
+              <CFormInput
+                name={fields[2]}
+                onChange={onChangeEvent}
+                value={cfields.manufacturer}
+              ></CFormInput>
             </CInputGroup>
             <CInputGroup className="mb-2">
-              <CInputGroupText className='col-sm-3'>Expiry</CInputGroupText>
-              <CFormInput></CFormInput>
+              <CInputGroupText className="col-sm-3">Expiry</CInputGroupText>
+              <CFormInput
+                name={fields[3]}
+                onChange={onChangeEvent}
+                value={cfields.expiry_date}
+              ></CFormInput>
             </CInputGroup>
             <CInputGroup className="mb-2">
-              <CInputGroupText className='col-sm-3'>Quantity</CInputGroupText>
-              <CFormInput></CFormInput>
+              <CInputGroupText className="col-sm-3">Quantity</CInputGroupText>
+              <CFormInput
+                name={fields[4]}
+                onChange={onChangeEvent}
+                value={cfields.unitquantity}
+              ></CFormInput>
             </CInputGroup>
             <CInputGroup className="mb-2">
-              <CInputGroupText className='col-sm-3'>Rate</CInputGroupText>
-              <CFormInput></CFormInput>
+              <CInputGroupText className="col-sm-3">Rate</CInputGroupText>
+              <CFormInput
+                name={fields[5]}
+                onChange={onChangeEvent}
+                value={cfields.unitrate}
+              ></CFormInput>
             </CInputGroup>
           </CForm>
         </CCardBody>
         <CCardFooter>
-          <CButton color="primary" className="mx-2" onClick={() => alert('I am Clicked')}>
+          <CButton
+            color="primary"
+            className="mx-2"
+            onClick={() => {
+              console.log(cfields)
+            }}
+          >
             Add
           </CButton>
           <CButton color="warning   " className="mx-2">
