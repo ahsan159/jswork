@@ -63,23 +63,23 @@ const salePOS = () => {
           <CContainer className="my-4 col-md-4">
             <CForm>
               <CInputGroup className="mb-2">
-                <CInputGroupText>Product</CInputGroupText>
+                <CInputGroupText className='col-sm-4'>Product</CInputGroupText>
                 <CFormInput placeholder="Select Product"></CFormInput>
               </CInputGroup>
               <CInputGroup className="mb-2">
-                <CInputGroupText>Rate/Unit</CInputGroupText>
+                <CInputGroupText className='col-sm-4'>Rate/Unit</CInputGroupText>
                 <CFormInput placeholder="Cost/Unit" readOnly></CFormInput>
               </CInputGroup>
               <CInputGroup className="mb-2">
-                <CInputGroupText>Quantity</CInputGroupText>
+                <CInputGroupText className='col-sm-4'>Quantity</CInputGroupText>
                 <CFormInput placeholder="Quantity"></CFormInput>
               </CInputGroup>
               <CInputGroup className="mb-2">
-                <CInputGroupText>Discount</CInputGroupText>
+                <CInputGroupText className='col-sm-4'>Discount</CInputGroupText>
                 <CFormInput placeholder="Discount"></CFormInput>
               </CInputGroup>
               <CInputGroup className="mb-2">
-                <CInputGroupText>Total Price</CInputGroupText>
+                <CInputGroupText className='col-sm-4'>Total Price</CInputGroupText>
                 <CFormInput placeholder="Total Price" readOnly></CFormInput>
               </CInputGroup>
             </CForm>
@@ -109,19 +109,19 @@ const salePOS = () => {
             ></DataGrid>
             <CForm classname="mx-4">
               <CInputGroup className="my-2">
-                <CInputGroupText>Grand Total</CInputGroupText>
+                <CInputGroupText className='col-sm-2'>Grand Total</CInputGroupText>
                 <CFormInput readOnly></CFormInput>
               </CInputGroup>
               <CInputGroup className="my-2">
-                <CInputGroupText>Discount</CInputGroupText>
+                <CInputGroupText className='col-sm-2'>Discount</CInputGroupText>
                 <CFormInput></CFormInput>
               </CInputGroup>
               <CInputGroup className="my-2">
-                <CInputGroupText>Payment</CInputGroupText>
+                <CInputGroupText className='col-sm-2'>Payment</CInputGroupText>
                 <CFormInput></CFormInput>
               </CInputGroup>
               <CInputGroup className="my-2">
-                <CInputGroupText>Change</CInputGroupText>
+                <CInputGroupText className='col-sm-2'>Change</CInputGroupText>
                 <CFormInput></CFormInput>
               </CInputGroup>
             </CForm>

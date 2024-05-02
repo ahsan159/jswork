@@ -96,27 +96,27 @@ const AddMedicine = (props) => {
         <CCardBody>
           <CForm>
             <CInputGroup className="mb-2">
-              <CInputGroupText>Product Name</CInputGroupText>
+              <CInputGroupText className='col-sm-3'>Product Name</CInputGroupText>
               <CFormInput></CFormInput>
             </CInputGroup>
             <CInputGroup className="mb-2">
-              <CInputGroupText>Formula</CInputGroupText>
+              <CInputGroupText className='col-sm-3'>Formula</CInputGroupText>
               <CFormInput></CFormInput>
             </CInputGroup>
             <CInputGroup className="mb-2">
-              <CInputGroupText>Manufacturer</CInputGroupText>
+              <CInputGroupText className='col-sm-3'>Manufacturer</CInputGroupText>
               <CFormInput></CFormInput>
             </CInputGroup>
             <CInputGroup className="mb-2">
-              <CInputGroupText>Expiry</CInputGroupText>
+              <CInputGroupText className='col-sm-3'>Expiry</CInputGroupText>
               <CFormInput></CFormInput>
             </CInputGroup>
             <CInputGroup className="mb-2">
-              <CInputGroupText>Quantity</CInputGroupText>
+              <CInputGroupText className='col-sm-3'>Quantity</CInputGroupText>
               <CFormInput></CFormInput>
             </CInputGroup>
             <CInputGroup className="mb-2">
-              <CInputGroupText>Rate</CInputGroupText>
+              <CInputGroupText className='col-sm-3'>Rate</CInputGroupText>
               <CFormInput></CFormInput>
             </CInputGroup>
           </CForm>
