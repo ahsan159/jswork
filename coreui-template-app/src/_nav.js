@@ -8,14 +8,21 @@ import {
   cilCursor,
   cilDescription,
   cilDrop,
+  cilHistory,
+  cilLineWeight,
+  cilNoteAdd,
   cilNotes,
   cilPencil,
   cilPuzzle,
+  cilRecycle,
   cilSpeedometer,
   cilStar,
   cilTablet,
 } from '@coreui/icons'
 import { CNavGroup, CNavItem, CNavTitle } from '@coreui/react'
+import { computeOffsetLeft } from '@mui/x-data-grid/hooks/features/virtualization/useGridVirtualScroller'
+import { Icon } from '@mui/material'
+import { Circle } from '@mui/icons-material'
 
 const _nav = [
   {
@@ -33,6 +40,40 @@ const _nav = [
     name: 'Datatable',
     to: '/datatablet',
     icon: <CIcon icon={cilAirplaneMode} customClassName="nav-icon" />,
+  },
+  {
+    component: CNavTitle,
+    name: 'POS'
+  },
+  {
+    component:CNavItem,
+    name:'New Sale',
+    to:'/newsale',
+    icon: <CIcon icon={cilLineWeight} customClassName="nav-icon"></CIcon>,
+  },
+  {
+    component:CNavItem,
+    name:'Settle',
+    to:'/settle',
+    icon: <CIcon icon={cilRecycle} customClassName="nav-icon"></CIcon>,
+  },
+  {
+    component:CNavItem,
+    name:'Sale History',
+    to:'/salehistory',
+    icon: <CIcon icon={cilHistory} customClassName="nav-icon"></CIcon>,
+  },
+  {
+    component:CNavItem,
+    name:'New Product',
+    to:'/addnewproduct',
+    icon: <CIcon icon={cilNoteAdd} customClassName="nav-icon"></CIcon>,
+  },
+  {
+    component:CNavItem,
+    name:'Customer',
+    to:'/customer',
+    icon: <CIcon icon={cilCursor} customClassName="nav-icon"></CIcon>,
   },
   {
     component: CNavTitle,
