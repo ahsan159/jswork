@@ -21,8 +21,6 @@ import {
 import { DataGrid } from '@mui/x-data-grid'
 
 const ProductsTable = (props) => {
-
-  
   const columns = [
     { field: 'id', headerName: 'ID' },
     { field: 'name', headerName: 'Name' },
@@ -80,7 +78,7 @@ const ProductsTable = (props) => {
           // checkboxSelection={true}
         ></DataGrid> */}
       {/* </CContainer> */}
-      <CContainer className="col-md-12 col-sm-8">
+      <CContainer>
         <DataGrid
           columns={columns}
           rows={props.item}
@@ -88,7 +86,7 @@ const ProductsTable = (props) => {
             pagination: { paginationModel: { page: 0, pageSize: 5 } },
           }}
           pageSizeOptions={[5, 10]}
-          autoHeight
+          autoHeight          
         ></DataGrid>
       </CContainer>
     </div>

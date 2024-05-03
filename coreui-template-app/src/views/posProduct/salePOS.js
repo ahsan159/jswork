@@ -19,27 +19,30 @@ import {
   CFormText,
   CInputGroup,
   CInputGroupText,
+  CRow,
 } from '@coreui/react'
 import { DataGrid } from '@mui/x-data-grid'
 
 import React, { useState } from 'react'
+import InsertSaleItem from './insertSaleItem'
 
 const salePOS = () => {
   let [saleItems, updateSaleItems] = useState([])
 
-  // code to allow user input data for product entry
-  let productFields = ['pname', 'unitrate', 'quantity', 'discount', 'unittotal']
-  let [productFieldsInput, updateProductFieldsInput] = useState({
-    pname: '',
-    unitrate: '',
-    quantity: '',
+  // checkout data change handling
+  let checkoutFields = ['grandTotal', 'discount', 'paid', 'change']
+  let [checkoutData, updateCheckout] = useState({
+    grandTotal: '',
     discount: '',
-    unittotal: '',
+    paid: '',
+    change: '',
   })
-  const onProductInput = (event) => {
+
+  const changeCheckoutText = (event) => {
     let cname = event.target.name
     let cvalue = event.target.value
-    updateProductFieldsInput((previousData) => {
+
+    updateCheckout((previousData) => {
       return {
         ...previousData,
         [cname]: cvalue,
@@ -79,84 +82,11 @@ const salePOS = () => {
         <div className="d-flex flex-column justify-content-center align-items-center">
           <h1>Rukhsar Point of Sale</h1>
         </div>
-        <div className="d-flex flex-row">
-          <CContainer className="my-4 col-md-4">
-            <CForm>
-              <CInputGroup className="mb-2">
-                <CInputGroupText className="col-sm-4">Product</CInputGroupText>
-                <CFormInput
-                  placeholder="Select Product"
-                  name={productFields[0]}
-                  value={productFieldsInput.pname}
-                  onChange={onProductInput}
-                ></CFormInput>
-              </CInputGroup>
-              <CInputGroup className="mb-2">
-                <CInputGroupText className="col-sm-4">Rate/Unit</CInputGroupText>
-                <CFormInput
-                  placeholder="Cost/Unit"
-                  name={productFields[1]}
-                  value={productFieldsInput.unitrate}
-                  onChange={onProductInput}
-                ></CFormInput>
-              </CInputGroup>
-              <CInputGroup className="mb-2">
-                <CInputGroupText className="col-sm-4">Quantity</CInputGroupText>
-                <CFormInput
-                  placeholder="Quantity"
-                  name={productFields[2]}
-                  value={productFieldsInput.quantity}
-                  onChange={onProductInput}
-                ></CFormInput>
-              </CInputGroup>
-              <CInputGroup className="mb-2">
-                <CInputGroupText className="col-sm-4">Discount</CInputGroupText>
-                <CFormInput
-                  placeholder="Discount"
-                  name={productFields[3]}
-                  value={productFieldsInput.discount}
-                  onChange={onProductInput}
-                ></CFormInput>
-              </CInputGroup>
-              <CInputGroup className="mb-2">
-                <CInputGroupText className="col-sm-4">Total Price</CInputGroupText>
-                <CFormInput
-                  placeholder="Total Price"
-                  name={productFields[4]}
-                  value={productFieldsInput.unittotal}
-                  onChange={onProductInput}
-                ></CFormInput>
-              </CInputGroup>
-            </CForm>
-            <div className="container d-flex flex-row justify-content-center mx-1 mb-4">
-              <CButton
-                color="primary"
-                className="mx-1"
-                onClick={() => console.log(productFieldsInput)}
-              >
-                <CIcon icon={cibAddthis}></CIcon>
-              </CButton>
-              <CButton
-                color="warning"
-                className="mx-1"
-                onClick={() => {
-                  updateProductFieldsInput({
-                    pname: '',
-                    unitrate: '',
-                    quantity: '',
-                    discount: '',
-                    unittotal: '',
-                  })
-                }}
-              >
-                <CIcon icon={cilRecycle}></CIcon>
-              </CButton>
-              <CButton color="success" className="mx-1">
-                <CIcon icon={cilWallpaper}></CIcon>
-              </CButton>
-            </div>
+        <CRow>
+          <CContainer className="my-4 col-md-4 col-sm-6">
+            <InsertSaleItem></InsertSaleItem>
           </CContainer>
-          <CContainer className="my-4 col-md-8 col-sm-8">
+          <CContainer className="my-4 col-md-8 col-sm-6">
             <DataGrid
               className="mb-4"
               columns={columns}
@@ -171,31 +101,51 @@ const salePOS = () => {
             <CForm classname="mx-4">
               <CInputGroup className="my-2">
                 <CInputGroupText className="col-sm-2">Grand Total</CInputGroupText>
-                <CFormInput readOnly></CFormInput>
+                <CFormInput
+                  name={checkoutFields[0]}
+                  value={checkoutData.grandTotal}
+                  onChange={changeCheckoutText}
+                ></CFormInput>
               </CInputGroup>
               <CInputGroup className="my-2">
                 <CInputGroupText className="col-sm-2">Discount</CInputGroupText>
-                <CFormInput></CFormInput>
+                <CFormInput
+                  name={checkoutFields[1]}
+                  value={checkoutData.discount}
+                  onChange={changeCheckoutText}
+                ></CFormInput>
               </CInputGroup>
               <CInputGroup className="my-2">
                 <CInputGroupText className="col-sm-2">Payment</CInputGroupText>
-                <CFormInput></CFormInput>
+                <CFormInput
+                  name={checkoutFields[2]}
+                  value={checkoutData.paid}
+                  onChange={changeCheckoutText}
+                ></CFormInput>
               </CInputGroup>
               <CInputGroup className="my-2">
                 <CInputGroupText className="col-sm-2">Change</CInputGroupText>
-                <CFormInput></CFormInput>
+                <CFormInput
+                  name={checkoutFields[3]}
+                  value={checkoutData.change}
+                  onChange={changeCheckoutText}
+                ></CFormInput>
               </CInputGroup>
             </CForm>
-            <CContainer className="d-flex flex-row justify-content-end">
-              <CButton color="primary" className="mx-2">
-                Print
+            <CRow className='justify-content-end mx-1'>
+              <CButton color="primary" className="m-1 col-sm-2">
+                Previous
               </CButton>
-              <CButton color="success" className="mx-2">
-                Next
+              <CButton color="primary" className="m-1 col-md-2">
+                Hold
               </CButton>
-            </CContainer>
+              <div className='col-md-5'></div>
+              <CButton color="success" className="m-1 col-md-2">
+                Checkout
+              </CButton>
+            </CRow>
           </CContainer>
-        </div>
+        </CRow>
       </div>
     </>
   )
