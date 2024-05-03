@@ -57,6 +57,7 @@ const DatatableT = React.lazy(() => import('./views/DataTableT'))
 // where we will add our links
 
 const AddMedicine = React.lazy(() => import('./views/posProduct/AddMedicine'))
+const Products = React.lazy(() => import('./views/posProduct/products'))
 const customerDatatable = React.lazy(() => import('./views/posProduct/customerDatatable'))
 const salePOS = React.lazy(() => import('./views/posProduct/salePOS'))
 const salesDatatable = React.lazy(() => import('./views/posProduct/salesDatatable'))
@@ -66,11 +67,11 @@ const routes = [
   { path: '/', exact: true, name: 'Home' },
   { path: '/dashboard', name: 'Dashboard', element: Dashboard },
   { path: '/datatableT', name: 'Datatable', element: DatatableT },
-  {path:'/newsale',name:'New Sale',element: salePOS},
-  {path:'/settle',name:'Settle',element:settleSale},
-  {path:'/salehistory',name:'Sale History',element:salesDatatable},
-  {path:'/customer',name:'Customer',element:customerDatatable},
-  {path:'/addnewproduct',name:'Add Product',element:AddMedicine},
+  { path: '/newsale', name: 'New Sale', element: salePOS },
+  { path: '/settle', name: 'Settle', element: settleSale },
+  { path: '/salehistory', name: 'Sale History', element: salesDatatable },
+  { path: '/customer', name: 'Customer', element: customerDatatable },
+  { path: '/addnewproduct', name: 'Add Product', element: Products },
   // {path:'',name:'',element:},
   { path: '/theme', name: 'Theme', element: Colors, exact: true },
   { path: '/theme/colors', name: 'Colors', element: Colors },
