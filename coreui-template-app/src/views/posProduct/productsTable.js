@@ -65,19 +65,7 @@ const ProductsTable = (props) => {
   ]
   return (
     <div>
-      {/* <CContainer className="col-md-12 col-sm-8"> */}
-      {/* <DataGrid
-          className="my-2"
-          columns={columns}
-          rows={props.items}
-          initialState={{
-            pagination: { paginationModel: { page: 0, pageSize: 10 } },
-          }}
-          pageSizeOptions={[5, 10]}
-          autoHeight
-          // checkboxSelection={true}
-        ></DataGrid> */}
-      {/* </CContainer> */}
+
       <CContainer>
         <DataGrid
           columns={columns}
