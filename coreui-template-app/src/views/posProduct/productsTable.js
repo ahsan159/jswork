@@ -4,7 +4,11 @@ import dayjs from 'dayjs'
 import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import axios from 'axios'
-import 'reactjs-popup/dist/index.css'
+import { Icon, IconButton } from '@mui/material'
+import DeleteIcon from '@mui/icons-material/Delete'
+import EditIcon from '@mui/icons-material/Edit'
+import { Edit } from '@mui/icons-material'
+// import 'reactjs-popup/dist/index.css'
 // import "./Popup.css";
 import {
   CButton,
@@ -21,6 +25,19 @@ import {
 import { DataGrid } from '@mui/x-data-grid'
 
 const ProductsTable = (props) => {
+  const sendDelete = (params) => {
+    console.log(params)
+    axios
+      .delete('http://localhost:8000/api/medicines', { data: params })
+      .then((response) => {
+        console.log(response)
+        alert(response.data.message)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+  }
+
   const columns = [
     { field: 'id', headerName: 'ID' },
     { field: 'name', headerName: 'Name' },
@@ -65,7 +82,6 @@ const ProductsTable = (props) => {
   ]
   return (
     <div>
-
       <CContainer>
         <DataGrid
           columns={columns}
@@ -74,7 +90,7 @@ const ProductsTable = (props) => {
             pagination: { paginationModel: { page: 0, pageSize: 5 } },
           }}
           pageSizeOptions={[5, 10]}
-          autoHeight          
+          autoHeight
         ></DataGrid>
       </CContainer>
     </div>

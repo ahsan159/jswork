@@ -121,11 +121,25 @@ const AddMedicine = (props) => {
             className="mx-2"
             onClick={() => {
               console.log(cfields)
+              postcreate(cfields)
             }}
           >
             Add
           </CButton>
-          <CButton color="warning   " className="mx-2">
+          <CButton
+            color="warning   "
+            className="mx-2"
+            onClick={() => {
+              updatedcfields({
+                name: '',
+                formula: '',
+                manufacturer: '',
+                expiry_date: '',
+                unitquantity: '',
+                unitrate: '',
+              })
+            }}
+          >
             Clear
           </CButton>
         </CCardFooter>
