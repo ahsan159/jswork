@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ProductsTable from './productsTable'
 import AddMedicine from './AddMedicine'
 import { CButton, CContainer, CRow, CTooltip } from '@coreui/react'
@@ -8,7 +8,7 @@ import axios from 'axios'
 import { Icon, IconButton } from '@mui/material'
 import DeleteIcon from '@mui/icons-material/Delete'
 import EditIcon from '@mui/icons-material/Edit'
-import { Edit } from '@mui/icons-material'
+import { AddAPhoto, Edit } from '@mui/icons-material'
 import EditMedicine from './EditMedicine'
 
 const Products = () => {
@@ -30,6 +30,11 @@ const Products = () => {
 
   let [addVisibility, updateAddVisibility] = useState(false)
   let [editVisibility, updateEditVisibility] = useState(undefined)
+
+  useEffect(() => {
+    refreshTable()
+  }, [addVisibility, editVisibility])
+
   return (
     <>
       <div>
@@ -63,7 +68,7 @@ const Products = () => {
               </CTooltip>
             </div>
             <div className="col-md-8">
-              {addVisibility && <AddMedicine></AddMedicine>}
+              {addVisibility && <AddMedicine addItem={updateAddVisibility}></AddMedicine>}
               {editVisibility != undefined && (
                 <EditMedicine editItem={updateEditVisibility} item={editVisibility}></EditMedicine>
               )}

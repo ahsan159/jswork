@@ -4,3 +4,6 @@
 
 05-10-2022
 Wasted a full hour trying to login using mobile verfication which didn't work. However, verfication with email address worked any not logged in with github account. Another thing please, do update user.name and user.email in git config settings. 
+
+06-05-2024
+Using useEffect() to update table after every add,edit and delete event is more easy and more smooth.

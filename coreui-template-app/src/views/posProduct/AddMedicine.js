@@ -144,6 +144,7 @@ const AddMedicine = (props) => {
             onClick={() => {
               console.log(cfields)
               postcreate(cfields)
+              props.addItem(false)
             }}
           >
             Add
