@@ -25,16 +25,31 @@ import {
 import { DataGrid } from '@mui/x-data-grid'
 
 const ProductsTable = (props) => {
+  // const sendDelete = (params) => {
+  //   console.log(params)
+  //   axios
+  //     .delete('http://localhost:8000/api/medicines', { data: params })
+  //     .then((response) => {
+  //       console.log(response)
+  //       alert(response.data.message)
+  //     })
+  //     .catch((error) => {
+  //       console.log(error)
+  //     })
+  // }
+
   const sendDelete = (params) => {
     console.log(params)
     axios
-      .delete('http://localhost:8000/api/medicines', { data: params })
+      .delete(`http://localhost:8000/api/medicines/${params.id}`) //, { data: params })
       .then((response) => {
         console.log(response)
-        alert(response.data.message)
+        // props.refreshTable()
+        // alert(response.data.message);
       })
       .catch((error) => {
         console.log(error)
+        // props.refreshTable()
       })
   }
 
@@ -53,9 +68,13 @@ const ProductsTable = (props) => {
       // renderCell: (params) => {
       //     return <EditMedicine rowData={params.row} updateData={refreshTable}></EditMedicine>;
       // },
-      renderCell: () => {
+      renderCell: (params) => {
         return (
-          <IconButton>
+          <IconButton
+            onClick={() => {
+              props.editItem(params.row)
+            }}
+          >
             <EditIcon color="success"></EditIcon>
           </IconButton>
         )

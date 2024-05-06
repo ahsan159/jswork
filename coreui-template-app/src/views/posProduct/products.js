@@ -9,11 +9,13 @@ import { Icon, IconButton } from '@mui/material'
 import DeleteIcon from '@mui/icons-material/Delete'
 import EditIcon from '@mui/icons-material/Edit'
 import { Edit } from '@mui/icons-material'
+import EditMedicine from './EditMedicine'
 
 const Products = () => {
   let [citem, updateItems] = useState([])
 
-  const refreshTable = () => {
+  const refreshTable = (evt) => {
+    console.log(evt)
     console.log('refreshing')
     axios
       .get('http://localhost:8000/api/medicines')
@@ -27,6 +29,7 @@ const Products = () => {
   }
 
   let [addVisibility, updateAddVisibility] = useState(false)
+  let [editVisibility, updateEditVisibility] = useState(undefined)
   return (
     <>
       <div>
@@ -36,7 +39,10 @@ const Products = () => {
               <CTooltip content="Click to Add New Product" placement="top">
                 <CButton
                   color={!addVisibility ? 'success' : 'danger'}
-                  onClick={() => updateAddVisibility(!addVisibility)}
+                  onClick={() => {
+                    updateAddVisibility(!addVisibility)
+                    updateEditVisibility(undefined)
+                  }}
                 >
                   {!addVisibility ? (
                     <CIcon icon={cibAddthis}></CIcon>
@@ -56,10 +62,15 @@ const Products = () => {
                 </CButton>
               </CTooltip>
             </div>
-            <div className="col-md-8">{addVisibility && <AddMedicine></AddMedicine>}</div>
+            <div className="col-md-8">
+              {addVisibility && <AddMedicine></AddMedicine>}
+              {editVisibility != undefined && (
+                <EditMedicine editItem={updateEditVisibility} item={editVisibility}></EditMedicine>
+              )}
+            </div>
           </CRow>
         </div>
-        <ProductsTable item={citem} refreshTable={updateItems}></ProductsTable>
+        <ProductsTable item={citem} editItem={updateEditVisibility}></ProductsTable>
       </div>
     </>
   )

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import 'reactjs-popup/dist/index.css'
 // import "./Popup.css";
@@ -35,37 +35,42 @@ import ProductsTable from './productsTable'
 //   }
 //   console.log('post complete')
 // }
-const AddMedicine = (props) => {
-  const postcreate = (drugData) => {
-    const postHeader = { 'Access-Control-Allow-Origin': '*' }
-    console.log('this will delete last data')
+const EditMedicine = (props) => {
+  const putRequest = (drugData) => {
+    // const postHeader = { "Access-Control-Allow-Origin": "*" };
+    // console.log("this will delete last data");
+    let id = props.item.id;
+    // console.log(props.item.id)
+    // console.log(drugData)
     try {
       axios
-        .post('http://localhost:8000/api/medicines', drugData)
+        .put(`http://localhost:8000/api/medicines/${id}`, drugData)
         .then((res) => {
+          // console.log("this is correct");
           console.log(res)
           alert(res.data.message)
-          props.refreshTable()
         })
         .catch((error) => {
-          console.log(error)
-          props.refreshTable()
+          // console.log("this is error");
+          // console.log(error);
+          //   props.updateData()
           // console.log(error.response.data);
-          // alert(error.response.data.message);
+          //   alert(error.response.data.message)
         })
     } catch (error) {
-      alert(error.response.data)
+      console.log(error)
     }
-    console.log('post complete')
+    console.log('put complete');
+    props.editItem(undefined);
   }
 
   /// following code allows user inputs
   let fields = ['name', 'formula', 'manufacturer', 'expiry_date', 'unitquantity', 'unitrate']
   let [cfields, updatedcfields] = useState({
-    name: '',
-    formula: '',
-    manufacturer: '',
-    expiry_date: '',
+    name: props.item.name,
+    formula: props.item.formula,
+    manufacturer: props.item.manufacturer,
+    expiry_date: props.item.expiry_date,
     unitquantity: '',
     unitrate: '',
   })
@@ -84,7 +89,7 @@ const AddMedicine = (props) => {
   return (
     <>
       <CCard>
-        <CCardHeader>Add Products</CCardHeader>
+        <CCardHeader>Edit Products</CCardHeader>
         <CCardBody>
           <CForm>
             <CInputGroup className="mb-2">
@@ -143,26 +148,19 @@ const AddMedicine = (props) => {
             className="mx-2"
             onClick={() => {
               console.log(cfields)
-              postcreate(cfields)
+              putRequest(cfields)
             }}
           >
-            Add
+            Update
           </CButton>
           <CButton
             color="warning   "
             className="mx-2"
             onClick={() => {
-              updatedcfields({
-                name: '',
-                formula: '',
-                manufacturer: '',
-                expiry_date: '',
-                unitquantity: '',
-                unitrate: '',
-              })
+              props.editItem(undefined)
             }}
           >
-            Clear
+            Close
           </CButton>
         </CCardFooter>
       </CCard>
@@ -170,4 +168,4 @@ const AddMedicine = (props) => {
   )
 }
 
-export default AddMedicine
+export default EditMedicine
