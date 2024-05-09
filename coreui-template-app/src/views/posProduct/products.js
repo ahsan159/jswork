@@ -18,7 +18,8 @@ const Products = () => {
     console.log(evt)
     console.log('refreshing')
     axios
-      .get('http://localhost:8000/api/medicines')
+      // .get('http://localhost:8000/api/medicines')
+      .get('http://localhost:8000/api/products')
       .then((res) => {
         console.log(res)
         updateItems(res.data)
