@@ -90,9 +90,9 @@ const AddMedicine = (props) => {
     product_name: '',
     description: '',
     manufacturer: '',
-    rack: '',
-    purchase: '',
-    retail: '',
+    rack_location: '',
+    purchase_price: '',
+    retail_price: '',
     expiry_date: '',
   })
 
@@ -161,7 +161,7 @@ const AddMedicine = (props) => {
                 <CFormInput
                   name={fields[5]}
                   onChange={onChangeEvent}
-                  value={cfields.rack}
+                  value={cfields.rack_location}
                 ></CFormInput>
               </CInputGroup>
             </div>
@@ -171,7 +171,7 @@ const AddMedicine = (props) => {
                 <CFormInput
                   name={fields[5]}
                   onChange={onChangeEvent}
-                  value={cfields.purchase}
+                  value={cfields.purchase_price}
                 ></CFormInput>
               </CInputGroup>
               {/* </div>
@@ -181,7 +181,7 @@ const AddMedicine = (props) => {
                 <CFormInput
                   name={fields[5]}
                   onChange={onChangeEvent}
-                  value={cfields.retail}
+                  value={cfields.retail_price}
                 ></CFormInput>
               </CInputGroup>
             </div>
