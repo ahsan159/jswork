@@ -13,6 +13,7 @@ import {
   CFormInput,
   CInputGroup,
   CInputGroupText,
+  CRow,
 } from '@coreui/react'
 import ProductsTable from './productsTable'
 
@@ -60,14 +61,39 @@ const AddMedicine = (props) => {
   }
 
   /// following code allows user inputs
-  let fields = ['name', 'formula', 'manufacturer', 'expiry_date', 'unitquantity', 'unitrate']
+  // let fields = ['name', 'formula', 'manufacturer', 'expiry_date', 'unitquantity', 'unitrate']
+  let fieldsHeader = [
+    'Category',
+    'Barcode',
+    'Name',
+    'Desciption',
+    'Manufacturer',
+    'Rack',
+    'Purchase',
+    'Retail Price',
+    'Expiry',
+  ]
+  let fields = [
+    'category',
+    'barcode',
+    'product_name',
+    'description',
+    'manufacturer',
+    'rack_location',
+    'purchase_price',
+    'retail_price',
+    'expiry_date',
+  ]
   let [cfields, updatedcfields] = useState({
-    name: '',
-    formula: '',
+    category: '',
+    barcode: '',
+    product_name: '',
+    description: '',
     manufacturer: '',
+    rack: '',
+    purchase: '',
+    retail: '',
     expiry_date: '',
-    unitquantity: '',
-    unitrate: '',
   })
 
   const onChangeEvent = (event) => {
@@ -87,52 +113,84 @@ const AddMedicine = (props) => {
         <CCardHeader>Add Products</CCardHeader>
         <CCardBody>
           <CForm>
+            <div className="d-flex col-12">
+              <CInputGroup className="mb-2 me-1">
+                <CInputGroupText className="col-sm-6">{fieldsHeader[0]}</CInputGroupText>
+                <CFormInput
+                  name={fields[0]}
+                  onChange={onChangeEvent}
+                  value={cfields.category}
+                ></CFormInput>
+              </CInputGroup>
+              <CInputGroup className="mb-2 ms-1">
+                <CInputGroupText className="col-sm-6">{fieldsHeader[1]}</CInputGroupText>
+                <CFormInput
+                  name={fields[1]}
+                  onChange={onChangeEvent}
+                  value={cfields.barcode}
+                ></CFormInput>
+              </CInputGroup>
+            </div>
             <CInputGroup className="mb-2">
-              <CInputGroupText className="col-sm-3">Product Name</CInputGroupText>
-              <CFormInput
-                name={fields[0]}
-                onChange={onChangeEvent}
-                value={cfields.name}
-              ></CFormInput>
-            </CInputGroup>
-            <CInputGroup className="mb-2">
-              <CInputGroupText className="col-sm-3">Formula</CInputGroupText>
-              <CFormInput
-                name={fields[1]}
-                onChange={onChangeEvent}
-                value={cfields.formula}
-              ></CFormInput>
-            </CInputGroup>
-            <CInputGroup className="mb-2">
-              <CInputGroupText className="col-sm-3">Manufacturer</CInputGroupText>
+              <CInputGroupText className="col-sm-3">{fieldsHeader[2]}</CInputGroupText>
               <CFormInput
                 name={fields[2]}
                 onChange={onChangeEvent}
-                value={cfields.manufacturer}
+                value={cfields.product_name}
               ></CFormInput>
             </CInputGroup>
             <CInputGroup className="mb-2">
-              <CInputGroupText className="col-sm-3">Expiry</CInputGroupText>
+              <CInputGroupText className="col-sm-3">{fieldsHeader[3]}</CInputGroupText>
               <CFormInput
                 name={fields[3]}
                 onChange={onChangeEvent}
-                value={cfields.expiry_date}
+                value={cfields.description}
               ></CFormInput>
             </CInputGroup>
+            <div className="d-flex col-12">
+              <CInputGroup className="mb-2 me-1">
+                <CInputGroupText className="col-sm-6">{fieldsHeader[4]}</CInputGroupText>
+                <CFormInput
+                  name={fields[4]}
+                  onChange={onChangeEvent}
+                  value={cfields.manufacturer}
+                ></CFormInput>
+              </CInputGroup>
+              <CInputGroup className="mb-2 ms-1">
+                <CInputGroupText className="col-sm-6">{fieldsHeader[5]}</CInputGroupText>
+                <CFormInput
+                  name={fields[5]}
+                  onChange={onChangeEvent}
+                  value={cfields.rack}
+                ></CFormInput>
+              </CInputGroup>
+            </div>
+            <div className="col-12 d-flex">
+              <CInputGroup className="mb-2 me-1">
+                <CInputGroupText className="col-sm-6">{fieldsHeader[6]}</CInputGroupText>
+                <CFormInput
+                  name={fields[5]}
+                  onChange={onChangeEvent}
+                  value={cfields.purchase}
+                ></CFormInput>
+              </CInputGroup>
+              {/* </div>
+              <div className="col-4"> */}
+              <CInputGroup className="mb-2 ms-1">
+                <CInputGroupText className="col-sm-6">{fieldsHeader[7]}</CInputGroupText>
+                <CFormInput
+                  name={fields[5]}
+                  onChange={onChangeEvent}
+                  value={cfields.retail}
+                ></CFormInput>
+              </CInputGroup>
+            </div>
             <CInputGroup className="mb-2">
-              <CInputGroupText className="col-sm-3">Quantity</CInputGroupText>
-              <CFormInput
-                name={fields[4]}
-                onChange={onChangeEvent}
-                value={cfields.unitquantity}
-              ></CFormInput>
-            </CInputGroup>
-            <CInputGroup className="mb-2">
-              <CInputGroupText className="col-sm-3">Rate</CInputGroupText>
+              <CInputGroupText className="col-sm-3">{fieldsHeader[8]}</CInputGroupText>
               <CFormInput
                 name={fields[5]}
                 onChange={onChangeEvent}
-                value={cfields.unitrate}
+                value={cfields.expiry_date}
               ></CFormInput>
             </CInputGroup>
           </CForm>
