@@ -42,7 +42,8 @@ const AddMedicine = (props) => {
     console.log('this will delete last data')
     try {
       axios
-        .post('http://localhost:8000/api/medicines', drugData)
+        // .post('http://localhost:8000/api/medicines', drugData)
+        .post('http://localhost:8000/api/products', drugData)
         .then((res) => {
           console.log(res)
           alert(res.data.message)
@@ -169,7 +170,7 @@ const AddMedicine = (props) => {
               <CInputGroup className="mb-2 me-1">
                 <CInputGroupText className="col-sm-6">{fieldsHeader[6]}</CInputGroupText>
                 <CFormInput
-                  name={fields[5]}
+                  name={fields[6]}
                   onChange={onChangeEvent}
                   value={cfields.purchase_price}
                 ></CFormInput>
@@ -179,7 +180,7 @@ const AddMedicine = (props) => {
               <CInputGroup className="mb-2 ms-1">
                 <CInputGroupText className="col-sm-6">{fieldsHeader[7]}</CInputGroupText>
                 <CFormInput
-                  name={fields[5]}
+                  name={fields[7]}
                   onChange={onChangeEvent}
                   value={cfields.retail_price}
                 ></CFormInput>
@@ -188,7 +189,7 @@ const AddMedicine = (props) => {
             <CInputGroup className="mb-2">
               <CInputGroupText className="col-sm-3">{fieldsHeader[8]}</CInputGroupText>
               <CFormInput
-                name={fields[5]}
+                name={fields[8]}
                 onChange={onChangeEvent}
                 value={cfields.expiry_date}
               ></CFormInput>

@@ -1,10 +1,14 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Popup from 'reactjs-popup'
 import dayjs from 'dayjs'
 import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import axios from 'axios'
-import 'reactjs-popup/dist/index.css'
+// import 'reactjs-popup/dist/index.css'
+import { Icon, IconButton } from '@mui/material'
+import DeleteIcon from '@mui/icons-material/Delete'
+import EditIcon from '@mui/icons-material/Edit'
+import { AddAPhoto, Edit } from '@mui/icons-material'
 // import "./Popup.css";
 import {
   CButton,
@@ -21,12 +25,28 @@ import {
 import { DataGrid } from '@mui/x-data-grid'
 
 const customerDatatable = () => {
+  let [customerData, updateCustomerData] = useState([])
+
+  useEffect(() => {
+    getCustomerData()
+  },[])
+
+  const getCustomerData = () => {
+    axios
+      .get('http://localhost:8000/api/customers')
+      .then((res) => {
+        updateCustomerData(res.data)
+      })
+      .catch((err) => console.log(err))
+  }
+
   const columns = [
     { field: 'id', headerName: 'ID' },
+    { field: 'customer_type', headerName: 'Type' },
     { field: 'name', headerName: 'Name' },
-    { field: 'contact', headerName: 'Contact No.' },
-    { field: 'date', headerName: 'Date' },
-    { field: 'purchase', headerName: 'Purchase' },
+    { field: 'contact', headerName: 'Contact' },
+    { field: 'address', headerName: 'Address' },
+    // { field: 'purchase', headerName: 'Purchase' },
     {
       field: 'edit',
       headerName: 'Edit',
@@ -62,7 +82,7 @@ const customerDatatable = () => {
       <CContainer>
         <DataGrid
           columns={columns}
-          rows={[]}
+          rows={customerData}
           initialState={{
             pagination: { paginationModel: { page: 0, pageSize: 5 } },
           }}

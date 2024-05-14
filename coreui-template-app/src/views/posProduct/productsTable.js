@@ -41,7 +41,8 @@ const ProductsTable = (props) => {
   const sendDelete = (params) => {
     console.log(params)
     axios
-      .delete(`http://localhost:8000/api/medicines/${params.id}`) //, { data: params })
+      // .delete(`http://localhost:8000/api/medicines/${params.id}`) //, { data: params })
+      .delete(`http://localhost:8000/api/products/${params.id}`) //, { data: params })
       .then((response) => {
         console.log(response)
         // props.refreshTable()

@@ -44,7 +44,8 @@ const EditMedicine = (props) => {
     // console.log(drugData)
     try {
       axios
-        .put(`http://localhost:8000/api/medicines/${id}`, drugData)
+        // .put(`http://localhost:8000/api/medicines/${id}`, drugData)
+        .put(`http://localhost:8000/api/products/${id}`, drugData)
         .then((res) => {
           // console.log("this is correct");
           console.log(res)
@@ -173,7 +174,7 @@ const EditMedicine = (props) => {
               <CInputGroup className="mb-2 me-1">
                 <CInputGroupText className="col-sm-6">{fieldsHeader[6]}</CInputGroupText>
                 <CFormInput
-                  name={fields[5]}
+                  name={fields[6]}
                   onChange={onChangeEvent}
                   value={cfields.purchase_price}
                 ></CFormInput>
@@ -183,7 +184,7 @@ const EditMedicine = (props) => {
               <CInputGroup className="mb-2 ms-1">
                 <CInputGroupText className="col-sm-6">{fieldsHeader[7]}</CInputGroupText>
                 <CFormInput
-                  name={fields[5]}
+                  name={fields[7]}
                   onChange={onChangeEvent}
                   value={cfields.retail_price}
                 ></CFormInput>
@@ -192,7 +193,7 @@ const EditMedicine = (props) => {
             <CInputGroup className="mb-2">
               <CInputGroupText className="col-sm-3">{fieldsHeader[8]}</CInputGroupText>
               <CFormInput
-                name={fields[5]}
+                name={fields[8]}
                 onChange={onChangeEvent}
                 value={cfields.expiry_date}
               ></CFormInput>
