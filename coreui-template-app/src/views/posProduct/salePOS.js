@@ -22,6 +22,8 @@ import {
   CRow,
 } from '@coreui/react'
 import { DataGrid } from '@mui/x-data-grid'
+import { TextField } from '@mui/material'
+import { Autocomplete } from '@mui/material'
 
 import React, { useState } from 'react'
 import InsertSaleItem from './insertSaleItem'
@@ -98,7 +100,7 @@ const salePOS = () => {
               autoHeight
               // checkboxSelection={true}
             ></DataGrid>
-            <CForm classname="mx-4">
+            <CForm className="mx-4">
               <CInputGroup className="my-2">
                 <CInputGroupText className="col-sm-2">Grand Total</CInputGroupText>
                 <CFormInput
@@ -132,14 +134,14 @@ const salePOS = () => {
                 ></CFormInput>
               </CInputGroup>
             </CForm>
-            <CRow className='justify-content-end mx-1'>
+            <CRow className="justify-content-end mx-1">
               <CButton color="primary" className="m-1 col-sm-2">
                 Previous
               </CButton>
               <CButton color="primary" className="m-1 col-md-2">
                 Hold
               </CButton>
-              <div className='col-md-5'></div>
+              <div className="col-md-5"></div>
               <CButton color="success" className="m-1 col-md-2">
                 Checkout
               </CButton>

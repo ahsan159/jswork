@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   cibAddthis,
   cibCplusplus,
@@ -22,8 +22,32 @@ import {
   CInputGroupText,
 } from '@coreui/react'
 import { DataGrid } from '@mui/x-data-grid'
+import { Autocomplete, TextField } from '@mui/material'
+import { auto } from '@popperjs/core'
+import axios from 'axios'
 
 const InsertSaleItem = () => {
+  let [citem, updateItems] = useState([])
+
+  const refreshTable = (evt) => {
+    console.log(evt)
+    console.log('refreshing')
+    axios
+      // .get('http://localhost:8000/api/medicines')
+      .get('http://localhost:8000/api/products')
+      .then((res) => {
+        console.log(res)
+        updateItems(res.data)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }
+
+  useEffect(() => {
+    refreshTable()
+  }, [])
+
   // code to allow user input data for product entry
   let productFields = ['pname', 'unitrate', 'quantity', 'discount', 'unittotal']
   let [productFieldsInput, updateProductFieldsInput] = useState({
@@ -36,6 +60,8 @@ const InsertSaleItem = () => {
   const onProductInput = (event) => {
     let cname = event.target.name
     let cvalue = event.target.value
+    console.log(cname)
+    console.log(cvalue)
     updateProductFieldsInput((previousData) => {
       return {
         ...previousData,
@@ -49,12 +75,28 @@ const InsertSaleItem = () => {
         <CForm>
           <CInputGroup className="mb-2">
             <CInputGroupText className="col-sm-4">Product</CInputGroupText>
-            <CFormInput
+            {/* <CFormInput
               placeholder="Select Product"
               name={productFields[0]}
               value={productFieldsInput.pname}
               onChange={onProductInput}
-            ></CFormInput>
+            ></CFormInput> */}
+            <div className="d-flex flex-grow-1">
+              <Autocomplete
+                name={productFields[0]}                
+                options={citem}
+                getOptionLabel={(option) => option.product_name}
+                sx={{ backgroundColor: 'white', margin: 0, padding: 0 }}
+                fullWidth
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    variant="outlined"
+                    sx={{ margin: 0, padding: 0 }}
+                  ></TextField>
+                )}
+              ></Autocomplete>
+            </div>
           </CInputGroup>
           <CInputGroup className="mb-2">
             <CInputGroupText className="col-sm-4">Rate/Unit</CInputGroupText>
