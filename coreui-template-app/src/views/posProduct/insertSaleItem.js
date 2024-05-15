@@ -60,8 +60,9 @@ const InsertSaleItem = () => {
   const onProductInput = (event) => {
     let cname = event.target.name
     let cvalue = event.target.value
-    console.log(cname)
+    console.log(`${cname}+${cvalue}`)
     console.log(cvalue)
+    // console.log(cvalue)
     updateProductFieldsInput((previousData) => {
       return {
         ...previousData,
@@ -83,11 +84,24 @@ const InsertSaleItem = () => {
             ></CFormInput> */}
             <div className="d-flex flex-grow-1">
               <Autocomplete
-                name={productFields[0]}                
-                options={citem}
-                getOptionLabel={(option) => option.product_name}
-                sx={{ backgroundColor: 'white', margin: 0, padding: 0 }}
                 fullWidth
+                sx={{ backgroundColor: 'white', margin: 0, padding: 0 }}
+                options={citem}
+                getOptionLabel={(option) => option.description}
+                renderOption={(prop, option) => (
+                  <>
+                    <div {...prop}>
+                      <span>
+                        {option.product_name}😆{option.description}
+                      </span>
+                    </div>
+                  </>
+                )}
+                onChange={(evt, selected) => {
+                  evt.target.name = productFields[0]
+                  evt.target.value = selected.product_name
+                  onProductInput(evt)
+                }}
                 renderInput={(params) => (
                   <TextField
                     {...params}
