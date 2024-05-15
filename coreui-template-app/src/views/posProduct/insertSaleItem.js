@@ -25,9 +25,86 @@ import { DataGrid } from '@mui/x-data-grid'
 import { Autocomplete, TextField } from '@mui/material'
 import { auto } from '@popperjs/core'
 import axios from 'axios'
+import PropTypes from 'prop-types'
+import Button from '@mui/material/Button'
+import Avatar from '@mui/material/Avatar'
+import List from '@mui/material/List'
+import ListItem from '@mui/material/ListItem'
+import ListItemAvatar from '@mui/material/ListItemAvatar'
+import ListItemButton from '@mui/material/ListItemButton'
+import ListItemText from '@mui/material/ListItemText'
+import DialogTitle from '@mui/material/DialogTitle'
+import Dialog from '@mui/material/Dialog'
+import { DialogActions } from '@mui/material'
+import { DialogContent } from '@mui/material'
+import { DialogContentText } from '@mui/material'
+import PersonIcon from '@mui/icons-material/Person'
+import AddIcon from '@mui/icons-material/Add'
+import Typography from '@mui/material/Typography'
+import { blue } from '@mui/material/colors'
+
+const emails = ['username@gmail.com', 'user02@gmail.com']
+
+function SimpleDialog(props) {
+  const { onClose, selectedValue, open } = props
+
+  const handleClose = () => {
+    onClose(selectedValue)
+  }
+
+  const handleListItemClick = (value) => {
+    onClose(value)
+  }
+
+  return (
+    <Dialog onClose={handleClose} open={open}>
+      <DialogTitle>Set backup account</DialogTitle>
+      <List sx={{ pt: 0 }}>
+        {emails.map((email) => (
+          <ListItem disableGutters key={email}>
+            <ListItemButton onClick={() => handleListItemClick(email)}>
+              <ListItemAvatar>
+                <Avatar sx={{ bgcolor: blue[100], color: blue[600] }}>
+                  <PersonIcon />
+                </Avatar>
+              </ListItemAvatar>
+              <ListItemText primary={email} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+        <ListItem disableGutters>
+          <ListItemButton autoFocus onClick={() => handleListItemClick('addAccount')}>
+            <ListItemAvatar>
+              <Avatar>
+                <AddIcon />
+              </Avatar>
+            </ListItemAvatar>
+            <ListItemText primary="Add account" />
+          </ListItemButton>
+        </ListItem>
+      </List>
+    </Dialog>
+  )
+}
+
+SimpleDialog.propTypes = {
+  onClose: PropTypes.func.isRequired,
+  open: PropTypes.bool.isRequired,
+  selectedValue: PropTypes.string.isRequired,
+}
 
 const InsertSaleItem = () => {
   let [citem, updateItems] = useState([])
+  const [open, setOpen] = React.useState(false)
+  const [selectedValue, setSelectedValue] = React.useState(emails[1])
+
+  const handleClickOpen = () => {
+    setOpen(true)
+  }
+
+  const handleClose = () => {
+    setOpen(false)
+  }
 
   const refreshTable = (evt) => {
     console.log(evt)
@@ -171,6 +248,26 @@ const InsertSaleItem = () => {
           <CButton color="success" className="mx-1">
             <CIcon icon={cilWallpaper}></CIcon>
           </CButton>
+
+          <CButton
+            onClick={() => {
+              setOpen(true)
+            }}
+          >
+            <PersonIcon></PersonIcon>
+          </CButton>
+          <Dialog open={open} onClose={handleClose} fullWidth>
+            <DialogTitle id="alert-dialog-title">{"Delete Record?"}</DialogTitle>
+            <DialogContent>
+              <DialogContentText id="alert-dialog-description">Are you sure?</DialogContentText>
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={handleClose}>Yes</Button>
+              <Button onClick={handleClose} autoFocus>
+                No
+              </Button>
+            </DialogActions>
+          </Dialog>
         </div>
       </CContainer>
     </>
