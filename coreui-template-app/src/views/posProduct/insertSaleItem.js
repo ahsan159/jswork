@@ -92,7 +92,7 @@ const InsertSaleItem = () => {
                   <>
                     <div {...prop}>
                       <span>
-                        {option.product_name}😆{option.description}
+                        {option.product_name}|{option.description}|{option.rack_location}
                       </span>
                     </div>
                   </>
