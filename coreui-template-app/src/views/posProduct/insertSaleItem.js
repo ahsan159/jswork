@@ -96,11 +96,7 @@ SimpleDialog.propTypes = {
 const InsertSaleItem = () => {
   let [citem, updateItems] = useState([])
   const [open, setOpen] = React.useState(false)
-  const [selectedValue, setSelectedValue] = React.useState(emails[1])
-
-  const handleClickOpen = () => {
-    setOpen(true)
-  }
+  const [dispValue, updateValue] = useState(undefined)
 
   const handleClose = () => {
     setOpen(false)
@@ -123,7 +119,10 @@ const InsertSaleItem = () => {
 
   useEffect(() => {
     refreshTable()
-  }, [])
+    if (dispValue != undefined) {
+      alert(dispValue)
+    }
+  }, [dispValue])
 
   // code to allow user input data for product entry
   let productFields = ['pname', 'unitrate', 'quantity', 'discount', 'unittotal']
@@ -257,13 +256,26 @@ const InsertSaleItem = () => {
             <PersonIcon></PersonIcon>
           </CButton>
           <Dialog open={open} onClose={handleClose} fullWidth>
-            <DialogTitle id="alert-dialog-title">{"Delete Record?"}</DialogTitle>
+            <DialogTitle id="alert-dialog-title">{'Delete Record?'}</DialogTitle>
             <DialogContent>
               <DialogContentText id="alert-dialog-description">Are you sure?</DialogContentText>
             </DialogContent>
             <DialogActions>
-              <Button onClick={handleClose}>Yes</Button>
-              <Button onClick={handleClose} autoFocus>
+              <Button
+                onClick={() => {
+                  updateValue('yes')
+                  handleClose()
+                }}
+              >
+                Yes
+              </Button>
+              <Button
+                autoFocus
+                onClick={() => {
+                  updateValue('no')
+                  handleClose()
+                }}
+              >
                 No
               </Button>
             </DialogActions>
