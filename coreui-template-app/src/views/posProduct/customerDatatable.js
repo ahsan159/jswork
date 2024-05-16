@@ -29,7 +29,7 @@ const customerDatatable = () => {
 
   useEffect(() => {
     getCustomerData()
-  },[])
+  }, [])
 
   const getCustomerData = () => {
     axios

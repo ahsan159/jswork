@@ -25,11 +25,32 @@ import { DataGrid } from '@mui/x-data-grid'
 import { TextField } from '@mui/material'
 import { Autocomplete } from '@mui/material'
 
-import React, { useState } from 'react'
+import axios from 'axios'
+
+import React, { useState, useEffect } from 'react'
 import InsertSaleItem from './insertSaleItem'
+import CustomerDialog from './customerDialog'
 
 const salePOS = () => {
   let [saleItems, updateSaleItems] = useState([])
+  let [selectedCustomer, updateSelectedCustomer] = useState({ name: 'walkin', contact: '000-0000' })
+
+  // get customer data to be added
+  let [customerData, updateCustomerData] = useState([])
+  const [customerName, setCustomerName] = useState('walkin customer') // selected customer
+
+  useEffect(() => {
+    getCustomerData()
+  }, [])
+
+  const getCustomerData = () => {
+    axios
+      .get('http://localhost:8000/api/customers')
+      .then((res) => {
+        updateCustomerData(res.data)
+      })
+      .catch((err) => console.log(err))
+  }
 
   // checkout data change handling
   let checkoutFields = ['grandTotal', 'discount', 'paid', 'change']
@@ -86,6 +107,10 @@ const salePOS = () => {
         </div>
         <CRow>
           <CContainer className="my-4 col-md-4 col-sm-6">
+            <CustomerDialog
+              data={customerData}              
+              updateCurrentCustomer={setCustomerName}
+            ></CustomerDialog>
             <InsertSaleItem></InsertSaleItem>
           </CContainer>
           <CContainer className="my-4 col-md-8 col-sm-6">
