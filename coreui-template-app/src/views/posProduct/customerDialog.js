@@ -21,6 +21,7 @@ import axios from 'axios'
 import React, { useState } from 'react'
 
 const CustomerDialog = (props) => {
+  let [customerData, updateCustomerData] = useState([])
   const [visibility, setVisibility] = useState(false)
   const [addVisibility, setAddVisibility] = useState(true)
   const [customerName, setCustomerName] = useState('walkin customer')
@@ -30,12 +31,22 @@ const CustomerDialog = (props) => {
     contact: '',
     address: '',
   })
+  const [searchTerm, setSearchTerm] = useState('')
+
+  const getCustomerData = () => {
+    axios
+      .get('http://localhost:8000/api/customers')
+      .then((res) => {
+        updateCustomerData(res.data)
+      })
+      .catch((err) => console.log(err))
+  }
 
   const newCustomerInput = (evt) => {
     let cname = evt.target.name
     let cvalue = evt.target.value
-    console.log(`${cname}:${cvalue}`)
-    console.log(`${addVisibility}`)
+    // console.log(`${cname}:${cvalue}`)
+    // console.log(`${addVisibility}`)
     setNewCustomerData((previousData) => {
       return {
         ...previousData,
@@ -74,6 +85,21 @@ const CustomerDialog = (props) => {
     { field: 'contact', headerName: 'Contact' },
     { field: 'address', headerName: 'Address', WidthFull: true },
   ]
+
+  const searchInData = (term) => {
+    let dataNew = customerData.map((val) => {
+      if (
+        val.name.toLowerCase().indexOf(term) > -1 ||
+        val.contact.toLowerCase().indexOf(searchTerm) > -1
+      ) {
+        return val
+      }
+    })
+    dataNew = dataNew.filter((val) => val != undefined)
+    console.log(dataNew)
+    return dataNew
+  }
+
   return (
     <>
       <CInputGroup className="mb-2 px-2">
@@ -88,6 +114,8 @@ const CustomerDialog = (props) => {
               contact: '',
               address: '',
             })
+            getCustomerData()
+            setSearchTerm('')
           }}
           value={customerName}
         ></CFormInput>
@@ -116,7 +144,15 @@ const CustomerDialog = (props) => {
                   <PersonAdd></PersonAdd>
                 </CButton>
               </CTooltip>
-              <CFormInput placeholder="Search Customer"></CFormInput>
+              <CFormInput
+                autoFocus={true}
+                placeholder="Search Customer"
+                value={searchTerm}
+                onChange={(evt) => {
+                  setSearchTerm(evt.target.value)
+                  searchInData(searchTerm)
+                }}
+              ></CFormInput>
             </div>
           </CContainer>
           <CContainer hidden={addVisibility}>
@@ -162,7 +198,7 @@ const CustomerDialog = (props) => {
               disableMultipleRowSelection={true}
               disableRowSelectionOnClick={false}
               columns={columns}
-              rows={props.data}
+              rows={searchInData(searchTerm)}
               initialState={{
                 pagination: { paginationModel: { page: 0, pageSize: 5 } },
               }}
@@ -170,7 +206,7 @@ const CustomerDialog = (props) => {
               onRowSelectionModelChange={(id) => {
                 console.log(id)
                 try {
-                  setCustomerName(props.data[id[0] - 1].name)
+                  setCustomerName(customerData[id[0] - 1].name)
                 } catch (err) {
                   setCustomerName(undefined)
                 }
