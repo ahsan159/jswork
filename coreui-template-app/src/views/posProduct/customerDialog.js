@@ -78,7 +78,19 @@ const CustomerDialog = (props) => {
     <>
       <CInputGroup className="mb-2 px-2">
         <CInputGroupText className="col-sm-4">Customer</CInputGroupText>
-        <CFormInput onClick={() => setVisibility(true)} value={customerName}></CFormInput>
+        <CFormInput
+          onClick={() => {
+            setVisibility(true)
+            setAddVisibility(true)
+            setNewCustomerData({
+              customer_type: '',
+              name: '',
+              contact: '',
+              address: '',
+            })
+          }}
+          value={customerName}
+        ></CFormInput>
       </CInputGroup>
       <CModal
         alignment="center"
