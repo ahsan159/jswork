@@ -13,6 +13,7 @@ import {
   cilNoteAdd,
   cilNotes,
   cilPencil,
+  cilPlaylistAdd,
   cilPuzzle,
   cilRecycle,
   cilSpeedometer,
@@ -41,6 +42,12 @@ const _nav = [
     name: 'Login',
     to: '/login',
     icon: <CIcon icon={cilUser} customClassName="nav-icon"></CIcon>,
+  },
+  {
+    component: CNavItem,
+    name: 'Register',
+    to: '/register',
+    icon: <CIcon icon={cilPlaylistAdd} customClassName="nav-icon"></CIcon>,
   },
   // {
   //   component: CNavItem,
