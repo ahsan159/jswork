@@ -16,8 +16,11 @@ import {
 import CIcon from '@coreui/icons-react'
 import { cilLockLocked, cilUser } from '@coreui/icons'
 import axios from 'axios'
+import { useSelector, useDispatch } from 'react-redux'
 
 const Login = () => {
+
+  const dispatch = useDispatch();
   const [userDetails, setUserDetails] = useState({
     email: '',
     password: '',
@@ -44,12 +47,13 @@ const Login = () => {
           // alert(data.data.message)
           localStorage.setItem('token', JSON.stringify({ token: data.data.token }))
           uNavigate('/dashboard')
+          dispatch({type:'login',name:userDetails.email})
         } else {
           alert('please login again')
         }
       })
       .catch((err) => {
-        // console.log(err)
+        console.log(err)
         if (err.response.status == 401) {
           alert(err.response.data.message)
         }
