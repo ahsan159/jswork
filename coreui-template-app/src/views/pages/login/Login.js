@@ -19,8 +19,7 @@ import axios from 'axios'
 import { useSelector, useDispatch } from 'react-redux'
 
 const Login = () => {
-
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
   const [userDetails, setUserDetails] = useState({
     email: '',
     password: '',
@@ -45,9 +44,12 @@ const Login = () => {
         console.log(data)
         if (data.data.status == 'true') {
           // alert(data.data.message)
-          localStorage.setItem('token', JSON.stringify({ token: data.data.token }))
+          localStorage.setItem(
+            'currentUser',
+            JSON.stringify({ token: data.data.token, username: userDetails.email }),
+          )
           uNavigate('/dashboard')
-          dispatch({type:'login',name:userDetails.email})
+          dispatch({ type: 'login', name: userDetails.email })
         } else {
           alert('please login again')
         }

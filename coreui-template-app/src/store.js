@@ -7,9 +7,9 @@ const initialState = {
 }
 
 const changeState = (state = initialState, { type, ...rest }) => {
-  console.log(`change State ${JSON.stringify(state)}`)
-  console.log(`type:${type}`)
-  console.log(`rest:${JSON.stringify({ ...rest })}`)
+  // console.log(`change State ${JSON.stringify(state)}`)
+  // console.log(`type:${type}`)
+  // console.log(`rest:${JSON.stringify({ ...rest })}`)
   switch (type) {
     case 'set':
       return { ...state, ...rest }
@@ -25,11 +25,13 @@ const initialSignin = {
 }
 
 const siginChange = (state = initialSignin, { type, ...rest }) => {
-  console.log(`signin state ${JSON.stringify(state)}`)
-  console.log(`signin type is ${type}`)
-  console.log(`sign in rest is ${{ ...rest }}`)
+  // console.log(`signin state ${JSON.stringify(state)}`)
+  // console.log(`signin type is ${type}`)
+  // console.log(`sign in rest is ${{ ...rest }}`)
   let data = { ...rest }
   switch (type) {
+    case 'get':
+      return state
     case 'login':
       // console.log(data)
       return {
