@@ -44,12 +44,12 @@ const Login = () => {
         console.log(data)
         if (data.data.status == 'true') {
           // alert(data.data.message)
-          localStorage.setItem(
+          sessionStorage.setItem(
             'currentUser',
             JSON.stringify({ token: data.data.token, username: userDetails.email }),
           )
           uNavigate('/dashboard')
-          dispatch({ type: 'login', name: userDetails.email })
+          dispatch({ type: 'login', name: userDetails.email, email: userDetails.email })
         } else {
           alert('please login again')
         }

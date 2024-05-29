@@ -9,6 +9,7 @@ import {
   CDropdownItem,
   CDropdownMenu,
   CDropdownToggle,
+  CTableDataCell,
 } from '@coreui/react'
 import {
   cilBell,
@@ -24,9 +25,10 @@ import {
 import CIcon from '@coreui/icons-react'
 
 import { useNavigate } from 'react-router-dom'
-import avatar8 from './../../assets/images/avatars/8.jpg'
+// import avatar8 from './../../assets/images/avatars/8.jpg'
 
 import { useDispatch, useSelector } from 'react-redux'
+import { logoutUser } from './../../../src/userProcess'
 
 const AppHeaderDropdown = () => {
   const username = useSelector((state) => state.siginChange.name)
@@ -34,19 +36,33 @@ const AppHeaderDropdown = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    // const data = localStorage.getItem('currentUser')
-    // console.log(username)
-    // console.log(JSON.parse(data))
+    if (username == 'Login') {
+      console.log('User is not login')
+      try {
+        let data = sessionStorage.getItem('currentUser')
+        // console.log(username)
+        data = JSON.parse(data)
+        console.log(data)
+        console.log(data.token)
+        console.log(data.username)
+        console.log('logging in')
+        dispatch({ type: 'login', name: data.username })
+      } catch (err) {
+        console.log(err)
+      }
+    } else {
+      console.log('user is loged in')
+    }
     // if (data != null) {
     //   if (data.username === 'logout') {
     //     dispatch({ type: 'logout' })
     //   }
-    //   dispatch({ type: 'login', token: data.token, name: data.username })
+    //   dispatch(z{ type: 'login', token: data.token, name: data.username })
     //   console.log(username)
     // } else {
     //   dispatch({ type: 'logout' })
     // }
-  }, [])
+  }, [username])
   return (
     <>
       {username === 'Login' && (
@@ -120,7 +136,11 @@ const AppHeaderDropdown = () => {
               </CBadge>
             </CDropdownItem> */}
             <CDropdownDivider />
-            <CDropdownItem href="#">
+            <CDropdownItem
+              onClick={() => {
+                logoutUser(dispatch, navigate)
+              }}
+            >
               <CIcon icon={cilLockLocked} className="me-2" />
               Logout
             </CDropdownItem>
