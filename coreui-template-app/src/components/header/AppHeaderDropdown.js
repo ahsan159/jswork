@@ -40,13 +40,15 @@ const AppHeaderDropdown = () => {
       console.log('User is not login')
       try {
         let data = sessionStorage.getItem('currentUser')
-        // console.log(username)
-        data = JSON.parse(data)
-        console.log(data)
-        console.log(data.token)
-        console.log(data.username)
-        console.log('logging in')
-        dispatch({ type: 'login', name: data.username })
+        if (data != null) {
+          console.log(data)
+          data = JSON.parse(data)
+          console.log(data)
+          console.log(data.token)
+          console.log(data.username)
+          console.log('logging in')
+          dispatch({ type: 'login', name: data.username })
+        }
       } catch (err) {
         console.log(err)
       }
@@ -113,7 +115,7 @@ const AppHeaderDropdown = () => {
             <CDropdownHeader className="bg-body-secondary fw-semibold my-2">
               Settings
             </CDropdownHeader>
-            <CDropdownItem href="#">
+            <CDropdownItem onClick={()=>navigate("/profile")}>
               <CIcon icon={cilUser} className="me-2" />
               Profile
             </CDropdownItem>

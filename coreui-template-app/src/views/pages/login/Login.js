@@ -17,6 +17,7 @@ import CIcon from '@coreui/icons-react'
 import { cilLockLocked, cilUser } from '@coreui/icons'
 import axios from 'axios'
 import { useSelector, useDispatch } from 'react-redux'
+import { processlogin } from '../../../userProcess'
 
 const Login = () => {
   const dispatch = useDispatch()
@@ -35,31 +36,6 @@ const Login = () => {
         [cname]: cvalue,
       }
     })
-  }
-
-  const processlogin = () => {
-    axios
-      .post('http://localhost:8000/api/login', userDetails)
-      .then((data) => {
-        console.log(data)
-        if (data.data.status == 'true') {
-          // alert(data.data.message)
-          sessionStorage.setItem(
-            'currentUser',
-            JSON.stringify({ token: data.data.token, username: userDetails.email }),
-          )
-          uNavigate('/dashboard')
-          dispatch({ type: 'login', name: userDetails.email, email: userDetails.email })
-        } else {
-          alert('please login again')
-        }
-      })
-      .catch((err) => {
-        console.log(err)
-        if (err.response.status == 401) {
-          alert(err.response.data.message)
-        }
-      })
   }
 
   return (
@@ -100,7 +76,11 @@ const Login = () => {
                     </CInputGroup>
                     <CRow>
                       <CCol xs={6}>
-                        <CButton color="primary" className="px-4" onClick={processlogin}>
+                        <CButton
+                          color="primary"
+                          className="px-4"
+                          onClick={() => processlogin(userDetails,dispatch,uNavigate)}
+                        >
                           Login
                         </CButton>
                       </CCol>
