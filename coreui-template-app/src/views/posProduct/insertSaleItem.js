@@ -20,6 +20,10 @@ import {
   CFormText,
   CInputGroup,
   CInputGroupText,
+  CModal,
+  CModalBody,
+  CModalFooter,
+  CModalTitle,
 } from '@coreui/react'
 import { DataGrid } from '@mui/x-data-grid'
 import { Autocomplete, TextField } from '@mui/material'
@@ -42,61 +46,15 @@ import PersonIcon from '@mui/icons-material/Person'
 import AddIcon from '@mui/icons-material/Add'
 import Typography from '@mui/material/Typography'
 import { blue } from '@mui/material/colors'
-
-const emails = ['username@gmail.com', 'user02@gmail.com']
-
-function SimpleDialog(props) {
-  const { onClose, selectedValue, open } = props
-
-  const handleClose = () => {
-    onClose(selectedValue)
-  }
-
-  const handleListItemClick = (value) => {
-    onClose(value)
-  }
-
-  return (
-    <Dialog onClose={handleClose} open={open}>
-      <DialogTitle>Set backup account</DialogTitle>
-      <List sx={{ pt: 0 }}>
-        {emails.map((email) => (
-          <ListItem disableGutters key={email}>
-            <ListItemButton onClick={() => handleListItemClick(email)}>
-              <ListItemAvatar>
-                <Avatar sx={{ bgcolor: blue[100], color: blue[600] }}>
-                  <PersonIcon />
-                </Avatar>
-              </ListItemAvatar>
-              <ListItemText primary={email} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-        <ListItem disableGutters>
-          <ListItemButton autoFocus onClick={() => handleListItemClick('addAccount')}>
-            <ListItemAvatar>
-              <Avatar>
-                <AddIcon />
-              </Avatar>
-            </ListItemAvatar>
-            <ListItemText primary="Add account" />
-          </ListItemButton>
-        </ListItem>
-      </List>
-    </Dialog>
-  )
-}
-
-SimpleDialog.propTypes = {
-  onClose: PropTypes.func.isRequired,
-  open: PropTypes.bool.isRequired,
-  selectedValue: PropTypes.string.isRequired,
-}
+import { YoutubeSearchedForSharp } from '@mui/icons-material'
+import ProductsTable from './productsTable'
 
 const InsertSaleItem = () => {
   let [citem, updateItems] = useState([])
   const [open, setOpen] = React.useState(false)
   const [dispValue, updateValue] = useState(undefined)
+  const [editVisibility, updateEditVisibility] = useState(undefined)
+  const [modalAvailability, setModalAvailability] = useState(false)
 
   const handleClose = () => {
     setOpen(false)
@@ -152,13 +110,34 @@ const InsertSaleItem = () => {
         <CForm>
           <CInputGroup className="mb-2">
             <CInputGroupText className="col-sm-4">Product</CInputGroupText>
-            {/* <CFormInput
+            <CFormInput
               placeholder="Select Product"
               name={productFields[0]}
               value={productFieldsInput.pname}
-              onChange={onProductInput}
-            ></CFormInput> */}
-            <div className="d-flex flex-grow-1">
+              // onChange={onProductInput}
+              onClick={() => setModalAvailability(!modalAvailability)}
+            ></CFormInput>
+            <CModal
+              alignment="center"
+              size="lg"
+              scrollable
+              backdrop={'static'}
+              keyboard={false}
+              visible={modalAvailability}
+              className="col-md-8 flex-column d-flex justify-content-center align-items-center mx-4 my-4"
+            >
+              <CModalTitle className="d-flex justify-content-center align-items-center my-4">
+                Insert Data
+              </CModalTitle>
+              <CModalBody>
+                <ProductsTable item={citem} editItem={updateEditVisibility}></ProductsTable>
+              </CModalBody>
+              <CModalFooter className='d-flex justify-content-around'>
+                <CButton color='primary'>Select</CButton>
+                <CButton color='danger'>Close</CButton>
+              </CModalFooter>
+            </CModal>
+            {/* <div className="d-flex flex-grow-1">
               <Autocomplete
                 fullWidth
                 sx={{ backgroundColor: 'white', margin: 0, padding: 0 }}
@@ -186,7 +165,7 @@ const InsertSaleItem = () => {
                   ></TextField>
                 )}
               ></Autocomplete>
-            </div>
+            </div> */}
           </CInputGroup>
           <CInputGroup className="mb-2">
             <CInputGroupText className="col-sm-4">Rate/Unit</CInputGroupText>
