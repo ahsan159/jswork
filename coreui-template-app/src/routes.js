@@ -1,4 +1,4 @@
-import { element } from 'prop-types'
+import { element, exact } from 'prop-types'
 import React from 'react'
 
 const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'))
@@ -62,9 +62,11 @@ const customerDatatable = React.lazy(() => import('./views/posProduct/customerDa
 const salePOS = React.lazy(() => import('./views/posProduct/salePOS'))
 const salesDatatable = React.lazy(() => import('./views/posProduct/salesDatatable'))
 const settleSale = React.lazy(() => import('./views/posProduct/settleSale'))
+const FinalPage = React.lazy(() => import('./views/posProduct/FinalPage'))
 
 const routes = [
   { path: '/', exact: true, name: 'Home' },
+  { path: '/finalPage', name: 'FinalPage',element: FinalPage },
   { path: '/dashboard', name: 'Dashboard', element: Dashboard },
   { path: '/datatableT', name: 'Datatable', element: DatatableT },
   { path: '/newsale', name: 'New Sale', element: salePOS },
